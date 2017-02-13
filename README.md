@@ -1,5 +1,6 @@
 # Retrogusto
 
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-beta.31.
 
 ## Development server
@@ -25,3 +26,38 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Our Stack
+
+* [Angular](https://angular.io/)
+* [Node.js](https://nodejs.org)
+* [MongoDB](https://www.mongodb.com/)
+
+**Tools we use**
+
+* [Angular Material](https://material.angular.io/)
+* [ngrx](https://github.com/ngrx)
+* [Passport](http://passportjs.org/)
+
+## Pre Requirements
+
+1. [NodeJS](https://nodejs.org)
+1. [MongoDB](https://www.mongodb.com)
+
+## Installation
+
+**Client**
+
+**Server**
+
+# Tests
+
+**Client**
+
+**Server**
+
+# Deploy
+
+**Client**
+
+**Server**
