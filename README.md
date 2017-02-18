@@ -1,5 +1,7 @@
 # Retrogusto
 
+[![Build Status][travis-image]][travis-url]
+
 ## Our Stack
 
 * [Angular](https://angular.io/)
@@ -34,3 +36,6 @@
 **Client**
 
 **Server**
+
+[travis-image]: https://travis-ci.org/DavidBronfen/Retrogusto.svg?branch=master
+[travis-url]: https://travis-ci.org/DavidBronfen/Retrogusto
