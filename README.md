@@ -23,13 +23,13 @@
 
 **Server**
 
-# Tests
+## Tests
 
 **Client**
 
 **Server**
 
-# Deploy
+## Deploy
 
 **Client**
 
