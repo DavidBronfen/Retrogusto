@@ -19,3 +19,18 @@ addons:
       - google-chrome
     packages:
       - google-chrome-stable
+
+cache:
+  npm: true
+  directories:
+  - client/node_modules
+
+install:
+  - cd client && npm install
+
+script:
+  # Client
+  - npm run lint
+  - npm run test
+  - npm run e2e
+  - ng build --prod -- aot
