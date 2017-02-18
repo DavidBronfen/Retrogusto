@@ -45,10 +45,5 @@ module.exports = function (config) {
         flags: ['--no-sandbox']
       }
     }
-
-    if(process.env.TRAVIS) {  
-      configuration.browsers = ['Chrome_travis_ci'];
-    }
-
   });
 };
