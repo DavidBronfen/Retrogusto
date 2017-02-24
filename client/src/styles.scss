@@ -9,8 +9,8 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue.
-$retrogusto-app-primary: mat-palette($mat-indigo);
-$retrogusto-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+$retrogusto-app-primary: mat-palette('#B2C1BE');
+$retrogusto-app-accent:  mat-palette('#3E3D39');
 
 // The warn palette is optional (defaults to red).
 $retrogusto-app-warn:    mat-palette($mat-red);
