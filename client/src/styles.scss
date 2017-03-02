@@ -32,7 +32,7 @@ $retrogusto-app-theme: mat-light-theme($retrogusto-app-primary, $retrogusto-app-
 }
 
 .background-header-color {
-  background-color: #BFDED8 !important;
+  background-color: #B2C1BE !important;
 }
 
 .background-footer-color {
@@ -41,4 +41,10 @@ $retrogusto-app-theme: mat-light-theme($retrogusto-app-primary, $retrogusto-app-
 
 .white-text {
   color: #E8EBE4 !important;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
 }
