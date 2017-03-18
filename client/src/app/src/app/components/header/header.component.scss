@@ -9,11 +9,28 @@
     display: flex;
     justify-content: space-between;
 
-    .user-profile{
+    .user-profile {
       text-align: center;
+      align-self: center;
       .user-image {
-        width: 60px;
-        padding-top: 10px;
+        height: 60px;
+      }
+      .user-name {
+
+      }
+    }
+
+    .buttons-wrapper {
+      align-self: center;
+
+      .button {
+        background-color: #3E3D39;
+        color: #E8EBE4;
+        line-height: 30px;
+
+        &:first-child {
+          margin-left: 10px;
+        }
       }
     }
   }
