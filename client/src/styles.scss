@@ -23,6 +23,7 @@ $retrogusto-app-theme: mat-light-theme($retrogusto-app-primary, $retrogusto-app-
 // that you are using.
 @include angular-material-theme($retrogusto-app-theme);
 
+
 .primary-color {
   color: #3E3D39 !important
 }
@@ -44,5 +45,6 @@ $retrogusto-app-theme: mat-light-theme($retrogusto-app-primary, $retrogusto-app-
 }
 
 body {
-  font-family: lato;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
 }
