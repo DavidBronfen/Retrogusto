@@ -1,0 +1,41 @@
+"":{
+  "id":,
+  "title":"",
+  "subtitle":"",
+  "date":"",
+  "author_name":"",
+  "comments_number":,
+  "prep_time":"",
+  "portion":,
+  "calories":,
+  "main_image":[{
+  	"url":"",
+    "title":""
+  }],
+  "description":"",
+  "ingredients":[{
+    "quantity":,
+    "unit":"",
+    "ingredient_name":"",
+  }],
+  "prep_instruction":[{
+  	"1":"",
+    "2":"",
+    "3":"",
+    "4":"",
+    "5":"",
+    "6":"",
+    "7":"",
+    "8":"",
+    "9":""
+    }],
+  "tags":["", "", ""],
+  "comments":[{
+  	"id":1,
+    "author_name":"",
+    "date":"",
+    "image":"",
+    "rating":,
+    "comment_content":""
+  }]
+},
