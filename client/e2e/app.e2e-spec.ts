@@ -1,6 +1,6 @@
 import { RetrogustoPage } from './app.po';
 
-describe('retrogusto App', function() {
+describe('retrogusto App', () => {
   let page: RetrogustoPage;
 
   beforeEach(() => {
