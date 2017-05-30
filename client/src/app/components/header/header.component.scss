@@ -7,6 +7,7 @@
     width: 840px;
     margin: 0 auto;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 
     .user-profile {
@@ -37,7 +38,7 @@
 }
 
 app-search {
-  display: block;
+  display: flex;
   width: 840px;
   margin: 0 auto;
 }

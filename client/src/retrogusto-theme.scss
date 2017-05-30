@@ -1,0 +1,11 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$retrogusto-app-primary: mat-palette($mat-blue-grey, 300);
+$retrogusto-app-accent:  mat-palette($mat-amber, A200, A100, A400);
+
+$retrogusto-app-warn:    mat-palette($mat-red);
+
+$retrogusto-app-theme: mat-light-theme($retrogusto-app-primary, $retrogusto-app-accent, $retrogusto-app-warn);
+@include angular-material-theme($retrogusto-app-theme);
