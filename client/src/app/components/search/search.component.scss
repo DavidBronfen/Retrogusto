@@ -9,3 +9,8 @@
   padding: 0;
   background-color: #3E3D39;
 }
+
+/deep/ .mat-focused .mat-input-placeholder {
+  // color: rgba(62, 61, 57, 0.7);
+  color: red;
+}
