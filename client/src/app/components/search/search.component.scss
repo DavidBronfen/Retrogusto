@@ -1,16 +1,29 @@
-.mat-input-container {
-  text-align: right;
-  width: 100%;
-}
+/deep/ app-search {
+  display: flex;
+  width: 840px;
+  margin: 0 auto;
 
-.search-button {
-  height: 40px;
-  min-width: 40px;
-  padding: 0;
-  background-color: #3E3D39;
-}
+  .mat-input-container {
+    text-align: right;
+    width: 100%;
+  }
 
-/deep/ .mat-focused .mat-input-placeholder {
-  // color: rgba(62, 61, 57, 0.7);
-  color: red;
+  .mat-focused .mat-input-placeholder {
+    color: rgba(62, 61, 57, 0.7);
+  }
+
+  .mat-input-underline .mat-input-ripple {
+    background-color: rgba(62, 61, 57, 0.7);
+  }
+
+  .mat-input-infix {
+    color: #3E3D39;
+  }
+
+  .search-button {
+    height: 40px;
+    min-width: 40px;
+    padding: 0;
+    background-color: #3E3D39;
+  }
 }

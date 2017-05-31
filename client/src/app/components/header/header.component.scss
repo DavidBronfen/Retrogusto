@@ -29,16 +29,22 @@
         color: #E8EBE4;
         line-height: 30px;
 
+        &.login {
+          background-color: #B2C1BE;
+          color: #3E3D39;
+          border: 1px solid;
+
+          &:hover {
+            background-color: #3E3D39;
+            color: #B2C1BE;
+            border: none;
+          }
+        }
+
         &:first-child {
           margin-left: 10px;
         }
       }
     }
   }
-}
-
-app-search {
-  display: flex;
-  width: 840px;
-  margin: 0 auto;
 }
