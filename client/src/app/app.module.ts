@@ -7,7 +7,7 @@ import { HttpModule } from '@angular/http';
 
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule } from '@angular/material';
+import { MdButtonModule, MdIconModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -26,9 +26,6 @@ import { SearchComponent } from './components/search/search.component';
     MaterialModule,
     BrowserAnimationsModule,
     MdButtonModule,
-    MdMenuModule,
-    MdCardModule,
-    MdToolbarModule,
     MdIconModule,
   ],
   providers: [ ],
