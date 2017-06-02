@@ -1,7 +1,7 @@
 /deep/ app-search {
   display: flex;
   width: 840px;
-  margin: 0 auto;
+  margin: 25px auto 0;
 
   .mat-input-container {
     text-align: right;
@@ -24,6 +24,5 @@
     height: 40px;
     min-width: 40px;
     padding: 0;
-    background-color: #3E3D39;
   }
 }
