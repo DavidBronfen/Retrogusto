@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'rg-root',
   template: `
     <rg-header></rg-header>
   `,
