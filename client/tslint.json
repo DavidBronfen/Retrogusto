@@ -105,13 +105,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "<%= prefix %>",
+      "rg",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "<%= prefix %>",
+      "rg",
       "kebab-case"
     ],
     "use-input-property-decorator": true,
