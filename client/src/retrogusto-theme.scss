@@ -2,8 +2,108 @@
 
 @include mat-core();
 
-$retrogusto-app-primary: mat-palette($mat-blue-grey, 300);
-$retrogusto-app-accent:  mat-palette($mat-amber, A200, A100, A400);
+/* For use in src/lib/core/theming/_palette.scss */
+$md-retroblack: (
+    50 : #e8e8e7,
+    100 : #c5c5c4,
+    200 : #9f9e9c,
+    300 : #787774,
+    400 : #5b5a57,
+    500 : #3e3d39,
+    600 : #383733,
+    700 : #302f2c,
+    800 : #282724,
+    900 : #1b1a17,
+    A100 : #f8c96a,
+    A200 : #f6b73a,
+    A400 : #fca800,
+    A700 : #e39700,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$md-retroacqua: (
+    50 : #f6f8f7,
+    100 : #e8ecec,
+    200 : #d9e0df,
+    300 : #c9d4d2,
+    400 : #becac8,
+    500 : #b2c1be,
+    600 : #abbbb8,
+    700 : #a2b3af,
+    800 : #99aba7,
+    900 : #8a9e99,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ccfff3,
+    A700 : #b2ffee,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$md-retrodirtywhite: (
+    50 : #ffffff,
+    100 : #ffffff,
+    200 : #ffffff,
+    300 : #ffffff,
+    400 : #f9f9f7,
+    500 : #eaece6,
+    600 : #dbdfd5,
+    700 : #cdd2c3,
+    800 : #bec4b2,
+    900 : #b0b7a0,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #f6f7f4,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$retrogusto-app-primary: mat-palette($md-retroblack);
+$retrogusto-app-accent:  mat-palette($md-retroacqua);
 
 $retrogusto-app-warn:    mat-palette($mat-red);
 
