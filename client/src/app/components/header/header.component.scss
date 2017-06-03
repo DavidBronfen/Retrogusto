@@ -2,6 +2,7 @@
   width: 100%;
   height: 180px;
   padding: 25px 0 15px;
+  color: #3E3D39;
 
   .header-content {
     width: 840px;
@@ -14,10 +15,20 @@
       text-align: center;
       align-self: center;
       .user-image {
-        height: 60px;
+        height: 50px;
       }
       .user-name {
+        font-size: .7em
+      }
+    }
 
+    .logo {
+      a{
+        display: block;
+
+        img {
+          height: 6em;
+        }
       }
     }
 
@@ -25,9 +36,16 @@
       align-self: center;
 
       .button {
-        background-color: #3E3D39;
-        color: #E8EBE4;
         line-height: 30px;
+
+        &.login {
+          border: 1px solid;
+          transition: all .35s ease-in-out;
+
+          &:hover {
+            background-color: #c9d4d2;
+          }
+        }
 
         &:first-child {
           margin-left: 10px;
@@ -35,10 +53,4 @@
       }
     }
   }
-}
-
-app-search {
-  display: flex;
-  width: 840px;
-  margin: 0 auto;
 }
