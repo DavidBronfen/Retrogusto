@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'rg-root',
   template: `
-    <app-header></app-header>
+    <rg-header></rg-header>
   `,
   styles: [``]
 })

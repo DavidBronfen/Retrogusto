@@ -9,7 +9,7 @@ import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdButtonModule, MdIconModule } from '@angular/material';
 
-import { AppComponent } from './app.component';
+import { AppComponent } from './rg.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SearchComponent } from './components/search/search.component';
 

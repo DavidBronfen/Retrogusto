@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { SearchComponent } from '../search/search.component';
 
 @Component({
-    selector: 'app-header',
+    selector: 'rg-header',
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss']
 })
