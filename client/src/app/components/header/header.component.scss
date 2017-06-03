@@ -1,7 +1,10 @@
+@import "../../../assets/vars";
+
 .header-wrapper {
   width: 100%;
   height: 155px;
   padding: 25px 0 15px;
+  background-color: $rgAcqua;
 
   .header-content {
     width: 840px;
@@ -24,8 +27,8 @@
       align-self: center;
 
       .button {
-        background-color: #3E3D39;
-        color: #E8EBE4;
+        background-color: $rgBlack;
+        color: $rgWhite;
         line-height: 30px;
 
         &:first-child {
