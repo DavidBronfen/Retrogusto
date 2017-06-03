@@ -69,9 +69,9 @@ $md-retroacqua: (
 );
 
 $retrogusto-app-primary: mat-palette($md-retroblack);
-$retrogusto-app-accent:  mat-palette($md-retroacqua);
+$retrogusto-app-accent: mat-palette($md-retroacqua);
 
-$retrogusto-app-warn:    mat-palette($mat-red);
+$retrogusto-app-warn: mat-palette($mat-red);
 
 $retrogusto-app-theme: mat-light-theme($retrogusto-app-primary, $retrogusto-app-accent, $retrogusto-app-warn);
 @include angular-material-theme($retrogusto-app-theme);
