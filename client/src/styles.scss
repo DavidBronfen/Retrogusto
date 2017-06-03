@@ -23,6 +23,26 @@ $retrogusto-app-theme: mat-light-theme($retrogusto-app-primary, $retrogusto-app-
 // that you are using.
 @include angular-material-theme($retrogusto-app-theme);
 
+.primary-color {
+  color: #3E3D39 !important
+}
+
+.background-primary-color {
+  background-color: #E8EBE4 !important;
+}
+
+.background-header-color {
+  background-color: #B2C1BE !important;
+}
+
+.background-footer-color {
+  background-color: #3E3D39 !important;
+}
+
+.white-text {
+  color: #E8EBE4 !important;
+}
+
 body {
   margin: 0;
   width: 100vw;
