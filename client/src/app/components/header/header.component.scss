@@ -1,25 +1,34 @@
-@import "../../../assets/vars";
-
 .header-wrapper {
   width: 100%;
-  height: 155px;
+  height: 180px;
   padding: 25px 0 15px;
-  background-color: $rgAcqua;
+  color: #3E3D39;
 
   .header-content {
     width: 840px;
     margin: 0 auto;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 
     .user-profile {
       text-align: center;
       align-self: center;
       .user-image {
-        height: 60px;
+        height: 50px;
       }
       .user-name {
+        font-size: .7em
+      }
+    }
 
+    .logo {
+      a {
+        display: block;
+
+        img {
+          height: 6em;
+        }
       }
     }
 
@@ -27,9 +36,16 @@
       align-self: center;
 
       .button {
-        background-color: $rgBlack;
-        color: $rgWhite;
         line-height: 30px;
+
+        &.login {
+          border: 1px solid;
+          transition: all .35s ease-in-out;
+
+          &:hover {
+            background-color: #c9d4d2;
+          }
+        }
 
         &:first-child {
           margin-left: 10px;

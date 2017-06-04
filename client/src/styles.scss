@@ -1,27 +1,22 @@
-@import '~@angular/material/theming';
-// Plus imports for other components in your app.
+.primary-color {
+  color: #3E3D39 !important
+}
 
-// Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
-// Be sure that you only ever include this mixin once!
-@include mat-core();
+.background-primary-color {
+  background-color: #E8EBE4 !important;
+}
 
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue.
-$retrogusto-app-primary: mat-palette($mat-blue);
-$retrogusto-app-accent:  mat-palette($mat-amber, A200, A100, A400);
+.background-header-color {
+  background-color: #B2C1BE !important;
+}
 
-// The warn palette is optional (defaults to red).
-$retrogusto-app-warn:    mat-palette($mat-red);
+.background-footer-color {
+  background-color: #3E3D39 !important;
+}
 
-// Create the theme object (a Sass map containing all of the palettes).
-$retrogusto-app-theme: mat-light-theme($retrogusto-app-primary, $retrogusto-app-accent, $retrogusto-app-warn);
-
-// Include theme styles for core and each component used in your app.
-// Alternatively, you can import and @include the theme mixins for each component
-// that you are using.
-@include angular-material-theme($retrogusto-app-theme);
+.white-text {
+  color: #E8EBE4 !important;
+}
 
 body {
   margin: 0;

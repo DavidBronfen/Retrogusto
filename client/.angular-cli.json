@@ -20,7 +20,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "rg",
       "styles": [
-        "styles.scss"
+        "styles.scss",
+        "retrogusto-theme.scss"
       ],
       "scripts": [
         "../node_modules/hammerjs/hammer.min.js"
