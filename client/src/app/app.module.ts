@@ -13,12 +13,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './rg.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SearchComponent } from './components/search/search.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SearchComponent,
+    CategoriesComponent,
   ],
   imports: [
     BrowserModule,
