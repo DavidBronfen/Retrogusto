@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   selector: 'rg-root',
   template: `
     <rg-header></rg-header>
+    <router-outlet></router-outlet>
   `,
   styles: [``]
 })

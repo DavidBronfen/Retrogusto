@@ -1,13 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { CategoryComponent } from './components/category/category.component';
+import { CategoriesComponent } from './components/categories/categories.component';
+
 const routes: Routes = [
-  { path: '', redirectTo: '', pathMatch: '' },
+  { path: '', redirectTo: 'categories', pathMatch: 'full' },
+  { path: 'home', redirectTo: 'categories', pathMatch: 'full' },
+  { path: 'categories', component: CategoriesComponent },
+  { path: 'category', component: CategoryComponent },
 ];
 
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
-  exports: [ ]
+  exports: [RouterModule ]
 })
 
 export class AppRoutingModule {}
