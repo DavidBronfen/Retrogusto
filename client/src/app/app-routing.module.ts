@@ -7,7 +7,7 @@ import { CategoriesComponent } from './components/categories/categories.componen
 const routes: Routes = [
   { path: '', redirectTo: 'categories', pathMatch: 'full' },
   { path: 'categories', component: CategoriesComponent },
-  { path: 'recipes/:categoryName', loadChildren:'app/modules/recipes/recipes.modele#RecipesModule'  },
+  { path: 'recipes/:categoryName', loadChildren:'app/modules/recipes/recipes.modele#RecipesModule' },
 ];
 
 @NgModule({
