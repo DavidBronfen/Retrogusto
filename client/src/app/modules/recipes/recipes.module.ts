@@ -8,10 +8,10 @@ import { RecipeComponent } from './components/recipe/recipe.component';
 
 @NgModule({
   imports: [
+    RecipesRoutingModule,
     CommonModule
   ],
   declarations: [
-    RecipesRoutingModule,
     RecipesComponent,
     RecipeComponent
   ]
