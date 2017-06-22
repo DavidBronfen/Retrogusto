@@ -10,19 +10,19 @@ export class CategoriesService {
   getCategories (): ICategory[] {
       return[
         {
-          "id":1,
-          "name":"ארוחת בוקר",
-          "image_path":"data/categories/breakfast.png"
+          'id': 1,
+          'name': 'ארוחת בוקר',
+          'image_path': 'data/categories/breakfast.png'
         },
         {
-        	"id":2,
-          "name":"סלטים",
-          "image_path":"data/categories/salad.png"
+        	'id':  2,
+          'name': 'סלטים',
+          'image_path': 'data/categories/salad.png'
         },
         {
-        	"id":3,
-          "name":"מתאבנים",
-          "image_path":"data/categories/appetizer.png"
+        	'id': 3,
+          'name': 'מתאבנים',
+          'image_path': 'data/categories/appetizer.png'
         }
       ]
   }
