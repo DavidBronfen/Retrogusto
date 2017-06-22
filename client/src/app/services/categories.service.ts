@@ -15,7 +15,7 @@ export class CategoriesService {
           'image_path': 'data/categories/breakfast.png'
         },
         {
-        	'id':  2,
+        	'id': 2,
           'name': 'סלטים',
           'image_path': 'data/categories/salad.png'
         },
@@ -24,6 +24,6 @@ export class CategoriesService {
           'name': 'מתאבנים',
           'image_path': 'data/categories/appetizer.png'
         }
-      ]
+      ];
   }
 }
