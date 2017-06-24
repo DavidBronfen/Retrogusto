@@ -11,11 +11,14 @@ import { CategoriesService } from '../../services/categories.service';
 export class CategoriesComponent implements OnInit {
 
   categories: ICategory[];
+  errorMessage: string;
 
   constructor(private _CategoriesService: CategoriesService) { }
 
   ngOnInit() {
-    this.categories = this._CategoriesService.getCategories();
+    this._CategoriesService.getCategories()
+        .subscribe(categories => this.categories = categories,
+                  error => this.errorMessage = <any>error);
   }
 
 }

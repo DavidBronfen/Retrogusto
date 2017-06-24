@@ -1,29 +1,29 @@
 import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
 
 import { ICategory } from '../components/categories/category';
 
 @Injectable()
 export class CategoriesService {
 
-  constructor() { }
+  private _categoriesUrl = 'data/categories.json';
 
-  getCategories (): ICategory[] {
-      return[
-        {
-          'id': 1,
-          'name': 'ארוחת בוקר',
-          'image_path': 'data/categories/breakfast.png'
-        },
-        {
-        	'id': 2,
-          'name': 'סלטים',
-          'image_path': 'data/categories/salad.png'
-        },
-        {
-        	'id': 3,
-          'name': 'מתאבנים',
-          'image_path': 'data/categories/appetizer.png'
-        }
-      ];
+  constructor(private _http: Http) { }
+
+  getCategories (): Observable<ICategory[]> {
+      return this._http.get(this._categoriesUrl)
+        .map((response: Response) => <ICategory[]> response.json())
+        .do(data => console.log('All: ' + JSON.stringify(data)))
+        .do(data => console.log(Response))
+        .catch(this.handleError);
+  }
+
+  private handleError(error: Response) {
+    console.log(error);
+    return Observable.throw(error.json().error || 'server error');
   }
 }
