@@ -1,6 +1,18 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { NO_ERRORS_SCHEMA } from '@angular/core';
+
+import { ICategory } from './category';
+import { Observable } from 'rxjs/Observable';
+
 import { CategoriesComponent } from './categories.component';
+
+const CATEGORIES_OBJECT: ICategory[] = new Category(1, 'ארוחת בוקר', 'data/categories/breakfast.png');
+
+class MockCategory {
+
+  public getCategories(): Observable<ICategory[]> {
+    return Observable.of(CATEGORIES_OBJECT);
+  }
+}
 
 describe('CategoriesComponent', () => {
   let component: CategoriesComponent;
@@ -9,7 +21,9 @@ describe('CategoriesComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ CategoriesComponent ],
-      schemas: [ NO_ERRORS_SCHEMA ]
+      providers: [
+      { provide: CategoriesService, useClass: MockCategory }
+    ]
     })
     .compileComponents();
   }));

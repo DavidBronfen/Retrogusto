@@ -18,7 +18,6 @@ export class CategoriesService {
       return this._http.get(this._categoriesUrl)
         .map((response: Response) => <ICategory[]> response.json())
         .do(data => console.log('All: ' + JSON.stringify(data)))
-        .do(data => console.log(Response))
         .catch(this.handleError);
   }
 
