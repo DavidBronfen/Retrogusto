@@ -10,8 +10,8 @@ import { CategoriesService } from '../../services/categories.service';
 })
 export class CategoriesComponent implements OnInit {
 
-  categories: ICategory[];
-  errorMessage: string;
+  private categories: ICategory[];
+  private errorMessage: string;
 
   constructor(private _CategoriesService: CategoriesService) { }
 
