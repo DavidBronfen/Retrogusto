@@ -4,12 +4,13 @@ import { ICategory } from './category';
 import { Observable } from 'rxjs/Observable';
 
 import { CategoriesComponent } from './categories.component';
+import { CategoriesService } from '../../services/categories.service'
 
-const CATEGORIES_OBJECT: ICategory[] = new Category(1, 'ארוחת בוקר', 'data/categories/breakfast.png');
+const CATEGORIES_OBJECT: ICategory = new ICategory(1, 'ארוחת בוקר', 'data/categories/breakfast.png');
 
 class MockCategory {
 
-  public getCategories(): Observable<ICategory[]> {
+  public getCategories(): Observable<ICategory> {
     return Observable.of(CATEGORIES_OBJECT);
   }
 }
