@@ -4,9 +4,13 @@ import { ICategory } from './category';
 import { Observable } from 'rxjs/Observable';
 
 import { CategoriesComponent } from './categories.component';
-import { CategoriesService } from '../../services/categories.service'
+import { CategoriesService } from '../../services/categories.service';
 
-const CATEGORIES_OBJECT: ICategory = new ICategory(1, 'ארוחת בוקר', 'data/categories/breakfast.png');
+const CATEGORIES_OBJECT: ICategory = {
+  id: 1,
+  name: 'ארוחת בוקר',
+  image_path: 'data/categories/breakfast.png'
+};
 
 class MockCategory {
 
