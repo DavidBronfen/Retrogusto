@@ -1,7 +1,7 @@
-<p>
-  categories works!
-</p>
-
-<div *ngFor="let category of categories">
-  <rg-category [category]=category></rg-category>
+<div class="categories">
+  <md-grid-list cols="4" rowHeight="200px">
+    <md-grid-tile  *ngFor="let category of categories">
+      <rg-category [category]=category></rg-category>
+    </md-grid-tile>
+  </md-grid-list>
 </div>

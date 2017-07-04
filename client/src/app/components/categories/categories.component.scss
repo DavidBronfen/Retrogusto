@@ -1,0 +1,13 @@
+.categories {
+  width: 840px;
+  margin: 30px auto;
+
+  md-grid-tile {
+    color: #b2c1be;
+    transition: all .5s ease-out;
+
+    &:hover {
+      border: 1px solid;
+    }
+  }
+}
