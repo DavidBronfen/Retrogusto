@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CategoryComponent } from './category.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('CategoryComponent', () => {
   let component: CategoryComponent;
@@ -8,6 +9,7 @@ describe('CategoryComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ CategoryComponent ],
+      schemas: [ NO_ERRORS_SCHEMA ]
     })
     .compileComponents();
   }));
