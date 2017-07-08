@@ -10,7 +10,8 @@ import { reducer } from '../../reducers';
 
 const CATEGORIES_OBJECT: ICategory[] = [{
   id: 1,
-  name: 'ארוחת בוקר',
+  name_he: 'ארוחת בוקר',
+  name_en: 'breakfast',
   image_path: 'data/categories/breakfast.png'
 }];
 

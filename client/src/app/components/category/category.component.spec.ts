@@ -20,7 +20,8 @@ describe('CategoryComponent', () => {
 
     component.category = {
       'id': 1,
-      'name': 'מתאבנים',
+      'name_he': 'מתאבנים',
+      'name_en': 'appetizers',
       'image_path': 'data/categories/appetizer.png'
     };
 
