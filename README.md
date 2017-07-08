@@ -1,6 +1,6 @@
 # Retrogusto
 
-[![Build Status][travis-image]][travis-url] [![codecov][codecov-image]][codecov-url] ![Dependency Status][dependency-ci-image]][dependency-ci-url]
+[![Build Status][travis-image]][travis-url] [![codecov][codecov-image]][codecov-url] [![Dependency Status][dependency-ci-image]][dependency-ci-url]
 
 ## Our Stack
 
