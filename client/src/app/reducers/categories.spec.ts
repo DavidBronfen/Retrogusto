@@ -7,6 +7,7 @@ describe('reducers', () => {
       categories: [{
         id: 0,
         name_he: '',
+        name_en: '',
         image_path: ''
       }]
     }, {
@@ -16,6 +17,7 @@ describe('reducers', () => {
       categories: [{
         id: 0,
         name_he: '',
+        name_en: '',
         image_path: ''
       }]
     });
