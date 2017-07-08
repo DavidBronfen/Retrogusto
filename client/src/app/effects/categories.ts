@@ -15,7 +15,7 @@ export class CategoriesEffects {
   ) { }
 
   @Effect()
-  loadcategories$: Observable<Action>= this.actions$
+  loadCategories$: Observable<Action>= this.actions$
     .ofType(categories.LOAD_CATEGORIES)
     .switchMap(() => this.categoriesService.getCategories())
     .map(data => new categories.LoadCategoriesSuccessAction(data));
