@@ -3,6 +3,7 @@ dist: trusty
 language: node_js
 node_js:
   - "7"
+  - "8"
 
 addons:
   apt:
@@ -18,6 +19,7 @@ cache:
 
 install:
   - cd client && npm install
+  - npm install codecov
 
 before_script:
   - export CHROME_BIN=chromium-browser
@@ -30,3 +32,6 @@ script:
   - npm run test
   - npm run e2e
   - ng build --prod -- aot
+
+after_script:
+  - codecav
