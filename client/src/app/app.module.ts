@@ -8,6 +8,11 @@ import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { reducer } from './reducers';
+
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './rg.component';
@@ -16,6 +21,8 @@ import { SearchComponent } from './components/search/search.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { CategoryComponent } from './components/category/category.component';
 import { CategoriesService } from './services/categories.service';
+
+import { CategoriesEffects } from './effects/categories';
 
 @NgModule({
   declarations: [
@@ -31,7 +38,10 @@ import { CategoriesService } from './services/categories.service';
     HttpModule,
     MaterialModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.provideStore(reducer),
+    StoreDevtoolsModule.instrumentOnlyWithExtension(),
+    EffectsModule.run(CategoriesEffects),
   ],
   providers: [ CategoriesService ],
   bootstrap: [ AppComponent ]

@@ -1,7 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Store } from '@ngrx/store';
 
 import { ICategory } from '../../models/category';
 import { CategoriesService } from '../../services/categories.service';
+
+import * as categoriesAction from '../../actions/categories';
+import * as fromRoot from '../../reducers';
+
+
+
 
 @Component({
   selector: 'rg-categories',
@@ -10,15 +18,17 @@ import { CategoriesService } from '../../services/categories.service';
 })
 export class CategoriesComponent implements OnInit {
 
-  public categories: ICategory[];
+  public categories$: Observable<ICategory[]>;
   private errorMessage: string;
 
-  constructor(private _CategoriesService: CategoriesService) { }
+  constructor(
+    private store: Store<fromRoot.State>,
+  ) {
+    this.categories$ = this.store.select(fromRoot.getCategoriesState);
+  }
 
   ngOnInit() {
-    this._CategoriesService.getCategories()
-        .subscribe(categories => this.categories = categories,
-                  error => this.errorMessage = <any>error);
+    this.store.dispatch(new categoriesAction.LoadCategoriesAction());
   }
 
 }
