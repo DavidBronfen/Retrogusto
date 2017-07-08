@@ -8,9 +8,6 @@ import { CategoriesService } from '../../services/categories.service';
 import * as categoriesAction from '../../actions/categories';
 import * as fromRoot from '../../reducers';
 
-
-
-
 @Component({
   selector: 'rg-categories',
   templateUrl: './categories.component.html',

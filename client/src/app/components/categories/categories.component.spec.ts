@@ -1,11 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { StoreModule } from '@ngrx/store';
 
 import { ICategory } from '../../models/category';
-import { Observable } from 'rxjs/Observable';
-
 import { CategoriesComponent } from './categories.component';
 import { CategoriesService } from '../../services/categories.service';
+import { reducer } from '../../reducers';
 
 const CATEGORIES_OBJECT: ICategory[] = [{
   id: 1,
@@ -29,6 +30,9 @@ describe('CategoriesComponent', () => {
       declarations: [ CategoriesComponent ],
       providers: [
         { provide: CategoriesService, useClass: MockCategory }
+      ],
+      imports: [
+        StoreModule.provideStore(reducer),
       ],
       schemas: [
         CUSTOM_ELEMENTS_SCHEMA
