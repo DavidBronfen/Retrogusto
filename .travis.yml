@@ -34,4 +34,4 @@ script:
   - ng build --prod -- aot
 
 after_script:
-  - codecav
+  - codecov
