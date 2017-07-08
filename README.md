@@ -1,6 +1,6 @@
 # Retrogusto
 
-[![Build Status][travis-image]][travis-url]
+[![Build Status][travis-image]][travis-url] [![codecov][codecov-image]][codecov-url] [![Dependency Status][dependency-ci-image]][dependency-ci-url]
 
 ## Our Stack
 
@@ -39,3 +39,7 @@
 
 [travis-image]: https://travis-ci.org/DavidBronfen/Retrogusto.svg?branch=master
 [travis-url]: https://travis-ci.org/DavidBronfen/Retrogusto
+[codecov-image]: https://codecov.io/gh/DavidBronfen/Retrogusto/branch/master/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/DavidBronfen/Retrogusto
+[dependency-ci-image]: https://dependencyci.com/github/DavidBronfen/Retrogusto/badge
+[dependency-ci-url]: https://dependencyci.com/github/DavidBronfen/Retrogusto
