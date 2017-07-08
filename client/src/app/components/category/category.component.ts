@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { ICategory } from '../categories/category';
+import { ICategory } from '../../models/category';
 
 @Component({
   selector: 'rg-category',

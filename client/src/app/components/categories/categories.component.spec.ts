@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
-import { ICategory } from './category';
+import { ICategory } from '../../models/category';
 import { Observable } from 'rxjs/Observable';
 
 import { CategoriesComponent } from './categories.component';
