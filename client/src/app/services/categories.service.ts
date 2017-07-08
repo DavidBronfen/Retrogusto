@@ -5,7 +5,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 
-import { ICategory } from '../components/categories/category';
+import { ICategory } from '../models/category';
 
 @Injectable()
 export class CategoriesService {
