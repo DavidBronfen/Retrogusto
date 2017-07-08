@@ -5,7 +5,8 @@ export type State = ICategory[];
 
 const initialState: State = [{
   id: 0,
-  name: '',
+  name_he: '',
+  name_en: '',
   image_path: '',
 }];
 
