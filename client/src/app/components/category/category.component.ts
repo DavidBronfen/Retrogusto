@@ -17,9 +17,9 @@ export class CategoryComponent implements OnInit {
   ngOnInit() {
   }
 
-  redirectToRecipes():any {
-    alert("great success");
-    console.log("category");
+  redirectToRecipes(): any {
+    alert('great success');
+    console.log('category');
   }
 
 }
