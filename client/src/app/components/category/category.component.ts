@@ -8,7 +8,7 @@ import { ICategory } from '../../models/category';
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.scss'],
 })
-export class CategoryComponent implements OnInit {
+export class CategoryComponent implements OnInit{
 
   @Input()
   category: ICategory;
