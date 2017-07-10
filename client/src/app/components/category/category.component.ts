@@ -19,7 +19,7 @@ export class CategoryComponent implements OnInit {
   }
 
   redirectToRecipes(givenCategory: string): any {
-    let category: string = givenCategory.replace(/\s+/g, '-').toLowerCase()
+    const category: string = givenCategory.replace(/\s+/g, '-').toLowerCase();
     this.router.navigate(['recipes', category]);
   }
 
