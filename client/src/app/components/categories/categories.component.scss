@@ -9,5 +9,12 @@
     &:hover {
       border: 1px solid;
     }
+
+    rg-category {
+      display: table;
+      height: 100%;
+      width: 100%;
+      cursor: pointer;
+    }
   }
 }

@@ -1,5 +1,7 @@
 .category-container {
   text-align: center;
+  display: table-cell;
+  vertical-align: middle;
 
   .category-img {
     max-height: 80px;
