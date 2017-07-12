@@ -1,0 +1,93 @@
+"harira":{
+"id":2,
+  "title":"מרק חרירה טבעוני של השף אריק שנק",
+  "subtitle":"גרסה קצת אחרת למרק חרירה של השף אריק שנק",
+  "author_name":"אריק שנק, שף אורח",
+  "date":"05.12.2016 12:00",
+  "comments_number":0,
+  "prep_time":"1.5 שעות",
+  "portion":"6",
+  "calories":310,
+  "rate":0,
+  "main_image":[{
+  	"url":"",
+    "title":""
+  }],
+  "description":"",
+  "ingredients":[{
+    "quantity":1,
+    "unit":"כוס",
+    "ingredient_name":"גרגירי חומוס מבושלים",
+  },{
+    "quantity":2,
+    "unit":"כוסות",
+    "ingredient_name":"עגבניות מרוסקות",
+  },{
+    "quantity":1,
+    "unit":"",
+    "ingredient_name":"ראש סלרי",
+  },{
+    "quantity":2,
+    "unit":"",
+    "ingredient_name":"כרישות חתוכות לקוביות",
+  },{
+    "quantity":1,
+    "unit":"",
+    "ingredient_name":"בצל לבן חתוך לקוביות",
+  },{
+    "quantity":1,
+    "unit":"",
+    "ingredient_name":"גזר מקולף",
+  },{
+    "quantity":1,
+    "unit":"",
+    "ingredient_name":"קישוא",
+  },{
+    "quantity":1,
+    "unit":"",
+    "ingredient_name":"צרור פטרוזיליה",
+  },{
+    "quantity":1,
+    "unit":"",
+    "ingredient_name":"צרור נענע",
+  },{
+    "quantity":1,
+    "unit":"",
+    "ingredient_name":"צרור כוסברה",
+  },{
+    "quantity":1,
+    "unit":"כף",
+    "ingredient_name":"מחוקה של שום כתוש",
+  },{
+    "quantity":0.5,
+    "unit":"כפית",
+    "ingredient_name":"כורכום",
+  },{
+    "quantity":1,
+    "unit":"כף",
+    "ingredient_name":"קינמון",
+  },{
+    "quantity":0.25,
+    "unit":"כוס",
+    "ingredient_name":"מיץ לימון סחוט",
+  },{
+    "quantity":2,
+    "unit":"ליטר",
+    "ingredient_name":"ציר ירקות",
+  }],
+  "prep_instruction":[{
+  	"1":"חותכים את הקישוא לקוביות ומרסקים בבלנדר עם פטרוזיליה, נענע וכוסברה.",
+    "2":"מאדים את הבצל, הכרישה, הסלרי והגזר עד הזהבה. מוסיפים ציר ירקות.",
+    "3":"מוסיפים עגבניות מרוסקות ורסק קישוא, נענע וכוסברה. לבסוף מוסיפים את גרגירי החומוס, מתבלים במיץ לימון, קינמון, מלח ופלפל ומבשלים.",
+    "4":"מגישים חם."
+    }],
+  "tags":["מרוקאי"],
+  "comments":[{
+  	"id":,
+    "author_name":"",
+    "date":"",
+    "image":"",
+    "rating":,
+    "comment_content":""
+  }]
+}
