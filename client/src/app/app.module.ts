@@ -1,49 +1,16 @@
-import 'hammerjs';
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 
-import { MaterialModule } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { EffectsModule } from '@ngrx/effects';
-import { reducer } from './reducers';
-
-import { AppRoutingModule } from './app-routing.module';
-
-import { AppComponent } from './rg.component';
-import { HeaderComponent } from './components/header/header.component';
-import { SearchComponent } from './components/search/search.component';
-import { CategoriesComponent } from './components/categories/categories.component';
-import { CategoryComponent } from './components/category/category.component';
-import { CategoriesService } from './services/categories.service';
-
-import { CategoriesEffects } from './effects/categories';
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    SearchComponent,
-    CategoriesComponent,
-    CategoryComponent,
+    AppComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    MaterialModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    StoreModule.provideStore(reducer),
-    StoreDevtoolsModule.instrumentOnlyWithExtension(),
-    EffectsModule.run(CategoriesEffects),
+    BrowserModule
   ],
-  providers: [ CategoriesService ],
-  bootstrap: [ AppComponent ]
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
