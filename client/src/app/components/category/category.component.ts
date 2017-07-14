@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { ICategory } from '../../models/category';
 
@@ -12,9 +13,14 @@ export class CategoryComponent implements OnInit {
   @Input()
   category: ICategory;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  redirectToRecipes(givenCategory: string): any {
+    const category: string = givenCategory.replace(/\s+/g, '-').toLowerCase();
+    this.router.navigate(['recipes', category]);
   }
 
 }

@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { StoreModule } from '@ngrx/store';
+import 'rxjs/add/observable/of';
 
 import { ICategory } from '../../models/category';
 import { CategoriesComponent } from './categories.component';
@@ -10,7 +11,8 @@ import { reducer } from '../../reducers';
 
 const CATEGORIES_OBJECT: ICategory[] = [{
   id: 1,
-  name: 'ארוחת בוקר',
+  name_he: 'ארוחת בוקר',
+  name_en: 'breakfast',
   image_path: 'data/categories/breakfast.png'
 }];
 
