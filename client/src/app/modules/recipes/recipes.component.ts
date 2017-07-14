@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Router, ActivatedRoute, Params} from '@angular/router';
+
 
 @Component({
   selector: 'rg-recipes',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipesComponent implements OnInit {
 
-  constructor() { }
+  private categoryName: String;
+
+  constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
+    this.activatedRoute.params.subscribe((params: Params) => {
+        this.categoryName = params['categoryName'];
+      });
   }
-
 }
