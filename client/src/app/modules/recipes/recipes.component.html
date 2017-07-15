@@ -1,3 +1,7 @@
-<p>
-  recipes works!
-</p>
+<div class="recipes">
+  <md-grid-list cols="4" rowHeight="200px">
+    <md-grid-tile  *ngFor="let recipe of recipes">
+      <rg-recipe [recipe]=recipe></rg-recipe>
+    </md-grid-tile>
+  </md-grid-list>
+</div>

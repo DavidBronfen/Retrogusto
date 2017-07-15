@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { IRecipes } from '../../../../models/recipes';
 
 @Component({
   selector: 'rg-recipe',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipeComponent implements OnInit {
 
+  @Input()
+  recipe: IRecipes;
+
   constructor() { }
 
   ngOnInit() {
+    console.log(this.recipe.image_path);
   }
 
 }

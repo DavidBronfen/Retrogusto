@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { IRecipes } from '../../models/recipes';
 import { RecipesComponent } from './recipes.component';
@@ -9,7 +10,7 @@ import { RecipesService } from '../../services/recipes.service';
 const RECIPES_OBJECT: IRecipes[] = [{
   id: 3,
   title: 'דושפרה: מרק בוכרי שהוא ארוחה שלמה',
-  image_path: 'data/img/recipes/dushpara/dushpara.jpg',
+  image_path: 'data/recipes/img/dushpara.jpg',
   rating: 4.5,
   description: 'דושפרה הוא אחד המרקים הנפוצים והמוכרים במטבח הבוכרי. כמרק מחמם ומשביע הוא מציע, מעבר לכיסונים שמעניקים לו את שמו, גם ',
   prep_time: '2.5 שעות',
@@ -38,7 +39,8 @@ describe('RecipesComponent', () => {
           }
         },
         { provide: RecipesService, useClass: MockRecipes }
-      ]
+      ],
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
     .compileComponents();
   }));
