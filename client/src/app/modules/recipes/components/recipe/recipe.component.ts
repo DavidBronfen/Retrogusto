@@ -15,7 +15,7 @@ export class RecipeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.recipe.image_path);
+    console.log(this.recipe);
   }
 
 }

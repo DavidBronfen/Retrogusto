@@ -1,0 +1,39 @@
+.mat-card {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% / 4);
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.card .card-content {
+  flex: 1;
+  padding: 0.25em 0.3em 0;
+}
+
+
+
+// .image-container {
+//   width: 200px;
+//   height: 200px;
+//   overflow: hidden;
+//   margin: 10px;
+//   position: relative;
+//
+//   img {
+//     position: absolute;
+//     margin: auto;
+//     min-height: 100%;
+//     min-width: 100%;
+//
+//     /* For the following settings we set 100%, but it can be higher if needed
+//     See the answer's update */
+//     left: -100%;
+//     right: -100%;
+//     top: -100%;
+//     bottom: -100%;
+//   }
+// }

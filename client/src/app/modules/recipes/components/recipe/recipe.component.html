@@ -1,2 +1,8 @@
-<img src="{{recipe.image_path}}"/>
-<p>{{recipe.title}}</p>
+<md-card>
+  <div class="image-container">
+      <img md-card-image src="{{recipe.image_path}}"/>
+  </div>
+  <h2>{{recipe.title}}</h2>
+  <h3>{{recipe.rating}}</h3>
+  <p>{{recipe.description}}</p>
+</md-card>
