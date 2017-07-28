@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -42,6 +43,7 @@ import { CategoriesEffects } from './effects/categories';
     StoreModule.provideStore(reducer),
     StoreDevtoolsModule.instrumentOnlyWithExtension(),
     EffectsModule.run(CategoriesEffects),
+    FlexLayoutModule,
   ],
   providers: [ CategoriesService ],
   bootstrap: [ AppComponent ]
