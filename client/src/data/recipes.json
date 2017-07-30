@@ -5,7 +5,7 @@
   "image_path":"data/recipes/img/ribollita.jpg",
   "rating":4 ,
   "description":"ריבולטה הוא המרק הטוסקני המפורסם ביותר שהלכה למעשה מדובר בנזיד המורכב מירקות ולחם. השפית לירז שדה (מבראסרי עין כרם) מציעה את הגרסה הירושלמית",
-  "prep_time":"2.5 שעות",
+  "prep_time":"2.5",
   "portions":8,
   "calories":460
   },
@@ -15,7 +15,7 @@
   "image_path":"data/recipes/img/iceland_vegan.jpg",
   "rating":3,
   "description":"כל טעמי החורף בצלחת: ירקות, פטריות וגם הדרים. מתכון למרק קל ומחמם לכבוד החורף שבפתח עם כל הירקות שאפשר למצוא בשוק",
-  "prep_time":"1.5 שעות",
+  "prep_time":"1.5",
   "portions":6,
   "calories":372
   },
@@ -25,7 +25,7 @@
   "image_path":"data/recipes/img/dushpara.jpg",
   "rating":4.5,
   "description":"דושפרה הוא אחד המרקים הנפוצים והמוכרים במטבח הבוכרי. כמרק מחמם ומשביע הוא מציע, מעבר לכיסונים שמעניקים לו את שמו, גם ירקות רבים, קטניות וכדורי בשר קטנים",
-  "prep_time":"2.5 שעות",
+  "prep_time":"2.5",
   "portions":6,
   "calories":465
   },
@@ -35,7 +35,7 @@
   "image_path":"data/recipes/img/parmigiano.jpg",
   "rating":4,
   "description":"מרק גבינת פרמז'ן לבן, עשיר בטעם ורחוק ככל האפשר מההגדרה \"כבד\"",
-  "prep_time":"1.5 שעות",
+  "prep_time":"1.5",
   "portions":8,
   "calories":640
   },
@@ -45,7 +45,7 @@
   "image_path":"data/recipes/img/harira.jpg",
   "rating":3,
   "description":"גרסה קצת אחרת למרק חרירה של השף אריק שנק",
-  "prep_time":"1 שעה",
+  "prep_time":"1",
   "portions":8,
   "calories":420
   },
@@ -55,7 +55,7 @@
   "image_path":"data/recipes/img/celery.jpg",
   "rating":4,
   "description":"מרק סלרי שהגבעולים הפריכים משמשים בו כמעין קרוטונים",
-  "prep_time":"2.25 שעות",
+  "prep_time":"2.25",
   "portions":4,
   "calories":370
   },
@@ -65,7 +65,7 @@
   "image_path":"data/recipes/img/greens_vegan.jpg",
   "rating":0,
   "description":"אספו את כל הירוקים שאתם מוצאים בשוק - שעועית, ברוקולי, קייל, אפונה והכניסו אותם למרק טבעוני מפתיע",
-  "prep_time":"2.5 שעות",
+  "prep_time":"2.5",
   "portions":4,
   "calories":320
   },
@@ -75,7 +75,7 @@
   "image_path":"data/recipes/img/thai_soup.jpg",
   "rating":5,
   "description":"מהטעימים שבמרקים התאילנדיים. אם משתמשים בשיטאקי מיובשות, חולטים אותן טרם השימוש בקערה עם מים רותחים",
-  "prep_time":"2 שעות",
+  "prep_time":"2",
   "portions":4,
   "calories":400
   },
@@ -85,7 +85,7 @@
   "image_path":"data/recipes/img/raman.jpg",
   "rating":4,
   "description":"הראמן במקור הוא אוכל סיני שאומץ על ידי היפנים בחום וכמיטב המסורת היפנית, שודרג והגיע לשיאים חדשים. אז מה העניין סביב מרק האטריות הזה? מה הדבר הכי חשוב בו? ואיך יצרו היפנים מרק שגורם לך להתגעגע? השף ברק נדב נסע ליפן וחזר עם התובנות ועם המתכון המקורי להרפתקנים בלבד",
-  "prep_time":"3 שעות",
+  "prep_time":"3",
   "portions":6,
   "calories":640
   },
