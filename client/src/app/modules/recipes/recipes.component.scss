@@ -10,20 +10,20 @@
   }
 }
 
-// @media only screen and (max-width: 400px) {
-//   .recipes {
-//     column-count: 1;
-//   }
-// }
-//
-// @media only screen and (max-width: 600px) {
-//   .recipes {
-//     column-count: 2;
-//   }
-// }
-//
-// @media only screen and (max-width: 900px) {
-//   .recipes {
-//     column-count: 3;
-//   }
-// }
+@media only screen and (max-width: 400px) {
+  .recipes {
+    column-count: 1;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .recipes {
+    column-count: 2;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .recipes {
+    column-count: 3;
+  }
+}
