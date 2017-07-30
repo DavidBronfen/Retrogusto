@@ -1,8 +1,24 @@
 <md-card>
   <div class="image-container">
-      <img md-card-image src="{{recipe.image_path}}"/>
+    <img md-card-image src="{{recipe.image_path}}"/>
   </div>
-  <h2>{{recipe.title}}</h2>
+  <md-card-title>{{recipe.title}}</md-card-title>
   <h3>{{recipe.rating}}</h3>
-  <p>{{recipe.description}}</p>
+  <md-card-content>
+    <p>{{recipe.description}}</p>
+  </md-card-content>
+  <md-card-footer>
+    <div class="preparation-time">
+      <img src="./data/icons/clock.png" />
+      <span>{{recipe.prep_time}}</span>
+    </div>
+
+    <div class="portions">
+      <span>{{recipe.portions}}</span>
+    </div>
+
+    <div class="calories">
+      <span>{{recipe.calories}}</span>
+    </div>
+  </md-card-footer>
 </md-card>

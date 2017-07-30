@@ -1,4 +1,29 @@
 .recipes {
-  width: 840px;
-  margin: auto;
+  width: 80%;
+  margin: 2em auto 0;
+  column-count: 4;
+  column-gap: 1em;
+
+  rg-recipe {
+    display: inline-block;
+    margin-bottom: 1em;
+  }
 }
+
+// @media only screen and (max-width: 400px) {
+//   .recipes {
+//     column-count: 1;
+//   }
+// }
+//
+// @media only screen and (max-width: 600px) {
+//   .recipes {
+//     column-count: 2;
+//   }
+// }
+//
+// @media only screen and (max-width: 900px) {
+//   .recipes {
+//     column-count: 3;
+//   }
+// }

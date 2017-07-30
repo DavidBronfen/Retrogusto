@@ -1,39 +1,31 @@
 .mat-card {
-  display: flex;
-  flex-direction: column;
-  width: calc(100% / 4);
+  border: 1px solid #b2c1be;
+  background: none;
+  padding: .7em;
+  color: #3e3d39;
+
+  .image-container {
+    overflow: hidden;
+
+    img {
+      margin: 0;
+    }
+  }
+
+  .mat-card-title {
+    font-size: 1em;
+    font-weight: 700;
+    margin: .5em 0;
+    font-family: 'Rubik', sans-serif;
+  }
+
+  .mat-card-content {
+    font-size: .8em;
+    font-family: 'Lato', sans-serif;
+    margin: .5em 0;
+  }
+
+  .mat-card-footer {
+    position: relative;
+  }
 }
-.card {
-  display: flex;
-  flex-direction: column;
-  margin: 10px;
-}
-
-.card .card-content {
-  flex: 1;
-  padding: 0.25em 0.3em 0;
-}
-
-
-
-// .image-container {
-//   width: 200px;
-//   height: 200px;
-//   overflow: hidden;
-//   margin: 10px;
-//   position: relative;
-//
-//   img {
-//     position: absolute;
-//     margin: auto;
-//     min-height: 100%;
-//     min-width: 100%;
-//
-//     /* For the following settings we set 100%, but it can be higher if needed
-//     See the answer's update */
-//     left: -100%;
-//     right: -100%;
-//     top: -100%;
-//     bottom: -100%;
-//   }
-// }
