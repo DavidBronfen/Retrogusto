@@ -1,11 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { ActivatedRoute } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
 
 import { IRecipes } from '../../models/recipes';
 import { RecipesComponent } from './recipes.component';
 import { RecipesService } from '../../services/recipes.service';
+import { reducer } from '../../reducers';
 
 const RECIPES_OBJECT: IRecipes[] = [{
   id: 3,
@@ -39,6 +41,9 @@ describe('RecipesComponent', () => {
           }
         },
         { provide: RecipesService, useClass: MockRecipes }
+      ],
+      imports: [
+        StoreModule.provideStore(reducer),
       ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
