@@ -40,7 +40,9 @@ describe('RecipesComponent', () => {
             params: Observable.of({ categoryName: 'breakfast' })
           }
         },
-        { provide: RecipesService, useClass: MockRecipes }
+        {
+          provide: RecipesService, useClass: MockRecipes
+        }
       ],
       imports: [
         StoreModule.provideStore(reducer),
