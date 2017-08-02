@@ -4,10 +4,11 @@ import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 
-import { IRecipes } from '../../models/recipes';
+import { IRecipes } from './models/recipes';
+
 import { RecipesComponent } from './recipes.component';
-import { RecipesService } from '../../services/recipes.service';
-import { reducer } from '../../reducers';
+import { RecipesService } from './services/recipes.service';
+import { reducer } from './reducers';
 
 const RECIPES_OBJECT: IRecipes[] = [{
   id: 3,

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { IRecipes } from '../../../../models/recipes';
+import { IRecipes } from '../../models/recipes';
 
 @Component({
   selector: 'rg-recipe',

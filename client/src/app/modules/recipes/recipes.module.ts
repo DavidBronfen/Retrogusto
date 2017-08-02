@@ -7,13 +7,13 @@ import { MaterialModule } from '@angular/material';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
-import { reducer } from '../../reducers';
+import { reducer } from './reducers';
 
 import { RecipesComponent } from './recipes.component';
 import { RecipeComponent } from './components/recipe/recipe.component';
-import { RecipesService } from '../../services/recipes.service';
+import { RecipesService } from './services/recipes.service';
 
-import { RecipesEffects } from '../../effects/recipes';
+import { RecipesEffects } from './effects/recipes';
 
 @NgModule({
   imports: [

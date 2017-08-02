@@ -4,11 +4,11 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 
-import { IRecipes } from '../../models/recipes';
-import { RecipesService } from '../../services/recipes.service';
+import { IRecipes } from './models/recipes';
+import { RecipesService } from './services/recipes.service';
 
-import * as recipesAction from '../../actions/recipes';
-import * as fromRoot from '../../reducers';
+import * as recipesAction from './actions/recipes';
+import * as fromRoot from './reducers';
 
 
 @Component({
