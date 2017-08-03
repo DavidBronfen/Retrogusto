@@ -1,0 +1,57 @@
+.mat-card {
+  border: 1px solid #b2c1be;
+  background: none;
+  padding: .7em;
+  color: #3e3d39;
+
+  .image-container {
+    overflow: hidden;
+
+    img {
+      margin: 0;
+    }
+  }
+
+  .mat-card-title {
+    font-size: 1em;
+    font-weight: 700;
+    margin: .5em 0;
+    font-family: 'Rubik', sans-serif;
+  }
+
+  .mat-card-content {
+    font-size: .8em;
+    font-family: 'Lato', sans-serif;
+    margin: .5em 0 1em;
+  }
+
+  .mat-card-footer {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    color: #b2c1be;
+    border-top: 1px solid;
+    padding-top: .5em;
+
+    div {
+      width: 30%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &.portions {
+        border-left: 1px solid;
+        border-right: 1px solid;
+      }
+
+      img {
+        max-width: 1.3em;
+        margin-left: .7em;
+      }
+
+      span {
+        font-size: .8em
+      }
+    }
+  }
+}

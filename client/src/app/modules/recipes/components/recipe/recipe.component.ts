@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { IRecipes } from '../../models/recipes';
 
 @Component({
   selector: 'rg-recipe',
@@ -6,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recipe.component.scss']
 })
 export class RecipeComponent implements OnInit {
+
+  @Input()
+  recipe: IRecipes;
 
   constructor() { }
 
