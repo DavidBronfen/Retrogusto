@@ -4,6 +4,7 @@
   </div>
   <md-card-title>{{recipe.title}}</md-card-title>
   <h3>{{recipe.rating}}</h3>
+  <star-rating-comp [starType]="'svg'" [rating]="recipe.rating"></star-rating-comp>
   <md-card-content>
     <p>{{recipe.description}}</p>
   </md-card-content>
