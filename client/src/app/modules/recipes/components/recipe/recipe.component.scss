@@ -1,3 +1,4 @@
+/deep/
 .mat-card {
   border: 1px solid #b2c1be;
   background: none;
@@ -9,6 +10,16 @@
 
     img {
       margin: 0;
+    }
+  }
+
+  star-rating-comp {
+    .rating {
+      justify-content: flex-start;
+
+      .star-container {
+        margin: 0;
+      }
     }
   }
 

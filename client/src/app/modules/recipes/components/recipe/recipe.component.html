@@ -3,8 +3,14 @@
     <img md-card-image src="{{recipe.image_path}}"/>
   </div>
   <md-card-title>{{recipe.title}}</md-card-title>
-  <h3>{{recipe.rating}}</h3>
-  <star-rating-comp [starType]="'svg'" [rating]="recipe.rating"></star-rating-comp>
+  <star-rating-comp
+    [starType]="'svg'"
+    [rating]="recipe.rating"
+    [showHalfStars]="true"
+    [direction]="'rtl'"
+    [readOnly]="true"
+    >
+  </star-rating-comp>
   <md-card-content>
     <p>{{recipe.description}}</p>
   </md-card-content>
