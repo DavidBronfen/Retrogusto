@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RecipesRoutingModule } from './recipes-routing.module';
 
 import { MaterialModule } from '@angular/material';
+import { StarRatingModule } from 'angular-star-rating'
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -23,6 +24,7 @@ import { RecipesEffects } from './effects/recipes';
     StoreModule.provideStore(reducer),
     StoreDevtoolsModule.instrumentOnlyWithExtension(),
     EffectsModule.run(RecipesEffects),
+    StarRatingModule.forRoot(),
   ],
   declarations: [
     RecipesComponent,
