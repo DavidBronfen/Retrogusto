@@ -13,7 +13,7 @@ if (config.seed) {
   require('./util/seed');
 }
 
-require(./middleware/appMiddleware);
+require('./middleware/app.middleware');
 
 // Setup global error handling
 app.use((err, req, res, next) => {
