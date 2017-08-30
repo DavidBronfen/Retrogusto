@@ -25,7 +25,6 @@ import { RecipesEffects } from './effects/recipes';
     StoreDevtoolsModule.instrumentOnlyWithExtension(),
     EffectsModule.run(RecipesEffects),
     StarRatingModule.forRoot(),
-
   ],
   declarations: [
     RecipesComponent,

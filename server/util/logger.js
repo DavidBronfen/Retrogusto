@@ -23,9 +23,9 @@ const logger = {
           // turn the object to a string so we
           // can log all the properties and color it
           const string = JSON.stringify(arg, null, 2);
-          return tag + '  ' + string.cyan;
+          return `${tag} ${string.cyan}`;
         } else {
-          return tag + '  ' + arg.cyan;
+          return `${tag} ${arg.cyan}`;
         }
       });
 
@@ -40,7 +40,7 @@ const logger = {
       .map((arg) => {
         arg = arg.stack || arg;
         const name = arg.name || '[ ❌ ERROR ❌ ]';
-        const log = name.yellow + '  ' + arg.red;
+        const log = `${name.yellow} ${arg.red}`;
         return log;
       });
 
