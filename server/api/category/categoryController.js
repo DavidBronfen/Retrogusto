@@ -1,6 +1,5 @@
 const Category = require('./categoryModel');
 const _ = require('lodash');
-const logger = require('../../util/logger');
 
 exports.param = (req, res, next, id) => {
   Category.findById(id)
