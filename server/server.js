@@ -8,7 +8,6 @@ const config = require('./config/config');
 const logger = require('./util/logger');
 
 // db.url is different depending on NODE_ENV
-// mongoose.connect(config.db.url);
 mongoose.connect(config.db.url, { useMongoClient: true });
 
 if (config.seed) {
