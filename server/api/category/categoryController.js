@@ -1,12 +1,12 @@
 const Category = require('./categoryModel');
 const _ = require('lodash');
 
-exports.param = (req, res, next, id) => {
+exports.params = (req, res, next, id) => {
   Category.findById(id)
     .exec()
     .then((category) => {
       if (!category) {
-        next(New Error('No category with that id'));
+        next(new Error('No category with that id'));
       } else {
         req.category = category;
         next();
