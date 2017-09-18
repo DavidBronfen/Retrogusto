@@ -3,17 +3,21 @@ const mongoose = require('mongoose');
 
 const app = express();
 
+const api = require('./api/api');
 const config = require('./config/config');
 const logger = require('./util/logger');
 
 // db.url is different depending on NODE_ENV
-mongoose.connect(config.db.url);
+mongoose.connect(config.db.url, { useMongoClient: true });
 
 if (config.seed) {
   require('./util/seed');
 }
 
 require('./middleware/app.middleware')(app);
+
+// setup the api
+app.use('/api', api);
 
 // Setup global error handling
 app.use((err, req, res, next) => {
