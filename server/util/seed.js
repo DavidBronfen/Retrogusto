@@ -1,7 +1,7 @@
 const _ = require('lodash');
 const logger = require('./logger');
 
-const Category = require('../api/Category/categoryModel');
+const Category = require('../api/category/categoryModel');
 const dummyCategories = require('./dummyCategories');
 
 const categories = dummyCategories.categories;
