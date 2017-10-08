@@ -13,9 +13,9 @@ logger.log(['Seeding the Database']);
 const cleanDB = () => {
   logger.log(['... cleaning the DB']);
   const cleanPromises = [Category]
-  .map((model) => {
-    return model.remove().exec();
-  });
+    .map((model) => {
+      return model.remove().exec();
+    });
   return Promise.all(cleanPromises);
 };
 
@@ -35,12 +35,14 @@ const createCategories = (data) => {
   });
 
   return Promise.all(newCategories)
-  .then((savedCategories) => {
-    return _.merge({ categories: savedCategories }, data || {});
-  });
+    .then((savedCategories) => {
+      return _.merge({
+        categories: savedCategories
+      }, data || {});
+    });
 };
 
 cleanDB()
-.then(createCategories)
-.then(logger.log.bind([logger]))
-.catch(logger.log.bind([logger]));
+  .then(createCategories)
+  .then(logger.log.bind([logger]))
+  .catch(logger.log.bind([logger]));
