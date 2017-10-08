@@ -16,7 +16,7 @@ const cleanDB = () => {
   .map((model) => {
     return model.remove().exec();
   });
-  return Promise.all(this.cleanPromises);
+  return Promise.all(cleanPromises);
 };
 
 // Create doc a help method to create a new document  based on the model.

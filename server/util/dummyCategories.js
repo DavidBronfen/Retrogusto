@@ -14,7 +14,7 @@ const categories = [
   { name_he:'בריאות ודיאטה', name_en:'health and diet', image_path:'data/categories/health.png'},
   { name_he:'לחמים', name_en:'bread', image_path:'data/categories/bread.png'},
   { name_he:'עוגות', name_en:'cakes', image_path:'data/categories/cake.png'},
-  { name_he:'קינוחים', name_en:'desserts', image_path:'data/categories/dessert.png'}
+  { name_he:'קינוחים', name_en:'desserts', image_path:'data/categories/dessert.png'},
 ]
 
 exports.categories = categories;
