@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon index.js",
     "lint": "eslint .",
-    "test": "mocha './**/*..spec.js'"
+    "test": "mocha './**/*.spec.js'",
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha './**/*.spec.js' --report lcovonly -- -R spec && cat ./coverage/lcov.info"
   },
   "license": "ISC",
   "dependencies": {
@@ -25,6 +26,7 @@
     "eslint": "^4.8.0",
     "eslint-config-airbnb-base": "^12.0.2",
     "eslint-plugin-import": "^2.7.0",
+    "istanbul": "^0.4.5",
     "mocha": "^4.0.1",
     "nodemon": "^1.11.0"
   }
