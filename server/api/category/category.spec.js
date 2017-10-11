@@ -14,7 +14,6 @@ describe('Test categories', () => {
       .get('/api/categories')
       .end((err, res) => {
         res.should.have.status(200);
-        console.log(res);
         done();
       });
   });
