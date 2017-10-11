@@ -9,12 +9,12 @@ const should = chai.should();
 chai.use(chaiHttp);
 
 describe('Test categories', () => {
-  it('Should GET all the categoties', (done) => {
+  it('Should GET all the categoties', () => {
     chai.request(server)
       .get('/api/categories')
       .end((err, res) => {
+        console.log('the result: ', res);
         res.should.have.status(200);
-        done();
       });
   });
 });
