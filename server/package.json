@@ -1,12 +1,12 @@
 {
-  "name": "Retrogustoe",
+  "name": "Retrogusto",
   "version": "1.0.0",
   "description": "Retrogusto server",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
     "lint": "eslint .",
-    "test": "mocha './**/*.spec.js'",
+    "test": "mocha './api/**/*.spec.js'",
     "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha './**/*.spec.js' --report lcovonly -- -R spec && cat ./coverage/lcov.info"
   },
   "license": "ISC",
