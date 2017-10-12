@@ -15,9 +15,14 @@ cache:
   npm: true
   directories:
   - client/node_modules
+  - server/node_modules
+
+services:
+  - mongodb
 
 install:
-  - cd client && npm install
+  - cd server && npm install
+  - cd ../client && npm install
   - npm install codecov
 
 before_script:
@@ -26,7 +31,13 @@ before_script:
   - sh -e /etc/init.d/xvfb start
 
 script:
+  # Server
+  - cd ../server
+  - npm run lint
+  - npm run test
+
   # Client
+  - cd ../client
   - npm run lint
   - npm run test
   - npm run e2e
