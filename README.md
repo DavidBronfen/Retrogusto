@@ -39,11 +39,14 @@
 
 **Client**
 
-Run `npm test`. note: if testing the DB mongod must run in the background.
+Run `npm test`.
+
+Note: if testing the DB mongod must run in the background.
 
 **Server**
 
 Run `npm test`.
+
 To lint test run `npm run lint`.
 
 ## Deploy
