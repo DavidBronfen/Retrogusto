@@ -32,11 +32,13 @@
 3. Run `mongod` to start MongoDB.
 4. Run `npm start` to run the app, browse to [http://localhost:3000](http://localhost:3000).
 ## Tests
-Run `npm test`. note: if testing the DB mongod must run in the background.
+
 **Client**
+Run `npm test`. note: if testing the DB mongod must run in the background.
+
+**Server**
 Run `npm test`.
 To lint test run `npm run lint`.
-**Server**
 
 ## Deploy
 
