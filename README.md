@@ -25,12 +25,12 @@
 1. `cd client`.
 2. Run `npm install` in order to install all the dependencies.
 3. Run `npm start` to run the app in the browser.
-* If the browser doesn't run automatically open it at [http://localhost:4200](http://localhost:4200)
+* If the browser doesn't run automatically open it at [http://localhost:4200](http://localhost:4200).
 **Server**
-1. `cd server`
+1. `cd server`.
 2. Run `npm install` in order to install the dependencies.
-3. Run `mongod` to start MongoDB
-4. Run `npm start` to run the app, browse to [http://localhost:3000](http://localhost:3000)
+3. Run `mongod` to start MongoDB.
+4. Run `npm start` to run the app, browse to [http://localhost:3000](http://localhost:3000).
 ## Tests
 Run `npm test`. note: if testing the DB mongod must run in the background.
 **Client**
