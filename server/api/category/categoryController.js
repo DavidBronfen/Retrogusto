@@ -41,7 +41,7 @@ exports.post = (req, res, next) => {
 };
 
 exports.put = (req, res, next) => {
-  const category = req.category;
+  const [category] = req.category;
   const update = req.body;
 
   _.merge(category, update);
@@ -52,7 +52,7 @@ exports.put = (req, res, next) => {
     } else {
       res.json(saved);
     }
-  })
+  });
 };
 
 exports.delete = (req, res, next) => {
@@ -62,5 +62,5 @@ exports.delete = (req, res, next) => {
     } else {
       res.json(removed);
     }
-  })
+  });
 };

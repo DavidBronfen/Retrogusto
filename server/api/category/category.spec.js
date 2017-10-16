@@ -20,5 +20,4 @@ describe('Test categories', () => {
         done();
       });
   });
-  
 });

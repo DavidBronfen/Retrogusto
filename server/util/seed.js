@@ -4,7 +4,7 @@ const logger = require('./logger');
 const Category = require('../api/category/categoryModel');
 const dummyCategories = require('./dummyCategories');
 
-const categories = dummyCategories.categories;
+const [categories] = dummyCategories.categories;
 
 logger.log(['Seeding the Database']);
 
@@ -37,7 +37,7 @@ const createCategories = (data) => {
   return Promise.all(newCategories)
     .then((savedCategories) => {
       return _.merge({
-        categories: savedCategories
+        categories: savedCategories,
       }, data || {});
     });
 };

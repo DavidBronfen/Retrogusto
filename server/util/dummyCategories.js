@@ -15,6 +15,6 @@ const categories = [
   { name_he: 'לחמים', name_en: 'bread', image_path: 'data/categories/bread.png' },
   { name_he: 'עוגות', name_en: 'cakes', image_path: 'data/categories/cake.png' },
   { name_he: 'קינוחים', name_en: 'desserts', image_path: 'data/categories/dessert.png' },
-]
+];
 
 exports.categories = categories;
