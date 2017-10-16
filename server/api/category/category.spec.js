@@ -14,10 +14,11 @@ describe('Test categories', () => {
       .get('/api/categories')
       .end((err, res) => {
         if (err) done(err);
-        console.log('the result: ', res.body);
+        // console.log('the result: ', res.body);
         res.should.have.status(200);
         res.body.should.be.a('array');
         done();
       });
   });
+  
 });
