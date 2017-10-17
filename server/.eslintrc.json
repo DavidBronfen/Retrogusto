@@ -10,6 +10,7 @@
     "no-unused-vars": [1, {"vars": "all", "args": "none", "varsIgnorePattern": "should"}],
     "arrow-body-style": 0,
     "import/no-dynamic-require": 0,
-    "linebreak-style": 0
+    "linebreak-style": 0,
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
   }
 }
