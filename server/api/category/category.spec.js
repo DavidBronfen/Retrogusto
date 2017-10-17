@@ -26,7 +26,7 @@ describe('Test categories', () => {
       name_he: 'חמוצים',
       name_en: 'Pickles',
       image_path: 'path/to/image',
-    }
+    };
 
     chai.request(server)
       .post('/api/categories')
