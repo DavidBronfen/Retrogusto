@@ -4,7 +4,8 @@ const logger = require('./logger');
 const Category = require('../api/category/categoryModel');
 const dummyCategories = require('./dummyCategories');
 
-const [categories] = dummyCategories.categories;
+/* eslint prefer-destructuring: ["error", {AssignmentExpression: {array: true}}] */
+const categories = dummyCategories.categories;
 
 logger.log(['Seeding the Database']);
 
