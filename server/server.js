@@ -7,6 +7,8 @@ const api = require('./api/api');
 const config = require('./config/config');
 const logger = require('./util/logger');
 
+mongoose.Promise = require('bluebird');
+
 // db.url is different depending on NODE_ENV
 mongoose.connect(config.db.url, { useMongoClient: true });
 

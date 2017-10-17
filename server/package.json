@@ -21,6 +21,7 @@
     "morgan": "^1.8.2"
   },
   "devDependencies": {
+<<<<<<< HEAD
     "chai": "^4.1.2",
     "chai-http": "^3.0.0",
     "eslint": "^4.8.0",
@@ -28,6 +29,9 @@
     "eslint-plugin-import": "^2.7.0",
     "istanbul": "^0.4.5",
     "mocha": "^4.0.1",
+=======
+    "bluebird": "^3.5.1",
+>>>>>>> 45-seed-file
     "nodemon": "^1.11.0"
   }
 }
