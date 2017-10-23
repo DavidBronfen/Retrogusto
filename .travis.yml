@@ -14,8 +14,8 @@ addons:
 cache:
   npm: true
   directories:
-  - client/node_modules
-  - server/node_modules
+    - client/node_modules
+    - server/node_modules
 
 services:
   - mongodb
