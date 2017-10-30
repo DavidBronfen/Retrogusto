@@ -10,6 +10,7 @@ let category;
 chai.use(chaiHttp);
 
 describe('Test categories', () => {
+
   it('Should GET all the categoties', (done) => {
     chai.request(server)
       .get('/api/categories')
@@ -63,20 +64,25 @@ describe('Test categories', () => {
   });
 
   it('Should be able to update a category by given ID', (done) => {
-    this.category.name_he = 'חמוצים יפנים';
+    let category = {
+      name_he: 'חמוצים יפנים',
+      name_en: 'Japanese Pickles',
+      image_path: 'path/to/Japanese-pickels/image',
+    }
 
     chai.request(server)
       .put(`/api/categories/${this.category._id}`)
-      .send({
-        name_he: 'חמוצים יפנים',
-        name_en: 'Japanese Pickles',
-        image_path: 'path/to/Japanese-pickels/image',
-      })
+      .send(category)
       .end((err, res) => {
         res.should.have.status(200);
         /* eslint-disable no-unused-expressions */
         res.should.be.json;
         res.body.should.be.a('object');
+        res.body.should.have.property('_message').equal('Category successfully updated!');
+        res.body.should.have.property('category');
+        res.body.category.should.have.property('name_he').equal(category.name_he);
+        res.body.category.should.have.property('name_en').equal(category.name_en);
+        res.body.category.should.have.property('image_path').equal(category.image_path);
         done();
       });
   });

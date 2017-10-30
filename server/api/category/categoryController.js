@@ -51,7 +51,10 @@ exports.put = (req, res, next) => {
     if (err) {
       next(err);
     } else {
-      res.json(saved);
+      res.json({
+        _message: 'Category successfully updated!',
+        category: saved,
+      });
     }
   });
 };
