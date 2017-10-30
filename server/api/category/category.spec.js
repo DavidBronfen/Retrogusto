@@ -5,12 +5,12 @@ const chaiHttp = require('chai-http');
 const server = require('../../server');
 
 const should = chai.should();
+/* eslint-disable no-unused-expressions */
 let category;
 
 chai.use(chaiHttp);
 
 describe('Test categories', () => {
-
   it('Should GET all the categoties', (done) => {
     chai.request(server)
       .get('/api/categories')
@@ -42,6 +42,7 @@ describe('Test categories', () => {
         res.body.should.have.property('name_he').equal(newCategory.name_he);
         res.body.should.have.property('name_en').equal(newCategory.name_en);
         res.body.should.have.property('image_path').equal(newCategory.image_path);
+
         // Set the created category in order to re-use the category in the
         // following tests.
         this.category = res.body;
@@ -63,16 +64,28 @@ describe('Test categories', () => {
       });
   });
 
+  it('Should not get a category with wrong ID', (done) => {
+    chai.request(server)
+      .get('/api/categories/123')
+      .end((err, res) => {
+        if (err && err.message !== 'Internal Server Error') done(err);
+        res.should.have.status(500);
+        /* eslint-disable no-unused-expressions */
+        res.body.should.be.empty;
+        done();
+      });
+  });
+
   it('Should be able to update a category by given ID', (done) => {
-    let category = {
+    const updateCategory = {
       name_he: 'חמוצים יפנים',
       name_en: 'Japanese Pickles',
       image_path: 'path/to/Japanese-pickels/image',
-    }
+    };
 
     chai.request(server)
       .put(`/api/categories/${this.category._id}`)
-      .send(category)
+      .send(updateCategory)
       .end((err, res) => {
         res.should.have.status(200);
         /* eslint-disable no-unused-expressions */
@@ -80,9 +93,9 @@ describe('Test categories', () => {
         res.body.should.be.a('object');
         res.body.should.have.property('_message').equal('Category successfully updated!');
         res.body.should.have.property('category');
-        res.body.category.should.have.property('name_he').equal(category.name_he);
-        res.body.category.should.have.property('name_en').equal(category.name_en);
-        res.body.category.should.have.property('image_path').equal(category.image_path);
+        res.body.category.should.have.property('name_he').equal(updateCategory.name_he);
+        res.body.category.should.have.property('name_en').equal(updateCategory.name_en);
+        res.body.category.should.have.property('image_path').equal(updateCategory.image_path);
         done();
       });
   });
