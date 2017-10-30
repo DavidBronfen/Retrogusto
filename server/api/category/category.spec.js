@@ -96,6 +96,26 @@ describe('Test categories', () => {
         res.body.category.should.have.property('name_he').equal(updateCategory.name_he);
         res.body.category.should.have.property('name_en').equal(updateCategory.name_en);
         res.body.category.should.have.property('image_path').equal(updateCategory.image_path);
+        // Set the updated category to the global var in order to re-use it in
+        // the DELETE test.
+        this.category = res.body.category;
+        done();
+      });
+  });
+
+  it('Should be able to delete a single category', (done) => {
+    chai.request(server)
+      .delete(`/api/categories/${this.category._id}`)
+      .end((err, res) => {
+        if (err) done(err);
+        res.should.have.status(200);
+        /* eslint-disable no-unused-expressions */
+        res.should.be.json;
+        res.body.should.be.a('object');
+        res.body.should.have.property('_message').equal('Category successfully deleted!');
+        res.body.removedCategory.should.have.property('name_he').equal(this.category.name_he);
+        res.body.removedCategory.should.have.property('name_en').equal(this.category.name_en);
+        res.body.removedCategory.should.have.property('image_path').equal(this.category.image_path);
         done();
       });
   });
