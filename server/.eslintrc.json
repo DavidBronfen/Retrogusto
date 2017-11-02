@@ -8,6 +8,7 @@
   "rules": {
     "no-console": 0,
     "no-unused-vars": [1, {"vars": "all", "args": "none", "varsIgnorePattern": "should"}],
+    "prefer-destructuring": ["error", {"object": false, "array": true}],
     "arrow-body-style": 0,
     "import/no-dynamic-require": 0,
     "linebreak-style": 0,

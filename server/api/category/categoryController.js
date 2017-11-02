@@ -41,7 +41,6 @@ exports.post = (req, res, next) => {
 };
 
 exports.put = (req, res, next) => {
-  /* eslint prefer-destructuring: ["error", {AssignmentExpression: {array: true}}] */
   const category = req.category;
   const update = req.body;
 

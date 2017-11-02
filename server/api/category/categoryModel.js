@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-/* eslint prefer-destructuring: ["error", {AssignmentExpression: {array: true}}] */
 const Schema = mongoose.Schema;
 
 const CategorySchema = new Schema({
