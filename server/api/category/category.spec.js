@@ -5,8 +5,6 @@ const chaiHttp = require('chai-http');
 const server = require('../../server');
 
 const should = chai.should();
-/* eslint-disable no-unused-expressions */
-let category;
 
 chai.use(chaiHttp);
 
@@ -43,8 +41,7 @@ describe('Test categories', () => {
         res.body.should.have.property('name_en').equal(newCategory.name_en);
         res.body.should.have.property('image_path').equal(newCategory.image_path);
 
-        // Set the created category in order to re-use the category in the
-        // following tests.
+        // Set the created category in order to re-use the category in the following tests.
         this.category = res.body;
 
         done();
@@ -70,8 +67,7 @@ describe('Test categories', () => {
       .end((err, res) => {
         if (err && err.message !== 'Internal Server Error') done(err);
         res.should.have.status(500);
-        /* eslint-disable no-unused-expressions */
-        res.body.should.be.empty;
+        res.res.should.have.property('statusMessage').equal('Internal Server Error');
         done();
       });
   });
@@ -88,16 +84,14 @@ describe('Test categories', () => {
       .send(updateCategory)
       .end((err, res) => {
         res.should.have.status(200);
-        /* eslint-disable no-unused-expressions */
-        res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('_message').equal('Category successfully updated!');
         res.body.should.have.property('category');
         res.body.category.should.have.property('name_he').equal(updateCategory.name_he);
         res.body.category.should.have.property('name_en').equal(updateCategory.name_en);
         res.body.category.should.have.property('image_path').equal(updateCategory.image_path);
-        // Set the updated category to the global var in order to re-use it in
-        // the DELETE test.
+
+        // Set the updated category to the global var in order to re-use it in the DELETE test.
         this.category = res.body.category;
         done();
       });
@@ -109,8 +103,6 @@ describe('Test categories', () => {
       .end((err, res) => {
         if (err) done(err);
         res.should.have.status(200);
-        /* eslint-disable no-unused-expressions */
-        res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.have.property('_message').equal('Category successfully deleted!');
         res.body.removedCategory.should.have.property('name_he').equal(this.category.name_he);
