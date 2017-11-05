@@ -65,7 +65,6 @@ describe('Test categories', () => {
     chai.request(server)
       .get('/api/categories/123')
       .end((err, res) => {
-        if (err && err.message !== 'Internal Server Error') done(err);
         res.should.have.status(500);
         res.res.should.have.property('statusMessage').equal('Internal Server Error');
         done();
