@@ -11,7 +11,7 @@ const logger = require('./util/logger');
 mongoose.connect(config.db.url, { useMongoClient: true });
 
 if (config.seed) {
-  require('./util/seed');
+  require('./util/seed'); // eslint-disable-line global-require
 }
 
 require('./middleware/app.middleware')(app);

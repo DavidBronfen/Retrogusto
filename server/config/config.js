@@ -6,11 +6,11 @@ const config = {
   prod: 'production',
   port: process.env.PORT || 3000,
   expireTime: 24 * 60 * 10, // 10 days in minutes
-  secrets: {}
-}
+  secrets: {},
+};
 
 process.env.NODE_ENV = process.env.NODE_ENV || config.dev;
-const envConfig = require(`./${process.env.NODE_ENV}`) || {};
+const envConfig = require(`./${process.env.NODE_ENV}`) || {}; // eslint-disable-line global-require
 
 // merge the two config files together the envConfig file
 // will overwrite properties on the config object.

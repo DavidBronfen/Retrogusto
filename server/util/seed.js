@@ -37,7 +37,7 @@ const createCategories = (data) => {
   return Promise.all(newCategories)
     .then((savedCategories) => {
       return _.merge({
-        categories: savedCategories
+        categories: savedCategories,
       }, data || {});
     });
 };

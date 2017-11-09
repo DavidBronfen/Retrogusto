@@ -50,9 +50,12 @@ exports.put = (req, res, next) => {
     if (err) {
       next(err);
     } else {
-      res.json(saved);
+      res.json({
+        _message: 'Category successfully updated!',
+        category: saved,
+      });
     }
-  })
+  });
 };
 
 exports.delete = (req, res, next) => {
@@ -60,7 +63,10 @@ exports.delete = (req, res, next) => {
     if (err) {
       next(err);
     } else {
-      res.json(removed);
+      res.json({
+        _message: 'Category successfully deleted!',
+        removedCategory: removed,
+      });
     }
-  })
+  });
 };
