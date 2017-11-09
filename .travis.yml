@@ -38,11 +38,10 @@ script:
 
   # Client
   - cd ../client
-  - ng --version
   - npm run lint
   - npm run test
   - npm run e2e
-  - ng build --env=prod -- aot
+  - ng build --prod -- aot
 
 after_script:
   - codecov

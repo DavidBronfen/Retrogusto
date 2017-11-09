@@ -43,7 +43,6 @@ describe('Test categories', () => {
 
         // Set the created category in order to re-use the category in the following tests.
         this.category = res.body;
-
         done();
       });
   });
