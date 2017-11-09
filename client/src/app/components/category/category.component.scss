@@ -3,11 +3,21 @@
   display: table-cell;
   vertical-align: middle;
 
+
   .category-img {
     max-height: 80px;
+    transition: .4s;
+    filter: grayscale(50%);
   }
   .category-name {
     margin-top: 15px;
     color: #3e3d39;
+  }
+
+  &:hover {
+    .category-img {
+      margin-bottom: 15px;
+      filter: grayscale(0%);
+    }
   }
 }
