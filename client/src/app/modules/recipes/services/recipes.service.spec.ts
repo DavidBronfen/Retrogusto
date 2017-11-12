@@ -1,5 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { HttpModule, Http, BaseRequestOptions, Response, ResponseOptions } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+import { Http, BaseRequestOptions, Response, ResponseOptions } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
 
 import { RecipesService } from './recipes.service';
@@ -7,7 +8,7 @@ import { RecipesService } from './recipes.service';
 describe('RecipesService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ HttpModule ],
+      imports: [ HttpClientModule ],
       providers: [
         RecipesService,
         {
