@@ -16,6 +16,7 @@ describe('Test categories', () => {
         if (err) done(err);
         res.should.have.status(200);
         res.body.should.be.a('array');
+
         res.body[0].should.have.property('name_he');
         res.body[0].should.have.property('name_en');
         res.body[0].should.have.property('image_path');
