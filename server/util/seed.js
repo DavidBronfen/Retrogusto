@@ -10,12 +10,14 @@ const dummyRecipes = require('./dummyRecipes');
 const categories = dummyCategories.categories;
 const recipes = dummyRecipes.recipes;
 
+const environment = process.env.NODE_ENV;
+
 logger.log(['Seeding the Database']);
 
 // Clean DB a help method to clean the database before each build.
 const cleanDB = () => {
   logger.log(['... cleaning the DB']);
-  const cleanPromises = [Category]
+  const cleanPromises = [Category, Recipe]
     .map((model) => {
       return model.remove().exec();
     });
@@ -50,15 +52,11 @@ const createRecipes = (data) => {
   });
 
   return Promise.all(newRecipes)
-    .then((savedRecipes) => {
-      return _.merge({
-        recipes: savedRecipes,
-      }, data || {});
-    });
+    .then(() => [`In ${environment} mode. Seeded DB with ${dummyCategories.categories.length} Categories, and ${dummyRecipes.recipes.length} Recipes.`]);
 };
 
 cleanDB()
   .then(createCategories)
-  .then(createRecipes)
+  .then(createRecipes) // Last one - resolve the all the promoises
   .then(logger.log.bind([logger]))
   .catch(logger.log.bind([logger]));
