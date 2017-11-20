@@ -8,8 +8,7 @@
     "lint": "eslint .",
     "test": "mocha './api/**/*.spec.js' --exit",
     "coverage": "istanbul cover mocha './api/**/*.spec.js' --report lcovonly -- --exit -R spec && cat ./coverage/lcov.info",
-    "cover": "nyc mocha './api/**/*.spec.js' --exit",
-    "codecov": "nyc report --reporter=text-lcov > coverage.lcov"
+    "cover": "nyc --reporter=text-lcov npm test && nyc report > coverage.lcov"
   },
   "license": "ISC",
   "dependencies": {

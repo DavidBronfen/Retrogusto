@@ -31,6 +31,7 @@ node_modules
 /.sass-cache
 /connect.lock
 coverage
+.nyc_output
 coverage.lcov
 /libpeerconnection.log
 npm-debug.log
