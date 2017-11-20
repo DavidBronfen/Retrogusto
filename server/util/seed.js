@@ -52,11 +52,9 @@ const createRecipes = (data) => {
   });
 
   return Promise.all(newRecipes)
-    .then(() => [`In ${environment} mode. Seeded DB with ${dummyCategories.categories.length} Categories, and ${dummyRecipes.recipes.length} Recipes.`]);
+    .then(() => logger.log([`In ${environment} mode. Seeded DB with ${dummyCategories.categories.length} Categories, and ${dummyRecipes.recipes.length} Recipes.`]));
 };
 
-cleanDB()
-  .then(createCategories)
-  .then(createRecipes) // Last one - resolve the all the promoises
-  .then(logger.log.bind([logger]))
-  .catch(logger.log.bind([logger]));
+cleanDB();
+createCategories();
+createRecipes();

@@ -63,10 +63,11 @@ describe('Test categories', () => {
 
   it('Should not get a category with wrong ID', (done) => {
     chai.request(server)
-      .get('/api/categories/123')
+      .get('/api/categories/5a1329fd90fe51dee752ad3d')
       .end((err, res) => {
-        res.should.have.status(500);
-        res.res.should.have.property('statusMessage').equal('Internal Server Error');
+        res.should.have.status(404);
+        res.body.should.have.property('_message').equal('No category with that id');
+        res.body.should.have.property('category');
         done();
       });
   });
