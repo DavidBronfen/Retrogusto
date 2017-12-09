@@ -4,24 +4,20 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const server = require('../../server');
 
+const Category = require('./categoryModel');
+
 const should = chai.should();
 
 chai.use(chaiHttp);
 
 describe('Test categories', () => {
-  it('Should GET all the categoties', (done) => {
-    chai.request(server)
-      .get('/api/categories')
-      .end((err, res) => {
-        if (err) done(err);
-        res.should.have.status(200);
-        res.body.should.be.a('array');
 
-        res.body[0].should.have.property('name_he');
-        res.body[0].should.have.property('name_en');
-        res.body[0].should.have.property('image_path');
-        done();
+  before(() => {
+    const cleanPromises = [Category]
+      .map((model) => {
+        return model.remove().exec();
       });
+    return Promise.all(cleanPromises);
   });
 
   it('Should be able to post new category', (done) => {
@@ -44,6 +40,21 @@ describe('Test categories', () => {
 
         // Set the created category in order to re-use the category in the following tests.
         this.category = res.body;
+        done();
+      });
+  });
+
+  it('Should GET all the categoties', (done) => {
+    chai.request(server)
+      .get('/api/categories')
+      .end((err, res) => {
+        if (err) done(err);
+        res.should.have.status(200);
+        res.body.should.be.a('array');
+
+        res.body[0].should.have.property('name_he');
+        res.body[0].should.have.property('name_en');
+        res.body[0].should.have.property('image_path');
         done();
       });
   });
