@@ -6,7 +6,11 @@ exports.params = (req, res, next, id) => {
     .exec()
     .then((recipe) => {
       if (!recipe) {
-        next(new Error('No recipe found with the given ID'));
+        res.status(404);
+        res.json({
+          _message: 'No recipe with that id',
+          recipe: null,
+        });
       } else {
         req.recipe = recipe;
         next();
