@@ -11,7 +11,6 @@ const should = chai.should();
 chai.use(chaiHttp);
 
 describe('Test categories', () => {
-
   before(() => {
     const cleanPromises = [Category]
       .map((model) => {
