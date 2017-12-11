@@ -4,23 +4,19 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const server = require('../../server');
 
+const Category = require('./categoryModel');
+
 const should = chai.should();
 
 chai.use(chaiHttp);
 
 describe('Test categories', () => {
-  it('Should GET all the categoties', (done) => {
-    chai.request(server)
-      .get('/api/categories')
-      .end((err, res) => {
-        if (err) done(err);
-        res.should.have.status(200);
-        res.body.should.be.a('array');
-        res.body[0].should.have.property('name_he');
-        res.body[0].should.have.property('name_en');
-        res.body[0].should.have.property('image_path');
-        done();
+  before(() => {
+    const cleanPromises = [Category]
+      .map((model) => {
+        return model.remove().exec();
       });
+    return Promise.all(cleanPromises);
   });
 
   it('Should be able to post new category', (done) => {
@@ -47,6 +43,21 @@ describe('Test categories', () => {
       });
   });
 
+  it('Should GET all the categoties', (done) => {
+    chai.request(server)
+      .get('/api/categories')
+      .end((err, res) => {
+        if (err) done(err);
+        res.should.have.status(200);
+        res.body.should.be.a('array');
+
+        res.body[0].should.have.property('name_he');
+        res.body[0].should.have.property('name_en');
+        res.body[0].should.have.property('image_path');
+        done();
+      });
+  });
+
   it('Should get one category by given ID', (done) => {
     chai.request(server)
       .get(`/api/categories/${this.category._id}`)
@@ -62,10 +73,11 @@ describe('Test categories', () => {
 
   it('Should not get a category with wrong ID', (done) => {
     chai.request(server)
-      .get('/api/categories/123')
+      .get('/api/categories/5a1329fd90fe51dee752ad3d')
       .end((err, res) => {
-        res.should.have.status(500);
-        res.res.should.have.property('statusMessage').equal('Internal Server Error');
+        res.should.have.status(404);
+        res.body.should.have.property('_message').equal('No category with that id');
+        res.body.should.have.property('category');
         done();
       });
   });
