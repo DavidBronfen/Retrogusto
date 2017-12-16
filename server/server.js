@@ -9,6 +9,7 @@ const logger = require('./util/logger');
 
 // db.url is different depending on NODE_ENV
 mongoose.connect(config.db.url, { useMongoClient: true });
+mongoose.Promise = global.Promise;
 
 if (config.seed) {
   require('./util/seed'); // eslint-disable-line global-require
@@ -31,5 +32,4 @@ app.use((err, req, res, next) => {
   res.status(500).send('Oops');
 });
 
-// Export the app for testing
 module.exports = app;

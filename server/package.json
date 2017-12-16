@@ -7,7 +7,8 @@
     "start": "nodemon index.js",
     "lint": "eslint .",
     "test": "mocha './api/**/*.spec.js' --exit",
-    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha './api/**/*.spec.js' --report lcovonly -- -R spec && cat ./coverage/lcov.info"
+    "coverage": "istanbul cover mocha './api/**/*.spec.js' --report lcovonly -- --exit -R spec && cat ./coverage/lcov.info",
+    "cover": "nyc npm test && nyc report --reporter=text-lcov > coverage.lcov"
   },
   "license": "ISC",
   "dependencies": {
@@ -28,6 +29,7 @@
     "eslint-plugin-import": "^2.7.0",
     "istanbul": "^0.4.5",
     "mocha": "^4.0.1",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "nyc": "^11.3.0"
   }
 }

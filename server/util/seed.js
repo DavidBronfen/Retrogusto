@@ -2,17 +2,22 @@ const _ = require('lodash');
 const logger = require('./logger');
 
 const Category = require('../api/category/categoryModel');
+const Recipe = require('../api/recipe/recipeModel');
+
 const dummyCategories = require('./dummyCategories');
+const dummyRecipes = require('./dummyRecipes');
 
 const categories = dummyCategories.categories;
+const recipes = dummyRecipes.recipes;
+
+const environment = process.env.NODE_ENV;
 
 logger.log(['Seeding the Database']);
-
 
 // Clean DB a help method to clean the database before each build.
 const cleanDB = () => {
   logger.log(['... cleaning the DB']);
-  const cleanPromises = [Category]
+  const cleanPromises = [Category, Recipe]
     .map((model) => {
       return model.remove().exec();
     });
@@ -28,7 +33,6 @@ const createDoc = (Model, doc) => {
   });
 };
 
-
 const createCategories = (data) => {
   const newCategories = categories.map((category) => {
     return createDoc(Category, category);
@@ -42,7 +46,17 @@ const createCategories = (data) => {
     });
 };
 
+const createRecipes = (data) => {
+  const newRecipes = recipes.map((recipe) => {
+    return createDoc(Recipe, recipe);
+  });
+
+  return Promise.all(newRecipes)
+    .then(() => [`In ${environment} mode. Seeded DB with ${dummyCategories.categories.length} Categories, and ${dummyRecipes.recipes.length} Recipes.`]);
+};
+
 cleanDB()
   .then(createCategories)
+  .then(createRecipes)
   .then(logger.log.bind([logger]))
   .catch(logger.log.bind([logger]));
