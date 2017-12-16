@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RecipesRoutingModule } from './recipes-routing.module';
 
-import { MaterialModule } from '@angular/material';
 import { StarRatingModule } from 'angular-star-rating'
 
 import { StoreModule } from '@ngrx/store';
@@ -20,7 +19,6 @@ import { RecipesEffects } from './effects/recipes';
   imports: [
     RecipesRoutingModule,
     CommonModule,
-    MaterialModule,
     StoreModule.provideStore(reducer),
     StoreDevtoolsModule.instrumentOnlyWithExtension(),
     EffectsModule.run(RecipesEffects),

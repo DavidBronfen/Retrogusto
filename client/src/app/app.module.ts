@@ -5,13 +5,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 import { reducer } from './reducers';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -25,6 +25,8 @@ import { CategoriesService } from './services/categories.service';
 
 import { CategoriesEffects } from './effects/categories';
 
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,12 +39,13 @@ import { CategoriesEffects } from './effects/categories';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    MaterialModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    StoreModule.provideStore(reducer),
-    StoreDevtoolsModule.instrumentOnlyWithExtension(),
-    EffectsModule.run(CategoriesEffects),
+    StoreModule.forRoot(reducer),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    EffectsModule.forRoot([
+      CategoriesEffects,
+    ]),
     FlexLayoutModule,
   ],
   providers: [ CategoriesService ],
