@@ -9,10 +9,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
 
-import { reducer } from './reducers';
+import { reducers } from './reducers';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -21,6 +21,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { SearchComponent } from './components/search/search.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { CategoryComponent } from './components/category/category.component';
+
 import { CategoriesService } from './services/categories.service';
 
 import { CategoriesEffects } from './effects/categories';
@@ -41,7 +42,7 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    StoreModule.forRoot(reducer),
+    StoreModule.forRoot(reducers),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([
       CategoriesEffects,
