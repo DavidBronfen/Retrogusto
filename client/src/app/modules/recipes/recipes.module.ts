@@ -8,7 +8,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 
-import { reducer } from './reducers';
+import { reducers } from './reducers';
 
 import { RecipesComponent } from './recipes.component';
 import { RecipeComponent } from './components/recipe/recipe.component';
@@ -22,7 +22,7 @@ import { environment } from '../../../environments/environment';
   imports: [
     RecipesRoutingModule,
     CommonModule,
-    StoreModule.forRoot(reducer),
+    StoreModule.forRoot(reducers),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([
       RecipesEffects
