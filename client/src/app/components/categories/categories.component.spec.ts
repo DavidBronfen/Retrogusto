@@ -7,7 +7,7 @@ import 'rxjs/add/observable/of';
 import { ICategory } from '../../models/category';
 import { CategoriesComponent } from './categories.component';
 import { CategoriesService } from '../../services/categories.service';
-import { reducer } from '../../reducers';
+import { reducers } from '../../reducers';
 
 const CATEGORIES_OBJECT: ICategory[] = [{
   id: 1,
@@ -34,7 +34,7 @@ describe('CategoriesComponent', () => {
         { provide: CategoriesService, useClass: MockCategory }
       ],
       imports: [
-        StoreModule.provideStore(reducer),
+        StoreModule.forRoot(reducers),
       ],
       schemas: [
         CUSTOM_ELEMENTS_SCHEMA
