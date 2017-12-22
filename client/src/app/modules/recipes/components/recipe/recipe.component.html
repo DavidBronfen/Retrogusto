@@ -1,20 +1,22 @@
-<md-card>
+<mat-card>
   <div class="image-container">
-    <img md-card-image src="{{recipe.image_path}}"/>
+    <img mat-card-image src="{{recipe.image_path}}"/>
   </div>
-  <md-card-title>{{recipe.title}}</md-card-title>
-  <star-rating-comp
+  <mat-card-title>{{recipe.title}}</mat-card-title>
+  <!-- TODO Wait for update the library to support angular 5. (temporary comented out)
+      this pr (https://github.com/BioPhoton/angular-star-rating/pulls) is in progress.-->
+  <!-- <star-rating-comp
     [starType]="'svg'"
     [rating]="recipe.rating"
     [showHalfStars]="true"
     [direction]="'rtl'"
     [readOnly]="true"
     >
-  </star-rating-comp>
-  <md-card-content>
+  </star-rating-comp> -->
+  <mat-card-content>
     <p>{{recipe.description}}</p>
-  </md-card-content>
-  <md-card-footer>
+  </mat-card-content>
+  <mat-card-footer>
     <div class="preparation-time">
       <img src="./data/icons/clock.svg" />
       <span>{{recipe.prep_time}}</span>
@@ -29,5 +31,5 @@
       <img src="./data/icons/calories.svg" />
       <span>{{recipe.calories}}</span>
     </div>
-  </md-card-footer>
-</md-card>
+  </mat-card-footer>
+</mat-card>

@@ -1,7 +1,7 @@
 <div class="categories">
-  <md-grid-list cols="4" rowHeight="200px">
-    <md-grid-tile  *ngFor="let category of categories$ | async">
+  <mat-grid-list cols="4" rowHeight="200px">
+    <mat-grid-tile  *ngFor="let category of categories$ | async">
       <rg-category [category]=category></rg-category>
-    </md-grid-tile>
-  </md-grid-list>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>

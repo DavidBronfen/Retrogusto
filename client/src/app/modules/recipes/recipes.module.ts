@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RecipesRoutingModule } from './recipes-routing.module';
 
+import {
+  MatCardModule,
+} from '@angular/material';
 import { StarRatingModule } from 'angular-star-rating'
 
 import { StoreModule } from '@ngrx/store';
@@ -22,6 +25,7 @@ import { environment } from '../../../environments/environment';
   imports: [
     RecipesRoutingModule,
     CommonModule,
+    MatCardModule,
     StoreModule.forRoot(reducers),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([

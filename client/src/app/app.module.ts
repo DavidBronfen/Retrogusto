@@ -6,6 +6,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  MatInputModule,
+  MatGridListModule,
+  MatIconModule,
+} from '@angular/material';
+
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { StoreModule } from '@ngrx/store';
@@ -41,6 +47,9 @@ import { environment } from '../environments/environment';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatInputModule,
+    MatIconModule,
+    MatGridListModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
