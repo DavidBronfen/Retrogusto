@@ -10,6 +10,7 @@ import {
   MatInputModule,
   MatGridListModule,
   MatIconModule,
+  MatButtonModule,
 } from '@angular/material';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -47,6 +48,7 @@ import { environment } from '../environments/environment';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatButtonModule
     MatInputModule,
     MatIconModule,
     MatGridListModule,
