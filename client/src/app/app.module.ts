@@ -48,7 +48,7 @@ import { environment } from '../environments/environment';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
     MatInputModule,
     MatIconModule,
     MatGridListModule,
