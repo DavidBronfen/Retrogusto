@@ -10,7 +10,7 @@ import { IRecipes } from '../models/recipes';
 @Injectable()
 export class RecipesService {
 
-  private _recipesUrl = 'data/recipes.json';
+  readonly _recipesUrl = 'data/recipes.json';
 
   constructor(private _http: HttpClient) { }
 
