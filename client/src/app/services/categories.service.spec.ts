@@ -26,10 +26,10 @@ describe('Categories Service', () => {
 
   it('get categories', () => {
     const dummyCategory = [{
-      "id":1,
-      "name_he":"ארוחת בוקר",
-      "name_en":"breakfast",
-      "image_path":"data/categories/breakfast.png"
+      'id': 1,
+      'name_he': 'ארוחת בוקר',
+      'name_en': 'breakfast',
+      'image_path': 'data/categories/breakfast.png'
     }];
 
     service.getCategories().subscribe(categories => {
@@ -38,7 +38,7 @@ describe('Categories Service', () => {
     });
 
     const req = httpMock.expectOne(`${service._categoriesUrl}`);
-    expect(req.request.method).toBe("GET");
+    expect(req.request.method).toBe('GET');
     req.flush(dummyCategory);
   });
 
