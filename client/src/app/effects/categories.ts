@@ -2,7 +2,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/switchMap';
 import { Injectable } from '@angular/core';
-import { Effect, Actions, toPayload } from '@ngrx/effects';
+import { Effect, Actions } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';

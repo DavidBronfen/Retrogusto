@@ -34,7 +34,6 @@ describe('Categories Service', () => {
 
     service.getCategories().subscribe(categories => {
       expect(categories).toBe(dummyCategory);
-
     });
 
     const req = httpMock.expectOne(`${service._categoriesUrl}`);

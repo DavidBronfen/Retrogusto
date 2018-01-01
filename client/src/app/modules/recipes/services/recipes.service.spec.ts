@@ -39,7 +39,6 @@ describe('Recipes Service', () => {
 
     service.getRecipes().subscribe(recipe => {
       expect(recipe).toBe(dummyRecipe);
-
     });
 
     const req = httpMock.expectOne(`${service._recipesUrl}`);
