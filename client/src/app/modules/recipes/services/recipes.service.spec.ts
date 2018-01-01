@@ -2,9 +2,6 @@ import { TestBed, async, inject } from '@angular/core/testing';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-// import { Http, BaseRequestOptions, Response, ResponseOptions } from '@angular/http';
-// import { MockBackend } from '@angular/http/testing';
-
 import { RecipesService } from './recipes.service';
 
 describe('RecipesService', () => {

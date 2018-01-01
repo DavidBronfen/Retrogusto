@@ -1,30 +1,30 @@
-import { TestBed, inject } from '@angular/core/testing';
-import { HttpClientModule } from '@angular/common/http';
-import { Http, BaseRequestOptions, Response, ResponseOptions } from '@angular/http';
-import { MockBackend } from '@angular/http/testing';
+import { TestBed, async, inject } from '@angular/core/testing';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { CategoriesService } from './categories.service';
 
 describe('CategoriesService', () => {
+
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ HttpClientModule ],
-      providers: [
-        CategoriesService,
-        {
-          provide: Http,
-          useFactory: (mockBackend, options) => {
-            return new Http(mockBackend, options);
-          },
-          deps: [ MockBackend, BaseRequestOptions ]
-        },
-        MockBackend,
-        BaseRequestOptions,
-      ]
+      imports: [
+        HttpClientModule,
+        HttpClientTestingModule
+      ],
     });
   });
 
-  it('should be created', inject([CategoriesService], (service: CategoriesService) => {
-    expect(service).toBeTruthy();
-  }));
+  it('should issue a request',
+    async(
+      inject([HttpClient, HttpTestingController], (http: HttpClient, backend: HttpTestingController) => {
+        http.get('data/categories.json').subscribe();
+
+        backend.expectOne({
+          url: 'data/categories.json',
+          method: 'GET'
+        });
+      })
+    )
+  );
 });
