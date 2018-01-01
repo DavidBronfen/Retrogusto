@@ -1,30 +1,45 @@
-import { TestBed, async, inject } from '@angular/core/testing';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TestBed, getTestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 import { CategoriesService } from './categories.service';
 
-describe('CategoriesService', () => {
+describe('Categories Service', () => {
+  let injector: TestBed;
+  let service: CategoriesService;
+  let httpMock: HttpTestingController;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        HttpClientModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
       ],
+      providers: [ CategoriesService ]
     });
+    injector = getTestBed();
+    service = injector.get(CategoriesService);
+    httpMock = injector.get(HttpTestingController);
   });
 
-  it('should issue a request',
-    async(
-      inject([HttpClient, HttpTestingController], (http: HttpClient, backend: HttpTestingController) => {
-        http.get('data/categories.json').subscribe();
+  afterEach(() => {
+    httpMock.verify();
+  });
 
-        backend.expectOne({
-          url: 'data/categories.json',
-          method: 'GET'
-        });
-      })
-    )
-  );
+  it('get categories', () => {
+    const dummyCategory = [{
+      "id":1,
+      "name_he":"ארוחת בוקר",
+      "name_en":"breakfast",
+      "image_path":"data/categories/breakfast.png"
+    }];
+
+    service.getCategories().subscribe(categories => {
+      expect(categories).toBe(dummyCategory);
+
+    });
+
+    const req = httpMock.expectOne(`${service._categoriesUrl}`);
+    expect(req.request.method).toBe("GET");
+    req.flush(dummyCategory);
+  });
+
 });

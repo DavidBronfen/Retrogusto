@@ -10,7 +10,7 @@ import { ICategory } from '../models/category';
 @Injectable()
 export class CategoriesService {
 
-  private _categoriesUrl = 'data/categories.json';
+  readonly _categoriesUrl = 'data/categories.json';
 
   constructor(private _http: HttpClient) { }
 
