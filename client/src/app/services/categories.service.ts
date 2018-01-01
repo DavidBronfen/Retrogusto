@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
@@ -10,18 +10,18 @@ import { ICategory } from '../models/category';
 @Injectable()
 export class CategoriesService {
 
-  private _categoriesUrl = 'data/categories.json';
+  readonly _categoriesUrl = 'data/categories.json';
 
-  constructor(private _http: Http) { }
+  constructor(private _http: HttpClient) { }
 
   getCategories (): Observable<ICategory[]> {
       return this._http.get(this._categoriesUrl)
-        .map((response: Response) => <ICategory[]> response.json())
+        .map((response: HttpResponse<ICategory[]>) => response)
         .catch(this.handleError);
   }
 
-  private handleError(error: Response) {
-    console.log(error);
-    return Observable.throw(error.json().error || 'server error');
+  private handleError(err: HttpErrorResponse) {
+    console.log(err);
+    return Observable.throw(err.error.message || 'server error');
   }
 }

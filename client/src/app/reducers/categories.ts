@@ -20,6 +20,11 @@ export function reducer(state = initialState, action: categories.Actions): State
       return action.payload;
     }
 
+    case categories.LOAD_CATEGORIES_FAILED: {
+      console.log('LOAD_CATEGORIES_FAILED');
+      break;
+    }
+
     default: {
       return state;
     }

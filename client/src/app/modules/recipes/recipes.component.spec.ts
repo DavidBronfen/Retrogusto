@@ -8,7 +8,7 @@ import { IRecipes } from './models/recipes';
 
 import { RecipesComponent } from './recipes.component';
 import { RecipesService } from './services/recipes.service';
-import { reducer } from './reducers';
+import { reducers } from './reducers';
 
 const RECIPES_OBJECT: IRecipes[] = [{
   id: 3,
@@ -46,7 +46,7 @@ describe('RecipesComponent', () => {
         }
       ],
       imports: [
-        StoreModule.provideStore(reducer),
+        StoreModule.forRoot(reducers),
       ],
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
     })
