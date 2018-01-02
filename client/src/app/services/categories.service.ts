@@ -5,6 +5,8 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 
+import { environment } from '../../environments/environment'
+
 import { ICategory } from '../models/category';
 
 @Injectable()
@@ -15,7 +17,7 @@ export class CategoriesService {
   constructor(private _http: HttpClient) { }
 
   getCategories (): Observable<ICategory[]> {
-      return this._http.get(this._categoriesUrl)
+      return this._http.get(`${environment.backend}/api/categories/`)
         .map((response: HttpResponse<ICategory[]>) => response)
         .catch(this.handleError);
   }
