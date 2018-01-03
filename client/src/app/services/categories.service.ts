@@ -12,10 +12,12 @@ import { ICategory } from '../models/category';
 @Injectable()
 export class CategoriesService {
 
+  readonly envBackend = environment.backend;
+
   constructor(private _http: HttpClient) { }
 
   getCategories (): Observable<ICategory[]> {
-      return this._http.get(`${environment.backend}/api/categories/`)
+      return this._http.get(`${this.envBackend}/api/categories/`)
         .map((response: HttpResponse<ICategory[]>) => response)
         .catch(this.handleError);
   }

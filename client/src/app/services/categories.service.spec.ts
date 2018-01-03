@@ -36,7 +36,7 @@ describe('Categories Service', () => {
       expect(categories).toBe(dummyCategory);
     });
 
-    const req = httpMock.expectOne(`${service._categoriesUrl}`);
+    const req = httpMock.expectOne(`${service.envBackend}/api/categories/`);
     expect(req.request.method).toBe('GET');
     req.flush(dummyCategory);
   });

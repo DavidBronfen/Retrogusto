@@ -12,10 +12,12 @@ import { IRecipes } from '../models/recipes';
 @Injectable()
 export class RecipesService {
 
+  readonly envBackend = environment.backend;
+
   constructor(private _http: HttpClient) { }
 
   getRecipes (): Observable<IRecipes[]> {
-    return this._http.get(`${environment.backend}/api/recipes`)
+    return this._http.get(`${this.envBackend}/api/recipes/`)
       .map((response: HttpResponse<IRecipes[]>) => response)
       .catch(this.handleError);
     }

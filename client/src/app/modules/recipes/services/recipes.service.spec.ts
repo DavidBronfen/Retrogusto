@@ -41,7 +41,7 @@ describe('Recipes Service', () => {
       expect(recipe).toBe(dummyRecipe);
     });
 
-    const req = httpMock.expectOne(`${service._recipesUrl}`);
+    const req = httpMock.expectOne(`${service.envBackend}/api/recipes/`);
     expect(req.request.method).toBe('GET');
     req.flush(dummyRecipe);
   });
