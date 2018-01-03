@@ -22,7 +22,7 @@ require('./middleware/app.middleware')(app);
 // setup the api
 app.use('/api', api);
 
-app.use('/util/assets', express.static(path.join(__dirname, '/util/assets')))
+app.use('/util/assets', express.static(path.join(__dirname, '/util/assets')));
 
 // Setup global error handling
 app.use((err, req, res, next) => {
