@@ -12,8 +12,6 @@ import { ICategory } from '../models/category';
 @Injectable()
 export class CategoriesService {
 
-  readonly _categoriesUrl = 'data/categories.json';
-
   constructor(private _http: HttpClient) { }
 
   getCategories (): Observable<ICategory[]> {
