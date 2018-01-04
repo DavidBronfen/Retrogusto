@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/map';
 
 import { environment } from '../../../../environments/environment';
 
@@ -17,12 +15,11 @@ export class RecipesService {
   constructor(private _http: HttpClient) { }
 
   getRecipes (): Observable<IRecipes[]> {
-    return this._http.get(`${this.envBackend}/api/recipes/`)
-      .map((response: HttpResponse<IRecipes[]>) => response)
+    return this._http.get<IRecipes[]>(`${this.envBackend}/api/recipes/`)
       .catch(this.handleError);
-    }
+  }
 
- private handleError(err: HttpErrorResponse) {
+  private handleError(err: HttpErrorResponse) {
     console.log(err);
     return Observable.throw(err.error.message || 'server error');
   }
