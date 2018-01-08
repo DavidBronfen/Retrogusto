@@ -13,6 +13,7 @@ import { environment } from '../../environments/environment';
  * notation packages up all of the exports into a single object.
  */
 import * as fromCategories from './categories';
+import * as fromLogin from './login';
 
 
 /**
@@ -21,6 +22,7 @@ import * as fromCategories from './categories';
  */
 export interface State {
   categories: fromCategories.State;
+  login: fromLogin.State;
 }
 
 /**
@@ -30,6 +32,7 @@ export interface State {
  */
 export const reducers: ActionReducerMap<State> = {
   categories: fromCategories.reducer,
+  login: fromLogin.reducer,
 };
 
 
@@ -37,3 +40,9 @@ export const reducers: ActionReducerMap<State> = {
 * Layout Reducers
 */
 export const getCategoriesState = createFeatureSelector<fromCategories.State>('categories');
+export const getLoginState = createFeatureSelector<fromLogin.State>('login');
+
+export const getLoginPopupState = createSelector(
+  getLoginState,
+  fromLogin.getShowPopupState,
+);
