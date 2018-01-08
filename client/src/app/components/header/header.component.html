@@ -13,8 +13,13 @@
     <div class="buttons-wrapper">
       <!-- TODO Will be shown only if user logged in. links to the add recipe page -->
       <button mat-raised-button color="primary" class="button">הוסף מתכון</button>
-      <!-- TODO Will be shown always. redirect to login/registration page. -->
-      <button mat-raised-button color="accent" class="button login">התחבר</button>
+      <!-- TODO If user loged in, the button should be hidden. -->
+      <button
+        mat-raised-button
+        color="accent"
+        class="button login"
+        (click)="toggleLogin()">התחבר</button>
+        <rg-login *ngIf="showLogin"></rg-login>
     </div>
     <rg-search></rg-search>
   </div>
