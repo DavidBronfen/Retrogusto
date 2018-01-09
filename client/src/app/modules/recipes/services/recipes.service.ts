@@ -16,6 +16,11 @@ export class RecipesService {
 
   getRecipes (): Observable<IRecipes[]> {
     return this._http.get<IRecipes[]>(`${this.envBackend}/api/recipes/`)
+      .map(recipes =>
+        recipes.map(recipe =>
+          Object.assign(recipe, { image_path: this.envBackend + recipe.image_path })
+        )
+      )
       .catch(this.handleError);
   }
 
