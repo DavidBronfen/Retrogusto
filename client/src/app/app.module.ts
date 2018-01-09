@@ -28,7 +28,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { SearchComponent } from './components/search/search.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { CategoryComponent } from './components/category/category.component';
-import { LoginComponent } from './components/login/login.component';
 
 import { CategoriesService } from './services/categories.service';
 
@@ -43,7 +42,6 @@ import { environment } from '../environments/environment';
     SearchComponent,
     CategoriesComponent,
     CategoryComponent,
-    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,9 +60,7 @@ import { environment } from '../environments/environment';
     ]),
     FlexLayoutModule,
   ],
-  providers: [
-    CategoriesService,
-  ],
+  providers: [ CategoriesService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
