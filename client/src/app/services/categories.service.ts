@@ -16,6 +16,11 @@ export class CategoriesService {
 
   getCategories (): Observable<ICategory[]> {
     return this._http.get<ICategory[]>(`${this.envBackend}/api/categories/`)
+    .map(categorioes => {
+      categorioes.map(category => {
+        Object.assign(category, {image_path: environment.backend + category.image_path});
+      })
+    })
       .catch(this.handleError);
   }
 
