@@ -1,8 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { environment } from '../../../environments/environment'
-
 import { ICategory } from '../../models/category';
 
 @Component({
@@ -14,8 +12,6 @@ export class CategoryComponent implements OnInit {
 
   @Input()
   category: ICategory;
-
-  envBackend = environment.backend;
 
   constructor(private router: Router) { }
 

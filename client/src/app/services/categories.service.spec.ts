@@ -33,7 +33,8 @@ describe('Categories Service', () => {
     }];
 
     service.getCategories().subscribe(categories => {
-      expect(categories).toBe(dummyCategory);
+      expect(categories).toEqual(dummyCategory);
+      expect(categories[0].image_path).toContain('http://localhost:3000');
     });
 
     const req = httpMock.expectOne(`${service.envBackend}/api/categories/`);
