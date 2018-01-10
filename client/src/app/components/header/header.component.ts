@@ -20,7 +20,7 @@ export class HeaderComponent {
     private store: Store<fromRoot.State>,
   ) {
     this.store.select(fromRoot.getLoginPopupState).subscribe(
-      loginPopupState => this.showLogin = loginPopupState;
+      loginPopupState => this.showLogin = loginPopupState
     );
   }
 
