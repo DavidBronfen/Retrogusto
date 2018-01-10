@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { environment } from '../../../../../environments/environment'
 import { IRecipes } from '../../models/recipes';
 
 @Component({
@@ -12,8 +11,6 @@ export class RecipeComponent implements OnInit {
 
   @Input()
   recipe: IRecipes;
-
-  envBackend = environment.backend;
 
   constructor() { }
 
