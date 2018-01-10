@@ -28,7 +28,7 @@ describe('Recipes Service', () => {
     const dummyRecipe = [{
       'id': 1,
       'title': 'מרק ריבולטה טוסקני',
-      'image_path': 'data/recipes/img/ribollita.jpg',
+      'image_path': '/data/recipes/img/ribollita.jpg',
       'rating': 4,
       // tslint:disable-next-line:max-line-length
       'description': 'ריבולטה הוא המרק הטוסקני המפורסם ביותר שהלכה למעשה מדובר בנזיד המורכב מירקות ולחם. השפית לירז שדה (מבראסרי עין כרם) מציעה את',
@@ -38,7 +38,8 @@ describe('Recipes Service', () => {
     }];
 
     service.getRecipes().subscribe(recipe => {
-      expect(recipe).toBe(dummyRecipe);
+      expect(recipe).toEqual(dummyRecipe);
+      expect(recipe[0].image_path).toContain('http://localhost:3000');
     });
 
     const req = httpMock.expectOne(`${service.envBackend}/api/recipes/`);
