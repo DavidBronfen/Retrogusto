@@ -1,9 +1,9 @@
-/deep/
 .mat-card {
   border: 1px solid #b2c1be;
   background: none;
   padding: .7em;
   color: #3e3d39;
+  position: static;
 
   .image-container {
     overflow: hidden;
@@ -43,6 +43,7 @@
     color: #b2c1be;
     border-top: 1px solid;
     padding-top: .5em;
+    position: static;
 
     div {
       width: 30%;
