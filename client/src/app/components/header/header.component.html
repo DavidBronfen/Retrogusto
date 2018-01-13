@@ -19,8 +19,9 @@
         color="accent"
         class="button login"
         (click)="toggleLogin()">התחבר</button>
-        <rg-login *ngIf="showLogin"></rg-login>
     </div>
-    <rg-search></rg-search>
   </div>
+  <rg-search></rg-search>
 </div>
+
+<rg-login *ngIf="showLogin"></rg-login>
