@@ -1,5 +1,15 @@
-<div>
-  <p>
-    login works!
-  </p>
+<div class="login-wrapper">
+  <div class="login-header">
+    <object data="./data/icons/retrogustoLogo.svg" class="logo"></object>
+  </div>
+
+  <form>
+    <mat-input-container floatPlaceholder="never" color="primary">
+      <input matInput placeholder="מייל" type="email" />
+    </mat-input-container>
+    <mat-input-container floatPlaceholder="never" color="primary">
+      <input matInput shouldPlaceholderFloat placeholder="סיסמא" type="password" />
+    </mat-input-container>
+    <button mat-raised-button color="primary" type="submit">כניסה</button>
+  </form>
 </div>

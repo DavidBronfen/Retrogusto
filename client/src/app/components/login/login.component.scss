@@ -1,0 +1,40 @@
+:host {
+  display: block;
+  background: rgba(0, 0, 0, .5);
+  width: 100vw;
+  height: 100%;
+  position: fixed;
+  top: 0;
+
+  .login-wrapper {
+    width: 33%;
+    background: #E9ECE6;
+    margin: 35% auto;
+
+    .login-header {
+      background: #3e3d39;
+      display: flex;
+      justify-content: center;
+      padding: 20px 0;
+
+      .logo {
+        max-height: 45px;
+      }
+    }
+    form {
+      height: 100%;
+      flex-direction: column;
+      box-sizing: border-box;
+      display: flex;
+      place-content: stretch space-around;
+      align-items: stretch;
+      max-width: 100%;
+      padding: 20px;
+
+      .mat-form-field {
+        text-align: right;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
