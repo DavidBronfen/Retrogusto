@@ -31,6 +31,7 @@ export class HeaderComponent {
   toggleLogin() {
     // this.store.dispatch(new loginAction.ToggleLoginPopupAction());
     let dialogRef = this.dialog.open(LoginComponent, {
+      width: '25vw',
       panelClass: 'login-dialog'
     });
 

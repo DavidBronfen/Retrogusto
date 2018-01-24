@@ -13,7 +13,7 @@
         max-height: 45px;
       }
     }
-    
+
     form {
       height: 100%;
       flex-direction: column;
@@ -22,7 +22,7 @@
       place-content: stretch space-around;
       align-items: stretch;
       max-width: 100%;
-      padding: 20px;
+      padding: 30px 40px 40px;
 
       .mat-form-field {
         text-align: right;
