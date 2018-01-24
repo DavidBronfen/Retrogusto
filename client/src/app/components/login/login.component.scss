@@ -1,18 +1,10 @@
-:host {
-  display: block;
-  background: rgba(0, 0, 0, .5);
-  width: 100vw;
-  height: 100%;
-  position: fixed;
-  top: 0;
+.login-dialog {
+  direction: rtl;
 
-  .login-wrapper {
-    width: 33%;
-    background: #E9ECE6;
-    margin: 35% auto;
+  .mat-dialog-container {
+    padding: 0;
 
     .login-header {
-      background: #3e3d39;
       display: flex;
       justify-content: center;
       padding: 20px 0;
@@ -21,6 +13,7 @@
         max-height: 45px;
       }
     }
+    
     form {
       height: 100%;
       flex-direction: column;
