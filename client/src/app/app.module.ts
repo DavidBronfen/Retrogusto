@@ -11,6 +11,7 @@ import {
   MatGridListModule,
   MatIconModule,
   MatButtonModule,
+  MatDialogModule,
 } from '@angular/material';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -45,6 +46,7 @@ import { environment } from '../environments/environment';
     CategoryComponent,
     LoginComponent,
   ],
+  entryComponents: [LoginComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -54,6 +56,7 @@ import { environment } from '../environments/environment';
     MatInputModule,
     MatIconModule,
     MatGridListModule,
+    MatDialogModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
