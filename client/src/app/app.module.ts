@@ -29,7 +29,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { SearchComponent } from './components/search/search.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { CategoryComponent } from './components/category/category.component';
-import { LoginComponent } from './components/login/login.component'
+import { LoginComponent } from './components/login/login.component';
+import { RgLogo } from './components/rgLogo/rgLogo.component';
 
 import { CategoriesService } from './services/categories.service';
 
@@ -45,6 +46,7 @@ import { environment } from '../environments/environment';
     CategoriesComponent,
     CategoryComponent,
     LoginComponent,
+    RgLogo,
   ],
   entryComponents: [LoginComponent],
   imports: [
