@@ -1,8 +1,8 @@
-import { ViewChild, ElementRef,Renderer2, Component, AfterViewInit } from '@angular/core';
+import { ViewChild, ElementRef, Component, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'rg-logo',
-  templateUrl: './rgLogo.component.html',
+  templateUrl: './rgLogo.component.html'
 })
 export class RgLogo implements AfterViewInit {
   @ViewChild('logoWrapper') el:ElementRef;
@@ -91,10 +91,6 @@ export class RgLogo implements AfterViewInit {
   </g>
   </svg>
 `;
-
-  constructor() {
-
-  }
 
   ngAfterViewInit() {
     this.el.nativeElement.innerHTML = this.logoTemplate;
