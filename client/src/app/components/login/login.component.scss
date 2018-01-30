@@ -10,7 +10,12 @@
       padding: 20px 0;
 
       .logo {
-        max-height: 45px;
+        width: 3vw;
+        display: block;
+
+        svg {
+          fill: #B2C1BE;
+        }
       }
     }
 
