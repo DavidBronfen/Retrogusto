@@ -4,8 +4,8 @@ import { ViewChild, ElementRef, Component, AfterViewInit } from '@angular/core';
   selector: 'rg-logo',
   templateUrl: './rgLogo.component.html'
 })
-export class RgLogo implements AfterViewInit {
-  @ViewChild('logoWrapper') el:ElementRef;
+export class RgLogoComponent implements AfterViewInit {
+  @ViewChild('logoWrapper') el: ElementRef;
 
   logoTemplate = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
    viewBox="0 0 92.4 129" style="enable-background:new 0 0 92.4 129;" xml:space="preserve">
