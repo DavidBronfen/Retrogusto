@@ -1,3 +1,8 @@
 export interface ILogin {
-  showPopup: boolean,
+  user: string;
+  password: string;
+}
+
+export interface ILoginToken {
+  token: string;
 }
