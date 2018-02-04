@@ -1,12 +1,29 @@
 import { Action } from '@ngrx/store';
+import { ILoginToken } from '../actions/login';
 
-export const TOGGLE_LOGIN_POPUP =  '[Login] Toggle Login Popup';
+export const LOGIN_USER =  '[Login] Login User';
+export const LOGIN_USER_SUCCESS =  '[Login] Login User Success';
+export const LOGIN_USER_FAILED =  '[Login] Login User Failed';
 
-export class ToggleLoginPopupAction implements Action {
-  readonly type = TOGGLE_LOGIN_POPUP;
+export class LoginUserAction implements Action {
+  readonly type = LOGIN_USER;
 
   constructor() { }
 }
 
+export class LoginUserSuccessAction implements Action {
+  readonly type = LOGIN_USER_SUCCESS;
+
+  constructor(public payload: ILoginToken) {}
+}
+
+export class LoginUserSuccessFailed implements Action {
+  readonly type = LOGIN_USER_FAILED;
+
+  constructor() {}
+}
+
 export type Actions
-  = ToggleLoginPopupAction;
+  = LoginUserAction
+  | LoginUserSuccessAction
+  | LoginUserSuccessFailed;
