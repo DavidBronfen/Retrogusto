@@ -5,7 +5,7 @@ import { RecipesRoutingModule } from './recipes-routing.module';
 import {
   MatCardModule,
 } from '@angular/material';
-import { StarRatingModule } from 'angular-star-rating'
+import { BarRatingModule } from "ngx-bar-rating";
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -31,7 +31,7 @@ import { environment } from '../../../environments/environment';
     EffectsModule.forRoot([
       RecipesEffects
     ]),
-    StarRatingModule.forRoot(),
+    BarRatingModule,
   ],
   declarations: [
     RecipesComponent,
