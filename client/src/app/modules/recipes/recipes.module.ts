@@ -5,7 +5,7 @@ import { RecipesRoutingModule } from './recipes-routing.module';
 import {
   MatCardModule,
 } from '@angular/material';
-import { BarRatingModule } from "ngx-bar-rating";
+import { BarRatingModule } from 'ngx-bar-rating';
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
