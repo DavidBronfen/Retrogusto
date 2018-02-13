@@ -30,6 +30,35 @@
     font-family: 'Rubik', sans-serif;
   }
 
+  bar-rating {
+    display: block;
+
+    .br {
+      margin: 0;
+    }
+
+    .br-default {
+      .br-unit {
+        height: 100%;
+        width: auto;
+
+        &:first-of-type {
+          margin-right: 0;
+        }
+
+        &::after {
+          color: #e3e3e3;
+        }
+      }
+
+      .br-selected {
+        &::after {
+          color: #b2c1be;
+        }
+      }
+    }
+  }
+
   .mat-card-content {
     font-size: .8em;
     font-family: 'Lato', sans-serif;
@@ -42,8 +71,8 @@
     justify-content: space-around;
     color: #b2c1be;
     border-top: 1px solid;
-    padding-top: .5em;
-    position: static;
+    padding: .5em 0;
+
 
     div {
       width: 30%;
