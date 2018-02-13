@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { ILoginToken } from '../actions/login';
+import { ILoginToken } from '../models/login';
 
 export const LOGIN_USER =  '[Login] Login User';
 export const LOGIN_USER_SUCCESS =  '[Login] Login User Success';
