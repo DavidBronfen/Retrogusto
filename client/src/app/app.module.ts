@@ -37,6 +37,7 @@ import { CategoriesService } from './services/categories.service';
 import { CategoriesEffects } from './effects/categories';
 
 import { environment } from '../environments/environment';
+import { LoginService } from './services/login.service';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,10 @@ import { environment } from '../environments/environment';
     ]),
     FlexLayoutModule,
   ],
-  providers: [ CategoriesService ],
+  providers: [
+    CategoriesService,
+    LoginService
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
