@@ -3,13 +3,26 @@
     <rg-logo class="logo"></rg-logo>
   </div>
 
-  <form>
-    <mat-input-container floatPlaceholder="never" color="primary">
-      <input matInput placeholder="מייל" type="email" />
+  <form
+  [formGroup]="loginForm"
+  (ngSubmit)="onSubmit()">
+    <mat-input-container
+      [ngClass]="{'error': loginForm.controls['email'].errors && !loginForm.controls['email'].pristine}"
+      dividerColor="{{loginForm.controls['email'].errors && !loginForm.controls['email'].pristine ? 'warn' : 'primary'}}">
+      <input matInput formControlName="email" placeholder="מייל" type="email" />
+      <div *ngIf="loginForm.controls['email'].errors && !loginForm.controls['email'].pristine" class="error-msg">
+        <div [hidden]="!loginForm.controls['email'].errors.required">Email is required.</div>
+        <div [hidden]="!loginForm.controls['email'].errors.patternInvalid">Email is invalid.</div>
+      </div>
     </mat-input-container>
-    <mat-input-container floatPlaceholder="never" color="primary">
-      <input matInput shouldPlaceholderFloat placeholder="סיסמא" type="password" />
+    <mat-input-container
+      [ngClass]="{'error': loginForm.controls['password'].errors && !loginForm.controls['password'].pristine}"
+      dividerColor="{{loginForm.controls['password'].errors && !loginForm.controls['password'].pristine ? 'warn' : 'primary'}}">
+      <input matInput formControlName="password" placeholder="סיסמא" type="password" />
+      <div *ngIf="loginForm.controls['password'].errors && !loginForm.controls['password'].pristine" class="error-msg">
+        <div [hidden]="!loginForm.controls['password'].errors.required">Password is required.</div>
+      </div>
     </mat-input-container>
-    <button mat-raised-button color="primary" type="submit">כניסה</button>
+    <button mat-raised-button color="primary" [disabled]="!loginForm.valid" type="submit">כניסה</button>
   </form>
 </div>
