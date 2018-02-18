@@ -1,19 +1,24 @@
-import { ILogin } from '../models/login'
-import * as login from '../actions/login';
+import { ILoginToken } from '../models/login'
+import { Actions, LoginActionTypes } from '../actions/login';
 
-export type State = ILogin;
+export type State = ILoginToken;
 
 const initialState: State = {
-  showPopup: false,
+  token: '',
 };
 
-export function reducer(state = initialState, action: login.Actions): State {
+export function reducer(state = initialState, action: Actions): State {
   switch (action.type) {
-    case login.TOGGLE_LOGIN_POPUP: {
-      return {
-        ...state,
-        showPopup: !state.showPopup,
-      }
+    case LoginActionTypes.LOGIN: {
+      return initialState;
+    }
+
+    case LoginActionTypes.LOGIN_SUCCESS: {
+      return action.payload;
+    }
+
+    case LoginActionTypes.LOGIN_FAILED: {
+      console.log('LOGIN_FAILED');
     }
 
     default: {
@@ -21,5 +26,3 @@ export function reducer(state = initialState, action: login.Actions): State {
     }
   }
 }
-
-export const getShowPopupState = (state: State) => state.showPopup;

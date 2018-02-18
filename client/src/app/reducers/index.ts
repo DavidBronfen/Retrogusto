@@ -41,8 +41,3 @@ export const reducers: ActionReducerMap<State> = {
 */
 export const getCategoriesState = createFeatureSelector<fromCategories.State>('categories');
 export const getLoginState = createFeatureSelector<fromLogin.State>('login');
-
-export const getLoginPopupState = createSelector(
-  getLoginState,
-  fromLogin.getShowPopupState,
-);
