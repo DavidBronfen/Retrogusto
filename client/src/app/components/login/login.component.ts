@@ -4,7 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Store } from '@ngrx/store';
 
 import * as fromRoot from '../../reducers';
-import { LoginUserAction } from '../../actions/login';
+import { LoginAction } from '../../actions/login';
 import { ILogin } from '../../models/login';
 
 
@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password,
     } as ILogin;
-    this.store.dispatch(new LoginUserAction(loginInfo));
+    this.store.dispatch(new LoginAction(loginInfo));
   }
 
   private createForm() {
