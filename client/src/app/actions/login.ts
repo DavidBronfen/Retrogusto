@@ -1,29 +1,31 @@
 import { Action } from '@ngrx/store';
-import { ILogin, ILoginToken } from '../models/login';
+import { ILogin, ILoginToken} from '../models/login';
 
-export const LOGIN_USER =  '[Login] Login User';
-export const LOGIN_USER_SUCCESS =  '[Login] Login User Success';
-export const LOGIN_USER_FAILED =  '[Login] Login User Failed';
-
-export class LoginUserAction implements Action {
-  readonly type = LOGIN_USER;
-
-  constructor(public payload: ILogin) { }
+export enum LoginActionTypes {
+  LOGIN =  '[Login] Login',
+  LOGIN_SUCCESS = '[Login] Login Success',
+  LOGIN_FAILED = '[Login] Login Failed',
 }
 
-export class LoginUserSuccessAction implements Action {
-  readonly type = LOGIN_USER_SUCCESS;
+export class LoginAction implements Action {
+  readonly type = LoginActionTypes.LOGIN;
+
+  constructor(public payload: ILogin) {}
+}
+
+export class LoginSuccessAction implements Action {
+  readonly type = LoginActionTypes.LOGIN_SUCCESS;
 
   constructor(public payload: ILoginToken) {}
 }
 
-export class LoginUserSuccessFailed implements Action {
-  readonly type = LOGIN_USER_FAILED;
+export class LoginFailedAction implements Action {
+  readonly type = LoginActionTypes.LOGIN_FAILED;
 
-  constructor() {}
+  constructor(public payload: any) {}
 }
 
 export type Actions
-  = LoginUserAction
-  | LoginUserSuccessAction
-  | LoginUserSuccessFailed;
+  = LoginAction
+  | LoginSuccessAction
+  | LoginFailedAction
