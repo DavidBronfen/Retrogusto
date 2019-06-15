@@ -33,7 +33,7 @@ before_script:
 script:
   # Server
   - cd ../server
-  - npm run lint
+  - npm run tslint
   - npm run test
   - npm run cover
 
