@@ -22,11 +22,17 @@
     "mongoose": "^5.5.15"
   },
   "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/chai-http": "^4.2.0",
     "@types/cors": "^2.8.5",
     "@types/dotenv": "^6.1.1",
     "@types/lodash": "^4.14.134",
+    "@types/mocha": "^5.2.7",
     "@types/mongoose": "^5.5.6",
     "@types/node": "^12.0.8",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^6.1.4",
     "nodemon": "^1.19.1",
     "npm-run-all": "^4.1.5",
     "ts-node": "^8.2.0",
