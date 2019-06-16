@@ -14,3 +14,5 @@ router.route("/:id")
     .get(asyncMiddleware(getOne))
     .put(asyncMiddleware(editFields))
     .delete(asyncMiddleware(deleteOne));
+
+export default router;
