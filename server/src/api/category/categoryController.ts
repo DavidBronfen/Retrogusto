@@ -42,7 +42,10 @@ export const params = async (req: ICategory, res: Response, next: NextFunction, 
 export const getAll = async (req: ICategories, res: Response, next: NextFunction) => {
     try {
         const categories = await Category.find({});
-        res.json(categories);
+        res.json({
+            _message: "Categories fetched successfully.",
+            categories
+        });
     } catch (err) {
         res.status(404).json({
             _message: `No categories`,
