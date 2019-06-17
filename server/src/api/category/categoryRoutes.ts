@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { asyncMiddleware } from "../../util/asyncMiddleware";
-import { params, createNew, getOne, getAll, editFields, deleteOne} from "./categoryController";
+import { params, createNew, getOne, getAll, editFields, deleteOne } from "./categoryController";
 
 const router: Router = Router();
 
