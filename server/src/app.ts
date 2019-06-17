@@ -43,7 +43,7 @@ export class App {
    * @return void
    */
   private configureRoutes() {
-      this.app.use("/category", categoryRoutes.default);
+      this.app.use("/categories", categoryRoutes.default);
   }
 
 }
