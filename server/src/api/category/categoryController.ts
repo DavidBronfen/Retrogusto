@@ -62,7 +62,7 @@ export const getAll = async (req: ICategories, res: Response, next: NextFunction
 export const getOne = (req: ICategory, res: Response) => {
   res.json({
     _message: "Category fetched successfully.",
-    customer: req.category,
+    category: req.category,
   });
 };
 
