@@ -5,6 +5,7 @@ npm-debug.log
 
 # compiled output
 /dist
+/server/dist
 /tmp
 /out-tsc
 
