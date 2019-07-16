@@ -3,6 +3,7 @@ import * as cors from "cors";
 import * as express from "express";
 
 import * as categoryRoutes from "./api/category/categoryRoutes";
+import * as recipeRoutes from "./api/recipe/recipeRoutes";
 
 const router: express.Router = express.Router();
 
@@ -44,6 +45,6 @@ export class App {
    */
   private configureRoutes() {
       this.app.use("/categories", categoryRoutes.default);
+      this.app.use("/recipes", recipeRoutes.default);
   }
-
 }
