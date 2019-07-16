@@ -15,9 +15,7 @@ let print: any;
 describe("Categories", () => {
   before("Create the express server and prepare DB for tests", done => {
     const cleanPromises = [Category]
-      .map(model => {
-        return model.deleteMany({}).exec();
-      });
+      .map(model => model.deleteMany({}).exec());
 
     Promise.all(cleanPromises)
       .then(() => {
@@ -25,9 +23,7 @@ describe("Categories", () => {
         setTimeout(done, 1000);
 
         Category.create({ name_he: "תבשילים", name_en: "Stews", image_path: "path/to/image", })
-          .then(newCategory => {
-            firstCategory = newCategory;
-          });
+          .then(newCategory => firstCategory = newCategory);
       });
   });
 
