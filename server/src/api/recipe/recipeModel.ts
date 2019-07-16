@@ -1,5 +1,4 @@
 import { Document, model, Schema } from "mongoose";
-import { ICategoryModel } from "../category/categoryModel";
 
 export interface IRecipeModel extends Document {
   _id: string;
