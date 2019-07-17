@@ -2,9 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RecipesRoutingModule } from './recipes-routing.module';
 
-import {
-  MatCardModule,
-} from '@angular/material';
+import { MatCardModule } from '@angular/material/card';
 import { BarRatingModule } from 'ngx-bar-rating';
 
 import { StoreModule } from '@ngrx/store';
