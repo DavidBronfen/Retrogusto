@@ -13,7 +13,7 @@ let firstRecipe: IRecipeModel;
 let print: any;
 
 describe("Recipe", () => {
-  before("Create express server and prepare DBB for test", done => {
+  before("Create express server and prepare DB for test", done => {
     const cleanPromises = [Recipe]
       .map(model => model.deleteMany({}).exec());
 
