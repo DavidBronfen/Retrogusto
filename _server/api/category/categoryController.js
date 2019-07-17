@@ -21,6 +21,7 @@ exports.params = (req, res, next, id) => {
 };
 
 exports.get = (req, res, next) => {
+  console.log('HERE');
   Category.find({})
     .then((categories) => {
       res.json(categories);

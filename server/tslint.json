@@ -1,0 +1,21 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended"
+  ],
+  "jsRules": {},
+  "rules": {
+    "trailing-comma": [
+      false
+    ],
+    // Bans the use of specified console methods.
+    "no-console": false,
+    // Checks ordering of keys in object literals.
+    "object-literal-sort-keys": false,
+    // Requires that import statements be alphabetized and grouped.
+    "ordered-imports": false,
+    // Requires parentheses around the parameters of arrow function definitions.
+    "arrow-parens": [true, "ban-single-arg-parens"]
+  },
+  "rulesDirectory": []
+}
