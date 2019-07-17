@@ -1,8 +1,8 @@
-import 'rxjs/add/operator/switchMap';
+
 import { Injectable } from '@angular/core';
 import { Effect, Actions } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 import { RecipesService } from '../services/recipes.service';
 import * as recipes from '../actions/recipes';

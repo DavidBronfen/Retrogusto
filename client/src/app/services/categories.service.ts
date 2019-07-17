@@ -1,8 +1,9 @@
+
+import {throwError as observableThrowError,  Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
+
+
 
 import { environment } from '../../environments/environment'
 
@@ -27,6 +28,6 @@ export class CategoriesService {
 
   private handleError(err: HttpErrorResponse) {
     console.log(err);
-    return Observable.throw(err.error.message || 'server error');
+    return observableThrowError(err.error.message || 'server error');
   }
 }
