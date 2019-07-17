@@ -3,15 +3,11 @@ import * as chalk from "chalk";
 import * as mongoose from "mongoose";
 import * as assert from "assert";
 
-import { Model } from "mongoose";
-
 import categories from "./dummy-data/categories";
 import recipes from "./dummy-data/recipes";
 
 import { Category } from "../api/category/categoryModel";
-import { ICategories } from "../api/category/categoryController";
 import { Recipe } from "../api/recipe/recipeModel";
-import { IRecipes } from "../api/recipe/recipeController";
 
 (mongoose as any).Promise = global.Promise;
 
@@ -30,14 +26,13 @@ export default class Seed {
   }
 
   /**
-   * Seet the Databases.
+   * Set the Databases.
    *
    * @class Seed
    * @method seeding
    * @return void
    */
   public seeding() {
-    console.log("");
     console.log(chalk.default.yellow("💦  Cleaning the DB 💦"));
 
     this.cleanDB()
