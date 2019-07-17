@@ -51,5 +51,4 @@ export default class Config {
       seed.seeding();
     }
   }
-
 }
