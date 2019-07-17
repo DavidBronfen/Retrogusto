@@ -1,5 +1,6 @@
 import * as dotenv from "dotenv";
 import * as _ from "lodash";
+import Seed from "./seed";
 
 /**
  * @class Config
@@ -21,6 +22,7 @@ export default class Config {
         dotenv.config({path: ".env"});
         const envConfig = this.configDB();
         this.config = _.merge(this.config, envConfig);
+        this.loadSeed();
     }
 
     /**
@@ -35,4 +37,19 @@ export default class Config {
         this.config.environment = process.env.NODE_ENV;
         return require(`./envs/${process.env.NODE_ENV}`);
     }
+
+  /**
+   * Load seed data.
+   *
+   * @class config
+   * @method loadSeed
+   * @return void
+   */
+  private loadSeed() {
+    if (this.config.seed) {
+      const seed = new Seed(this.config);
+      seed.seeding();
+    }
+  }
+
 }
