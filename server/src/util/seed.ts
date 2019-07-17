@@ -1,7 +1,6 @@
 import * as _ from "lodash";
 import * as chalk from "chalk";
 import * as mongoose from "mongoose";
-import * as assert from "assert";
 
 import categories from "./dummy-data/categories";
 import recipes from "./dummy-data/recipes";
@@ -67,11 +66,7 @@ export default class Seed {
    * @return void
    */
   private async createCategories(data: any) {
-    const newCategories = await categories.map(async category => {
-      // Wait for model's indexes to finish.
-      await Category.on("index", err => {
-        assert.ifError(err);
-      });
+    const newCategories = categories.map(async category => {
       // Save category.
       return new Category(category).save();
     });
@@ -91,11 +86,7 @@ export default class Seed {
    */
   private async createRecipes(data: any) {
     const newRecipes = await recipes.map(async recipe => {
-      // Wait for model's indexes to finish.
-      await Category.on("index", err => {
-        assert.ifError(err);
-      });
-      // Save recipe.
+      // // Save recipe.
       return new Recipe(recipe).save();
     });
 
