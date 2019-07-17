@@ -2,29 +2,20 @@ process.env.NODE_ENV = "testing";
 
 import * as chai from "chai";
 import chaiHttp = require("chai-http");
-import server from "../../server";
 
-import { Category, ICategoryModel } from "./categoryModel";
+import server from "../../server";
+import { ICategoryModel } from "./categoryModel";
 
 chai.use(chaiHttp);
 const expect = chai.expect;
 let app: any;
-let firstCategory: ICategoryModel;
 let print: any;
+let category: ICategoryModel;
 
 describe("Categories", () => {
   before("Create the express server and prepare DB for tests", done => {
-    const cleanPromises = [Category]
-      .map(model => model.deleteMany({}).exec());
-
-    Promise.all(cleanPromises)
-      .then(() => {
-        app = server.app;
-        setTimeout(done, 1000);
-
-        Category.create({ name_he: "תבשילים", name_en: "Stews", image_path: "path/to/image", })
-          .then(newCategory => firstCategory = newCategory);
-      });
+    app = server.app;
+    setTimeout(done, 1000);
   });
 
   afterEach(() => {
@@ -53,6 +44,7 @@ describe("Categories", () => {
         expect(res.body.category).to.haveOwnProperty("name_en").equal(newCategory.name_en);
         expect(res.body.category).to.haveOwnProperty("image_path").equal(newCategory.image_path);
 
+        category = res.body.category;
       });
   });
 
@@ -65,21 +57,21 @@ describe("Categories", () => {
         expect(res).to.be.json;
         expect(res.body._message).to.be.an("string").to.equal("Categories fetched successfully.");
         expect(res.body.categories).to.be.an("array");
-        expect(res.body.categories).to.have.length(2);
+        expect(res.body.categories).to.have.length(17);
       });
   });
 
   it("should get one category by given ID", () => {
     return chai.request(app)
-      .get(`/categories/${firstCategory._id}`)
+      .get(`/categories/${category._id}`)
       .then(res => {
         expect(res.status).to.equal(200);
         // tslint:disable-next-line:no-unused-expression
         expect(res).to.be.json;
         expect(res.body._message).to.be.an("string").to.equal("Category fetched successfully.");
-        expect(res.body.category).to.haveOwnProperty("name_he").equal(firstCategory.name_he);
-        expect(res.body.category).to.haveOwnProperty("name_en").equal(firstCategory.name_en);
-        expect(res.body.category).to.haveOwnProperty("image_path").equal(firstCategory.image_path);
+        expect(res.body.category).to.haveOwnProperty("name_he").equal(category.name_he);
+        expect(res.body.category).to.haveOwnProperty("name_en").equal(category.name_en);
+        expect(res.body.category).to.haveOwnProperty("image_path").equal(category.image_path);
       });
   });
 
@@ -103,7 +95,7 @@ describe("Categories", () => {
     };
 
     return chai.request(app)
-      .put(`/categories/${firstCategory._id}`)
+      .put(`/categories/${category._id}`)
       .send(updateCategory)
       .then(res => {
         expect(res.status).to.equal(200);
@@ -118,7 +110,7 @@ describe("Categories", () => {
 
   it("Should be able to delete a single category", () => {
     return chai.request(app)
-      .delete(`/categories/${firstCategory._id}`)
+      .delete(`/categories/${category._id}`)
       .then(res => {
         expect(res.status).to.equal(200);
         // tslint:disable-next-line:no-unused-expression

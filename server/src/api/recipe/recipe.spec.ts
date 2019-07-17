@@ -2,37 +2,20 @@ process.env.NODE_ENV = "testing";
 
 import * as chai from "chai";
 import chaiHttp = require("chai-http");
-import server from "../../server";
 
-import { Recipe, IRecipeModel } from "./recipeModel";
+import server from "../../server";
+import { IRecipeModel } from "./recipeModel";
 
 chai.use(chaiHttp);
 const expect = chai.expect;
 let app: any;
-let firstRecipe: IRecipeModel;
+let recipe: IRecipeModel;
 let print: any;
 
 describe("Recipe", () => {
   before("Create express server and prepare DB for test", done => {
-    const cleanPromises = [Recipe]
-      .map(model => model.deleteMany({}).exec());
-
-    Promise.all(cleanPromises)
-      .then(() => {
-        app = server.app;
-        setTimeout(done, 1000);
-
-        Recipe.create({
-        title: "חמוצים",
-        image_path: "path/to/Pickles/image",
-        rating: 3.9,
-        description: "היתרונות הבריאותיים של חמוצים, פלוס מתכון מושלם למלפפונים חמוצים ולחמוצים אסיאתים",
-        prep_time: "1",
-        portions: 2,
-        calories: 180,
-      })
-        .then(newRecipe => firstRecipe = newRecipe);
-      });
+    app = server.app;
+    setTimeout(done, 1000);
   });
 
   afterEach(() => {
@@ -68,6 +51,8 @@ describe("Recipe", () => {
         expect(res.body.recipe).to.haveOwnProperty("prep_time").equal(newRecipe.prep_time);
         expect(res.body.recipe).to.haveOwnProperty("portions").equal(newRecipe.portions);
         expect(res.body.recipe).to.haveOwnProperty("calories").equal(newRecipe.calories);
+
+        recipe = res.body.recipe;
       });
   });
 
@@ -80,25 +65,25 @@ describe("Recipe", () => {
         expect(res).to.be.json;
         expect(res.body._message).to.be.an("string").to.equal("Recipes fetched successfully.");
         expect(res.body.recipes).to.be.an("array");
-        expect(res.body.recipes).to.have.length(2);
+        expect(res.body.recipes).to.have.length(11);
       });
   });
 
   it("should get one recipe by given ID", () => {
     return chai.request(app)
-      .get(`/recipes/${firstRecipe._id}`)
+      .get(`/recipes/${recipe._id}`)
       .then(res => {
         expect(res.status).to.equal(200);
         // tslint:disable-next-line:no-unused-expression
         expect(res).to.be.json;
         expect(res.body._message).to.be.an("string").to.equal("Recipe fetched successfully.");
-        expect(res.body.recipe).to.haveOwnProperty("title").equal(firstRecipe.title);
-        expect(res.body.recipe).to.haveOwnProperty("image_path").equal(firstRecipe.image_path);
-        expect(res.body.recipe).to.haveOwnProperty("rating").equal(firstRecipe.rating);
-        expect(res.body.recipe).to.haveOwnProperty("description").equal(firstRecipe.description);
-        expect(res.body.recipe).to.haveOwnProperty("prep_time").equal(firstRecipe.prep_time);
-        expect(res.body.recipe).to.haveOwnProperty("portions").equal(firstRecipe.portions);
-        expect(res.body.recipe).to.haveOwnProperty("calories").equal(firstRecipe.calories);
+        expect(res.body.recipe).to.haveOwnProperty("title").equal(recipe.title);
+        expect(res.body.recipe).to.haveOwnProperty("image_path").equal(recipe.image_path);
+        expect(res.body.recipe).to.haveOwnProperty("rating").equal(recipe.rating);
+        expect(res.body.recipe).to.haveOwnProperty("description").equal(recipe.description);
+        expect(res.body.recipe).to.haveOwnProperty("prep_time").equal(recipe.prep_time);
+        expect(res.body.recipe).to.haveOwnProperty("portions").equal(recipe.portions);
+        expect(res.body.recipe).to.haveOwnProperty("calories").equal(recipe.calories);
       });
   });
 
@@ -126,7 +111,7 @@ describe("Recipe", () => {
     };
 
     return chai.request(app)
-      .put(`/recipes/${firstRecipe._id}`)
+      .put(`/recipes/${recipe._id}`)
       .send(updateRecipe)
       .then(res => {
         expect(res.status).to.equal(200);
@@ -145,7 +130,7 @@ describe("Recipe", () => {
 
   it("should be able to delete a single recipe", () => {
     return chai.request(app)
-      .delete(`/recipes/${firstRecipe._id}`)
+      .delete(`/recipes/${recipe._id}`)
       .then(res => {
         expect(res.status).to.equal(200);
         // tslint:disable-next-line:no-unused-expression
