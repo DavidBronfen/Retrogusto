@@ -86,7 +86,7 @@ export default class Seed {
    */
   private async createRecipes(data: any) {
     const newRecipes = await recipes.map(async recipe => {
-      // // Save recipe.
+      // Save recipe.
       return new Recipe(recipe).save();
     });
 
