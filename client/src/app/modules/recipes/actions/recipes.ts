@@ -1,22 +1,32 @@
 import { Action } from '@ngrx/store';
-import { IRecipes } from '../models/recipes';
+import { IRecipesResponse } from '../models/recipes';
 
-export const LOAD_RECIPES =  '[Recipes] Load Recipes';
-export const LOAD_RECIPES_SUCCESS = '[Recipes] Load Recipes Success';
 
+export enum RecipesActionTypes {
+  LOAD_RECIPES =  '[Recipes] Load Recipes',
+  LOAD_RECIPES_SUCCESS = '[Recipes] Load Recipes Success',
+  LOAD_RECIPES_FAILED = '[Recipes] Load Recipes Failed',
+}
 
 export class LoadRecipesAction implements Action {
-  readonly type = LOAD_RECIPES;
+  readonly type = RecipesActionTypes.LOAD_RECIPES;
 
   constructor() { }
 }
 
 export class LoadRecipesSuccessAction implements Action {
-  readonly type = LOAD_RECIPES_SUCCESS;
+  readonly type = RecipesActionTypes.LOAD_RECIPES_SUCCESS;
 
-  constructor(public payload: IRecipes[]) { }
+  constructor(public payload: IRecipesResponse) { }
+}
+
+export class LoadRecipesFailedAction implements Action {
+  readonly type = RecipesActionTypes.LOAD_RECIPES_FAILED;
+
+  constructor(public payload: any) { }
 }
 
 export type Actions
   = LoadRecipesAction
-  | LoadRecipesSuccessAction;
+  | LoadRecipesSuccessAction
+  | LoadRecipesFailedAction;
