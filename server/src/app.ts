@@ -1,6 +1,7 @@
 import * as bodyParser from "body-parser";
 import * as cors from "cors";
 import * as express from "express";
+import * as path from "path";
 
 import * as categoryRoutes from "./api/category/categoryRoutes";
 import * as recipeRoutes from "./api/recipe/recipeRoutes";
@@ -44,6 +45,7 @@ export class App {
    * @return void
    */
   private configureRoutes() {
+      this.app.use("/static", express.static("src/assets"));
       this.app.use("/categories", categoryRoutes.default);
       this.app.use("/recipes", recipeRoutes.default);
   }
