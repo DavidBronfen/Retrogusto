@@ -1,26 +1,29 @@
-import { ICategory } from '../models/category';
-import * as categories from '../actions/categories';
+import { ICategoryResponse } from '../models/category';
+import { CategoriesActionTypes, Actions } from '../actions/categories';
 
-export type State = ICategory[];
+import { environment } from '../../environments/environment'
 
-const initialState: State = [{
-  id: 0,
-  name_he: '',
-  name_en: '',
-  image_path: '',
-}];
+export type State = ICategoryResponse;
 
-export function reducer(state = initialState, action: categories.Actions): State {
+const initialState: State = {
+  categories: [],
+  _message: ''
+};
+
+export function reducer(state = initialState, action: Actions): State {
   switch (action.type) {
-    case categories.LOAD_CATEGORIES: {
+    case CategoriesActionTypes.LOAD_CATEGORIES: {
       return initialState;
     }
 
-    case categories.LOAD_CATEGORIES_SUCCESS: {
-      return action.payload;
+    case CategoriesActionTypes.LOAD_CATEGORIES_SUCCESS: {
+      action.payload.categories.map(category =>
+        Object.assign(category, { image_path: environment.backend + category.image_path })
+      );
+      return {...action.payload};
     }
 
-    case categories.LOAD_CATEGORIES_FAILED: {
+    case CategoriesActionTypes.LOAD_CATEGORIES_FAILED: {
       console.log('LOAD_CATEGORIES_FAILED');
       break;
     }

@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Effect, Actions } from '@ngrx/effects';
+import { Effect, Actions, ofType } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
-import { Observable ,  of } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { exhaustMap, map, catchError} from 'rxjs/operators';
 
 import { CategoriesService } from '../services/categories.service';
-import * as categories from '../actions/categories';
+import { CategoriesActionTypes, LoadCategoriesSuccessAction } from '../actions/categories';
 
 @Injectable()
 export class CategoriesEffects {
@@ -14,10 +15,13 @@ export class CategoriesEffects {
   ) { }
 
   @Effect()
-  loadCategories$: Observable<Action>= this.actions$
-    .ofType(categories.LOAD_CATEGORIES)
-    .switchMap(() => this.categoriesService.getCategories()
-      .map(data => new categories.LoadCategoriesSuccessAction(data))
-      .catch(() => of({ type: 'LOAD_CATEGORIES_FAILED'}))
-    );
+  loadCategories$: Observable<Action>= this.actions$.pipe(
+    ofType(CategoriesActionTypes.LOAD_CATEGORIES),
+    exhaustMap(() =>
+      this.categoriesService.getCategories().pipe(
+        map(data => new LoadCategoriesSuccessAction(data)),
+        catchError(() => of({ type: 'LOAD_CATEGORIES_FAILED'}))
+      )
+    )
+  );
 }

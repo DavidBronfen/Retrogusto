@@ -4,3 +4,8 @@ export interface ICategory {
   name_en: string;
   image_path: string;
 }
+
+export interface ICategoryResponse {
+  categories: ICategory[],
+  _message: string
+}

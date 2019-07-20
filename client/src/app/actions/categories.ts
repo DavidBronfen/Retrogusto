@@ -1,26 +1,24 @@
 import { Action } from '@ngrx/store';
-import { ICategory } from '../models/category';
+import { ICategoryResponse } from '../models/category';
 
-export const LOAD_CATEGORIES =  '[Categories] Load Categories';
-export const LOAD_CATEGORIES_SUCCESS = '[Categories] Load Categories Success';
-export const LOAD_CATEGORIES_FAILED = '[Categories] Load Categories Failed';
+export enum CategoriesActionTypes {
+  LOAD_CATEGORIES =  '[Categories] Load Categories',
+  LOAD_CATEGORIES_SUCCESS = '[Categories] Load Categories Success',
+  LOAD_CATEGORIES_FAILED = '[Categories] Load Categories Failed',
+}
 
 export class LoadCategoriesAction implements Action {
-  readonly type = LOAD_CATEGORIES;
-
-  constructor() { }
+  readonly type = CategoriesActionTypes.LOAD_CATEGORIES;
 }
 
 export class LoadCategoriesSuccessAction implements Action {
-  readonly type = LOAD_CATEGORIES_SUCCESS;
+  readonly type = CategoriesActionTypes.LOAD_CATEGORIES_SUCCESS;
 
-  constructor(public payload: ICategory[]) { }
+  constructor(public payload: ICategoryResponse) { }
 }
 
 export class LoadCategoriesActionFailed implements Action {
-  readonly type = LOAD_CATEGORIES_FAILED;
-
-  constructor() { }
+  readonly type = CategoriesActionTypes.LOAD_CATEGORIES_FAILED;
 }
 
 
