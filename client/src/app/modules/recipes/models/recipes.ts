@@ -8,3 +8,8 @@ export interface IRecipes {
   portions: Number;
   calories: Number;
 }
+
+export interface IRecipesResponse {
+  recipes: IRecipes[];
+  _message: string;
+}

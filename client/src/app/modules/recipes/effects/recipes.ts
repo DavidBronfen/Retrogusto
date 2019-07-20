@@ -1,11 +1,11 @@
-
 import { Injectable } from '@angular/core';
-import { Effect, Actions } from '@ngrx/effects';
+import { Effect, Actions, ofType } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { exhaustMap, map, catchError} from 'rxjs/operators';
 
 import { RecipesService } from '../services/recipes.service';
-import * as recipes from '../actions/recipes';
+import { RecipesActionTypes, LoadRecipesSuccessAction } from '../actions/recipes';
 
 @Injectable()
 export class RecipesEffects {
@@ -15,8 +15,13 @@ export class RecipesEffects {
   ) { }
 
   @Effect()
-  loadrecipes$: Observable<Action>= this.actions$
-    .ofType(recipes.LOAD_RECIPES)
-    .switchMap(() => this.recipesService.getRecipes())
-    .map(data => new recipes.LoadRecipesSuccessAction(data));
+  loadrecipes$: Observable<Action>= this.actions$.pipe(
+    ofType(RecipesActionTypes.LOAD_RECIPES),
+    exhaustMap(() =>
+      this.recipesService.getRecipes().pipe(
+        map(data => new LoadRecipesSuccessAction(data)),
+        catchError(() => of({ type: 'LOAD_RECIPES_FAILED'}))
+      )
+    )
+  )
 }
