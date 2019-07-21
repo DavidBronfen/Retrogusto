@@ -24,7 +24,14 @@ import { environment } from '../../../environments/environment';
     RecipesRoutingModule,
     CommonModule,
     MatCardModule,
-    StoreModule.forRoot(reducers),
+    StoreModule.forRoot(reducers, {
+      runtimeChecks: {
+        strictStateImmutability: false,
+        strictActionImmutability: false,
+        strictStateSerializability: true,
+        strictActionSerializability: true,
+      },
+    }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([
       RecipesEffects
