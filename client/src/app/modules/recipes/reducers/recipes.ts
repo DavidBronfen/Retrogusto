@@ -1,5 +1,6 @@
 import { IRecipesResponse } from '../models/recipes';
 import { RecipesActionTypes, Actions } from '../actions/recipes';
+import { environment } from '../../../../environments/environment';
 
 export type State = IRecipesResponse;
 
@@ -15,7 +16,10 @@ export function reducer(state = initialState, action: Actions): State {
     }
 
     case RecipesActionTypes.LOAD_RECIPES_SUCCESS: {
-      return action.payload;
+      action.payload.recipes.map(recipe =>
+        Object.assign(recipe, { image_path: environment.backend + recipe.image_path })
+      );
+      return {...action.payload};
     }
 
     default: {
