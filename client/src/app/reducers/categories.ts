@@ -1,4 +1,4 @@
-import { createReducer, on } from '@ngrx/store';
+import { Action, createReducer, on } from '@ngrx/store';
 
 import { ICategoryResponse } from '../models/category';
 import * as categoryActions from '../actions/categories';
@@ -22,3 +22,7 @@ export const categoriesReducer = createReducer(
     return response
   }),
 );
+
+export function reducer(state: State | undefined, action: Action) {
+  return categoriesReducer(state, action);
+}

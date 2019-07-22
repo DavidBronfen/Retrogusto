@@ -11,7 +11,7 @@ export interface State {
 }
 
 export const reducer: ActionReducerMap<State> = {
-  categories: fromCategories.categoriesReducer,
+  categories: fromCategories.reducer,
 };
 
 
