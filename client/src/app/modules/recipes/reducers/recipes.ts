@@ -1,4 +1,4 @@
-import { createReducer, on } from '@ngrx/store';
+import { Action, createReducer, on } from '@ngrx/store';
 import { IRecipesResponse } from '../models/recipes';
 import * as recipeActions from '../actions/recipes';
 import { environment } from '../../../../environments/environment';
@@ -23,4 +23,9 @@ export const recipesReducer = createReducer(
     console.log(error);
     return state
   })
-)
+);
+
+export function reducer(state: State | undefined, action: Action) {
+  return recipesReducer(state, action);
+}
+

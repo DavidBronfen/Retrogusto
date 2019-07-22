@@ -10,7 +10,7 @@ export interface State {
 }
 
 export const reducers: ActionReducerMap<State> = {
-  recipes: fromRecipes.recipesReducer,
+  recipes: fromRecipes.reducer,
 };
 
 export const getRecipesState = createFeatureSelector<fromRecipes.State>('recipes');
