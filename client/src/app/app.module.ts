@@ -1,7 +1,7 @@
 import 'hammerjs';
 
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -33,6 +33,15 @@ import { CategoriesEffects } from './effects/categories';
 
 import { environment } from '../environments/environment';
 
+const StoreModuleProvider: ModuleWithProviders = StoreModule.forRoot(reducer, {
+  runtimeChecks: {
+    strictStateImmutability: false,
+    strictActionImmutability: false,
+    strictStateSerializability: false,
+    strictActionSerializability: false,
+  },
+})
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,14 +60,7 @@ import { environment } from '../environments/environment';
     MatIconModule,
     MatGridListModule,
     AppRoutingModule,
-    StoreModule.forRoot(reducer, {
-      runtimeChecks: {
-        strictStateImmutability: false,
-        strictActionImmutability: false,
-        strictStateSerializability: false,
-        strictActionSerializability: false,
-      },
-    }),
+    StoreModuleProvider,
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([
       CategoriesEffects,
