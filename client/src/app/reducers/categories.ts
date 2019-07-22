@@ -21,28 +21,4 @@ export const reducer = createReducer(
       );
     return response
   }),
-)
-
-// export function reducer(state = initialState, action: Actions): State {
-//   switch (action.type) {
-//     case CategoriesActionTypes.LOAD_CATEGORIES: {
-//       return initialState;
-//     }
-//
-//     case CategoriesActionTypes.LOAD_CATEGORIES_SUCCESS: {
-//       action.payload.categories.map(category =>
-//         Object.assign(category, { image_path: environment.backend + category.image_path })
-//       );
-//       return {...action.payload};
-//     }
-//
-//     case CategoriesActionTypes.LOAD_CATEGORIES_FAILED: {
-//       console.log('LOAD_CATEGORIES_FAILED');
-//       break;
-//     }
-//
-//     default: {
-//       return state;
-//     }
-//   }
-// }
+);
