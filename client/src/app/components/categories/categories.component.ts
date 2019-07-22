@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 
 import { ICategory } from '../../models/category';
 
-import * as categoriesAction from '../../actions/categories';
+import { loadCategories } from '../../actions/categories';
 import * as fromRoot from '../../reducers';
 
 @Component({
@@ -23,7 +23,7 @@ export class CategoriesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.store.dispatch(new categoriesAction.LoadCategoriesAction());
+    this.store.dispatch(loadCategories());
   }
 
 }

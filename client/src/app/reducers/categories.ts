@@ -1,5 +1,7 @@
+import { createReducer, on } from '@ngrx/store';
+
 import { ICategoryResponse } from '../models/category';
-import { CategoriesActionTypes, Actions } from '../actions/categories';
+import * as categoryActions from '../actions/categories';
 
 import { environment } from '../../environments/environment'
 
@@ -10,26 +12,37 @@ const initialState: State = {
   _message: ''
 };
 
-export function reducer(state = initialState, action: Actions): State {
-  switch (action.type) {
-    case CategoriesActionTypes.LOAD_CATEGORIES: {
-      return initialState;
-    }
-
-    case CategoriesActionTypes.LOAD_CATEGORIES_SUCCESS: {
-      action.payload.categories.map(category =>
+export const reducer = createReducer(
+  initialState,
+  on(categoryActions.loadCategories, state => state),
+  on(categoryActions.loadCategoriesSuccess, (state, {response}) => {
+    response.categories.map(category =>
         Object.assign(category, { image_path: environment.backend + category.image_path })
       );
-      return {...action.payload};
-    }
+    return response
+  }),
+)
 
-    case CategoriesActionTypes.LOAD_CATEGORIES_FAILED: {
-      console.log('LOAD_CATEGORIES_FAILED');
-      break;
-    }
-
-    default: {
-      return state;
-    }
-  }
-}
+// export function reducer(state = initialState, action: Actions): State {
+//   switch (action.type) {
+//     case CategoriesActionTypes.LOAD_CATEGORIES: {
+//       return initialState;
+//     }
+//
+//     case CategoriesActionTypes.LOAD_CATEGORIES_SUCCESS: {
+//       action.payload.categories.map(category =>
+//         Object.assign(category, { image_path: environment.backend + category.image_path })
+//       );
+//       return {...action.payload};
+//     }
+//
+//     case CategoriesActionTypes.LOAD_CATEGORIES_FAILED: {
+//       console.log('LOAD_CATEGORIES_FAILED');
+//       break;
+//     }
+//
+//     default: {
+//       return state;
+//     }
+//   }
+// }
