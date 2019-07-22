@@ -1,32 +1,16 @@
-import { Action } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
 import { IRecipesResponse } from '../models/recipes';
 
+export const loadRecipes = createAction(
+  '[Recipes] Load Recipes',
+);
 
-export enum RecipesActionTypes {
-  LOAD_RECIPES =  '[Recipes] Load Recipes',
-  LOAD_RECIPES_SUCCESS = '[Recipes] Load Recipes Success',
-  LOAD_RECIPES_FAILED = '[Recipes] Load Recipes Failed',
-}
+export const loadRecipesSuccess = createAction(
+  '[Recipes] Load Recipes Success',
+  props<{response: IRecipesResponse}>()
+);
 
-export class LoadRecipesAction implements Action {
-  readonly type = RecipesActionTypes.LOAD_RECIPES;
-
-  constructor() { }
-}
-
-export class LoadRecipesSuccessAction implements Action {
-  readonly type = RecipesActionTypes.LOAD_RECIPES_SUCCESS;
-
-  constructor(public payload: IRecipesResponse) { }
-}
-
-export class LoadRecipesFailedAction implements Action {
-  readonly type = RecipesActionTypes.LOAD_RECIPES_FAILED;
-
-  constructor(public payload: any) { }
-}
-
-export type Actions
-  = LoadRecipesAction
-  | LoadRecipesSuccessAction
-  | LoadRecipesFailedAction;
+export const loadRecipesFailed = createAction(
+  '[Recipes] Load Recipes Failed',
+  props<{error: any}>()
+);

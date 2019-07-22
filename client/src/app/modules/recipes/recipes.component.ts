@@ -6,7 +6,7 @@ import { Store } from '@ngrx/store';
 
 import { IRecipes } from './models/recipes';
 
-import * as recipesAction from './actions/recipes';
+import { loadRecipes } from './actions/recipes';
 import * as fromRoot from './reducers';
 
 
@@ -35,6 +35,6 @@ export class RecipesComponent implements OnInit {
         this.categoryName = params['categoryName'];
       });
 
-    this.store.dispatch(new recipesAction.LoadRecipesAction())
+    this.store.dispatch(loadRecipes())
   }
 }
