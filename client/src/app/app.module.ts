@@ -33,6 +33,15 @@ import { CategoriesEffects } from './effects/categories';
 
 import { environment } from '../environments/environment';
 
+const Reducer = StoreModule.forRoot(reducers, {
+    runtimeChecks: {
+      strictStateImmutability: false,
+      strictActionImmutability: false,
+      strictStateSerializability: true,
+      strictActionSerializability: true,
+    },
+  });
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,14 +60,7 @@ import { environment } from '../environments/environment';
     MatIconModule,
     MatGridListModule,
     AppRoutingModule,
-    StoreModule.forRoot(reducers, {
-      runtimeChecks: {
-        strictStateImmutability: false,
-        strictActionImmutability: false,
-        strictStateSerializability: true,
-        strictActionSerializability: true,
-      },
-    }),
+    Reducer,
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot([
       CategoriesEffects,
