@@ -17,7 +17,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 
-import { reducers } from './reducers';
+import { reducer } from './reducers';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -51,7 +51,7 @@ import { environment } from '../environments/environment';
     MatIconModule,
     MatGridListModule,
     AppRoutingModule,
-    StoreModule.forRoot(reducers, {
+    StoreModule.forRoot(reducer, {
       runtimeChecks: {
         strictStateImmutability: false,
         strictActionImmutability: false,

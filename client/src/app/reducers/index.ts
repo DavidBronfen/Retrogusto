@@ -10,8 +10,8 @@ export interface State {
   categories: fromCategories.State;
 }
 
-export const reducers: ActionReducerMap<State> = {
-  categories: fromCategories.reducer,
+export const reducer: ActionReducerMap<State> = {
+  categories: fromCategories.categoriesReducer,
 };
 
 

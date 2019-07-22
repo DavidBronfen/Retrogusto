@@ -12,7 +12,7 @@ const initialState: State = {
   _message: ''
 };
 
-export const reducer = createReducer(
+export const categoriesReducer = createReducer(
   initialState,
   on(categoryActions.loadCategories, state => state),
   on(categoryActions.loadCategoriesSuccess, (state, {response}) => {
