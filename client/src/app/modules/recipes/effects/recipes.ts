@@ -1,11 +1,10 @@
-import 'rxjs/add/operator/switchMap';
 import { Injectable } from '@angular/core';
-import { Effect, Actions } from '@ngrx/effects';
-import { Action } from '@ngrx/store';
-import { Observable } from 'rxjs/Observable';
+import { Effect, Actions, ofType, createEffect } from '@ngrx/effects';
+import { of } from 'rxjs';
+import { exhaustMap, map, catchError} from 'rxjs/operators';
 
 import { RecipesService } from '../services/recipes.service';
-import * as recipes from '../actions/recipes';
+import * as recipeActions from '../actions/recipes';
 
 @Injectable()
 export class RecipesEffects {
@@ -15,8 +14,15 @@ export class RecipesEffects {
   ) { }
 
   @Effect()
-  loadrecipes$: Observable<Action>= this.actions$
-    .ofType(recipes.LOAD_RECIPES)
-    .switchMap(() => this.recipesService.getRecipes())
-    .map(data => new recipes.LoadRecipesSuccessAction(data));
+  loadrecipes$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(recipeActions.loadRecipes),
+      exhaustMap(() =>
+        this.recipesService.getRecipes().pipe(
+          map(data => recipeActions.loadRecipesSuccess({response: data})),
+          catchError(() => of({ type: 'LOAD_RECIPES_FAILED'}))
+        )
+      )
+    )
+  )
 }

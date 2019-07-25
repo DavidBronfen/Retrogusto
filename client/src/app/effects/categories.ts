@@ -1,14 +1,10 @@
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/switchMap';
 import { Injectable } from '@angular/core';
-import { Effect, Actions } from '@ngrx/effects';
-import { Action } from '@ngrx/store';
-import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
+import { createEffect, Actions, ofType } from '@ngrx/effects';
+import { of } from 'rxjs';
+import { exhaustMap, map, catchError} from 'rxjs/operators';
 
 import { CategoriesService } from '../services/categories.service';
-import * as categories from '../actions/categories';
+import * as categoryActions from '../actions/categories';
 
 @Injectable()
 export class CategoriesEffects {
@@ -17,11 +13,15 @@ export class CategoriesEffects {
     private categoriesService: CategoriesService
   ) { }
 
-  @Effect()
-  loadCategories$: Observable<Action>= this.actions$
-    .ofType(categories.LOAD_CATEGORIES)
-    .switchMap(() => this.categoriesService.getCategories()
-      .map(data => new categories.LoadCategoriesSuccessAction(data))
-      .catch(() => of({ type: 'LOAD_CATEGORIES_FAILED'}))
-    );
+  loadCategories$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(categoryActions.loadCategories),
+      exhaustMap(() =>
+        this.categoriesService.getCategories().pipe(
+          map(data => categoryActions.loadCategoriesSuccess({response: data})),
+          catchError(() => of({ type: 'LOAD_CATEGORIES_FAILED'}))
+        )
+      )
+    )
+  );
 }

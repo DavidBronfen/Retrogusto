@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
 import { IRecipes } from './models/recipes';
-import { RecipesService } from './services/recipes.service';
 
-import * as recipesAction from './actions/recipes';
+import { loadRecipes } from './actions/recipes';
 import * as fromRoot from './reducers';
 
 
@@ -19,14 +18,13 @@ import * as fromRoot from './reducers';
 export class RecipesComponent implements OnInit {
 
   private categoryName: String;
-  private errorMessage: String;
   public recipes$: Observable<IRecipes[]>;
 
   constructor(
     private store: Store<fromRoot.State>,
     private activatedRoute: ActivatedRoute,
   ) {
-    this.recipes$ = this.store.select(fromRoot.getRecipesState);
+    this.recipes$ = this.store.select(fromRoot.getRecipes);
   }
 
   ngOnInit() {
@@ -37,6 +35,6 @@ export class RecipesComponent implements OnInit {
         this.categoryName = params['categoryName'];
       });
 
-    this.store.dispatch(new recipesAction.LoadRecipesAction())
+    this.store.dispatch(loadRecipes())
   }
 }

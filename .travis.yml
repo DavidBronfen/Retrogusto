@@ -2,7 +2,7 @@ sudo: required
 dist: trusty
 language: node_js
 node_js:
-  - "8"
+  - "12.6.0"
 
 addons:
   apt:
@@ -42,7 +42,7 @@ script:
   - npm run lint
   - npm run test
   - npm run e2e
-  - ng build --prod -- aot
+  - ng build --prod --aot
 
 after_script:
   - codecov

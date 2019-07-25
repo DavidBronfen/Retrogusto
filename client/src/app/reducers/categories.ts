@@ -1,32 +1,28 @@
-import { ICategory } from '../models/category';
-import * as categories from '../actions/categories';
+import { Action, createReducer, on } from '@ngrx/store';
 
-export type State = ICategory[];
+import { ICategoryResponse } from '../models/category';
+import * as categoryActions from '../actions/categories';
 
-const initialState: State = [{
-  id: 0,
-  name_he: '',
-  name_en: '',
-  image_path: '',
-}];
+import { environment } from '../../environments/environment'
 
-export function reducer(state = initialState, action: categories.Actions): State {
-  switch (action.type) {
-    case categories.LOAD_CATEGORIES: {
-      return initialState;
-    }
+export type State = ICategoryResponse;
 
-    case categories.LOAD_CATEGORIES_SUCCESS: {
-      return action.payload;
-    }
+const initialState: State = {
+  categories: [],
+  _message: ''
+};
 
-    case categories.LOAD_CATEGORIES_FAILED: {
-      console.log('LOAD_CATEGORIES_FAILED');
-      break;
-    }
+export const categoriesReducer = createReducer(
+  initialState,
+  on(categoryActions.loadCategories, state => state),
+  on(categoryActions.loadCategoriesSuccess, (state, {response}) => {
+    response.categories.map(category =>
+        Object.assign(category, { image_path: environment.backend + category.image_path })
+      );
+    return response
+  }),
+);
 
-    default: {
-      return state;
-    }
-  }
+export function reducer(state: State | undefined, action: Action) {
+  return categoriesReducer(state, action);
 }

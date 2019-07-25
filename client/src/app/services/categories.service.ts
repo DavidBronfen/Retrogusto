@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 import { environment } from '../../environments/environment'
 
-import { ICategory } from '../models/category';
+import { ICategoryResponse } from '../models/category';
 
 @Injectable()
 export class CategoriesService {
@@ -15,18 +13,7 @@ export class CategoriesService {
 
   constructor(private _http: HttpClient) { }
 
-  getCategories(): Observable<ICategory[]> {
-    return this._http.get<ICategory[]>(`${this.envBackend}/api/categories/`)
-      .map(categorioes =>
-         categorioes.map(category =>
-           Object.assign(category, { image_path: environment.backend + category.image_path })
-         )
-       )
-      .catch(this.handleError);
-  }
-
-  private handleError(err: HttpErrorResponse) {
-    console.log(err);
-    return Observable.throw(err.error.message || 'server error');
+  getCategories(): Observable<ICategoryResponse> {
+    return this._http.get<ICategoryResponse>(`${this.envBackend}/categories/`)
   }
 }
