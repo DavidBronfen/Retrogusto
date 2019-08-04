@@ -3,7 +3,7 @@ import * as express from "express";
 import * as mongoose from "mongoose";
 
 import { App } from "./app";
-import Config from "./util/config";
+import Config from "./config/config";
 
 /**
  * @class Server

@@ -1,7 +1,7 @@
 import * as dotenv from "dotenv";
 import * as _ from "lodash";
-import Seed from "./seed";
-import { IConfigModel } from "../config/config.model";
+import Seed from "../util/seed";
+import { IConfigModel } from "./config.model";
 
 /**
  * @class Config
