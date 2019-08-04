@@ -3,8 +3,8 @@ import * as passportLocal from "passport-local";
 import * as passportGoogle from "passport-google-oauth20";
 
 import { User } from "../api/user/userModel";
-import { IConfigModel } from "../config/config.model";
-import Config from "../util/config";
+import { IConfigModel } from "./config.model";
+import Config from "./config";
 
 const LocalStrategy = passportLocal.Strategy;
 const GoogleStrategy = passportGoogle.Strategy;
