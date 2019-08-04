@@ -2,9 +2,9 @@ import * as bodyParser from "body-parser";
 import * as cors from "cors";
 import * as express from "express";
 
-import * as categoryRoutes from "./api/category/categoryRoutes";
-import * as recipeRoutes from "./api/recipe/recipeRoutes";
-import * as authRoutes from "./api/auth/authRoutes";
+import categoryRoutes from "./api/category/categoryRoutes";
+import recipeRoutes from "./api/recipe/recipeRoutes";
+import authRoutes from "./api/auth/authRoutes";
 
 const router: express.Router = express.Router();
 
@@ -46,8 +46,8 @@ export class App {
    */
   private configureRoutes() {
       this.app.use("/static", express.static("src/assets"));
-      this.app.use("/categories", categoryRoutes.default);
-      this.app.use("/recipes", recipeRoutes.default);
-      this.app.use("/auth", authRoutes.default);
+      this.app.use("/categories", categoryRoutes);
+      this.app.use("/recipes", recipeRoutes);
+      this.app.use("/auth", authRoutes);
   }
 }
