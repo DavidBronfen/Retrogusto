@@ -10,6 +10,16 @@ const LocalStrategy = passportLocal.Strategy;
 const GoogleStrategy = passportGoogle.Strategy;
 const config: IConfigModel = new Config().config;
 
+passport.serializeUser<any, any>((user, done) => {
+    done(null, user.id);
+});
+
+passport.deserializeUser<any, any>((id, done) => {
+    User.findById(id, (err, user) => {
+       done(err, user);
+    });
+});
+
 /**
  * Sign in using Email and Password.
  */
