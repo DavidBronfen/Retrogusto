@@ -2,9 +2,12 @@ import { Document, model, Schema } from "mongoose";
 
 export interface IUserModel extends Document {
     _id: string;
-    name_he: string;
-    name_en: string;
-    image_path: string;
+    first_name: string;
+    last_name: string;
+    user_name: string;
+    email: string;
+    token: string;
+    password?: string;
 }
 
 const schema = new Schema({
@@ -26,9 +29,12 @@ const schema = new Schema({
         required: true,
         unique: true,
     },
+    token: {
+      type: String,
+      required: true
+    },
     password: {
         type: String,
-        required: true,
     },
 });
 
