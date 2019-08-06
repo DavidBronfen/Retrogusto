@@ -29,13 +29,34 @@ passport.use(new LocalStrategy({ usernameField: "email" }, (email, password, don
     });
 }));
 
+/**
+ * Sign in with google.
+ */
 passport.use(
     new GoogleStrategy({
         // options for the google strategy.
         callbackURL: "/auth/google/redirect",
         clientID: config.secret.googleAuth.clientID,
         clientSecret: config.secret.googleAuth.clientSecret,
-    }, () => {
-        // passport callback function.
+    }, (accessToken, refreshToken, profile, done) => {
+        // check if user already exists.
+        User.findOne({email: profile.emails[0].value}).then(user => {
+            if (user) {
+                // user already exists
+                done(null, user);
+            } else {
+                // user not exist, create new user
+                new User({
+                    first_name: profile.name.givenName,
+                    last_name: profile.name.familyName,
+                    user_name: profile.displayName,
+                    email: profile.emails[0].value,
+                    token: accessToken
+                }).save()
+                    .then(newUser => {
+                        done(null, newUser);
+                    });
+            }
+        });
     })
 );
