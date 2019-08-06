@@ -8,6 +8,9 @@ import categoryRoutes from "./api/category/categoryRoutes";
 import recipeRoutes from "./api/recipe/recipeRoutes";
 import authRoutes from "./api/auth/authRoutes";
 
+// API keys and Passport configuration
+import * as passportConfig from "./config/passport-config";
+
 const router: express.Router = express.Router();
 
 /**
@@ -66,7 +69,7 @@ export class App {
     */
   private configureRoutes() {
       this.app.use("/static", express.static("src/assets"));
-      this.app.use("/categories", categoryRoutes);
+      this.app.use("/categories", passportConfig.isAuthenticated, categoryRoutes);
       this.app.use("/recipes", recipeRoutes);
       this.app.use("/auth", authRoutes);
   }

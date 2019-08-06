@@ -1,6 +1,7 @@
 import * as passport from "passport";
 import * as passportLocal from "passport-local";
 import * as passportGoogle from "passport-google-oauth20";
+import { Request, Response, NextFunction } from "express";
 
 import { User } from "../api/user/userModel";
 import { IConfigModel } from "./config.model";
@@ -23,18 +24,22 @@ passport.deserializeUser<any, any>((id, done) => {
 /**
  * Sign in using Email and Password.
  */
-passport.use(new LocalStrategy({ usernameField: "email" }, (email, password, done) => {
-    User.findOne({ email: email.toLowerCase() }, (err, user: any) => {
-        if (err) { return done(err); }
+passport.use(new LocalStrategy({usernameField: "email"}, (email, password, done) => {
+    User.findOne({email: email.toLowerCase()}, (err, user: any) => {
+        if (err) {
+            return done(err);
+        }
         if (!user) {
-            return done(undefined, false, { message: `Email ${email} not found.` });
+            return done(undefined, false, {message: `Email ${email} not found.`});
         }
         user.comparePassword(password, (error: Error, isMatch: boolean) => {
-            if (error) { return done(error); }
+            if (error) {
+                return done(error);
+            }
             if (isMatch) {
                 return done(undefined, user);
             }
-            return done(undefined, false, { message: "Invalid email or password." });
+            return done(undefined, false, {message: "Invalid email or password."});
         });
     });
 }));
@@ -70,3 +75,14 @@ passport.use(
         });
     })
 );
+
+/**
+ * Login Required middleware.
+ */
+export const isAuthenticated = (req: Request, res: Response, next: NextFunction) => {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    // TODO - redirect user to client login page in order to login first.
+    res.redirect("/login");
+};
