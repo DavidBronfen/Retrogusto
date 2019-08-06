@@ -1,5 +1,6 @@
 import { Router } from "express";
-import { asyncMiddleware } from "../../util/asyncMiddleware";
+import * as passport from "passport";
+import "../../config/passport-config";
 
 const router: Router = Router();
 
@@ -12,14 +13,20 @@ router.route("/login")
 // auth logout
 router.route("/logout")
     .get((req, res) => {
-        res.send("You are logging out");
+        req.logout();
     });
 
 // auth with google+
 router.route("/google")
-    .get((req, res) => {
-        // handle with passport
-        res.send("Logging in with Google");
+    .get(passport.authenticate("google", {
+        scope: ["https://www.googleapis.com/auth/userinfo.profile", "https://www.googleapis.com/auth/userinfo.email"]
+    }));
+
+// callback route for google to redirect to
+router.route("/google/redirect")
+    .get(passport.authenticate("google"), (req, res) => {
+        res.cookie("userAuthToken", req.user.token);
+        res.redirect("http://localhost:4200");
     });
 
 export default router;
