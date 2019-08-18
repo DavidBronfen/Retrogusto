@@ -46,7 +46,7 @@ export class App {
    */
   private configureRoutes() {
       this.app.use("/static", express.static("src/assets"));
-      this.app.use("/categories", categoryRoutes.default);
-      this.app.use("/recipes", recipeRoutes.default);
+      this.app.use("/api/categories", categoryRoutes.default);
+      this.app.use("/api/recipes", recipeRoutes.default);
   }
 }
