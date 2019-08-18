@@ -37,7 +37,7 @@ describe("Recipe", () => {
     };
 
     return chai.request(app)
-      .post("/recipes")
+      .post("/api/recipes")
       .send(newRecipe)
       .then(res => {
         expect(res.status).to.equal(200);
@@ -58,7 +58,7 @@ describe("Recipe", () => {
 
   it("should GET all recipes", () => {
     return chai.request(app)
-      .get("/recipes")
+      .get("/api/recipes")
       .then(res => {
         expect(res.status).to.equal(200);
         // tslint:disable-next-line:no-unused-expression
@@ -71,7 +71,7 @@ describe("Recipe", () => {
 
   it("should get one recipe by given ID", () => {
     return chai.request(app)
-      .get(`/recipes/${recipe._id}`)
+      .get(`/api/recipes/${recipe._id}`)
       .then(res => {
         expect(res.status).to.equal(200);
         // tslint:disable-next-line:no-unused-expression
@@ -91,7 +91,7 @@ describe("Recipe", () => {
     const wrongID = "5a1329fd90fe51dee752ad3d";
 
     return chai.request(app)
-      .get(`/recipes/${wrongID}`)
+      .get(`/api/recipes/${wrongID}`)
       .then(res => {
         expect(res.status).to.equal(404);
         expect(res.body).to.haveOwnProperty("_message").equal(`No recipe item with that id: ${wrongID}`);
@@ -111,7 +111,7 @@ describe("Recipe", () => {
     };
 
     return chai.request(app)
-      .put(`/recipes/${recipe._id}`)
+      .put(`/api/recipes/${recipe._id}`)
       .send(updateRecipe)
       .then(res => {
         expect(res.status).to.equal(200);
@@ -130,7 +130,7 @@ describe("Recipe", () => {
 
   it("should be able to delete a single recipe", () => {
     return chai.request(app)
-      .delete(`/recipes/${recipe._id}`)
+      .delete(`/api/recipes/${recipe._id}`)
       .then(res => {
         expect(res.status).to.equal(200);
         // tslint:disable-next-line:no-unused-expression
