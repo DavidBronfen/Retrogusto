@@ -1,8 +1,8 @@
 import * as bodyParser from "body-parser";
-import * as cors from "cors";
 import * as express from "express";
 import * as session from "express-session";
 import * as passport from "passport";
+import * as mongo from "connect-mongo";
 
 import categoryRoutes from "./api/category/categoryRoutes";
 import recipeRoutes from "./api/recipe/recipeRoutes";
@@ -10,6 +10,8 @@ import authRoutes from "./api/auth/authRoutes";
 
 // API keys and Passport configuration
 import * as passportConfig from "./config/passport-config";
+import { IConfigModel } from "./config/config.model";
+import ConfigService from "./config/configService";
 
 const router: express.Router = express.Router();
 
@@ -18,6 +20,8 @@ const router: express.Router = express.Router();
  */
 export class App {
     public app: express.Application;
+    private MongoStore = mongo(session);
+    private config: IConfigModel = ConfigService.appConfig;
 
     /**
      * @class Api
@@ -40,7 +44,6 @@ export class App {
     private configMiddleware() {
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({extended: true}));
-        this.app.use(cors());
     }
 
     /**
@@ -55,6 +58,9 @@ export class App {
             resave: true,
             saveUninitialized: true,
             secret: process.env.SESSION_SECRET,
+            store: new this.MongoStore({
+                url: this.config.db
+            })
         }));
         this.app.use(passport.initialize());
         this.app.use(passport.session());
