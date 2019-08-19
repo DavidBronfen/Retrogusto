@@ -3,7 +3,7 @@ import * as express from "express";
 import * as mongoose from "mongoose";
 
 import { App } from "./app";
-import Config from "./config/config";
+import ConfigService from "./config/configService";
 
 /**
  * @class Server
@@ -18,7 +18,7 @@ export class Server {
      */
     constructor() {
         this.app = new App().app;
-        this.config = new Config();
+        this.config = ConfigService.appConfig;
         this.connectMongoDB();
         this.configureExpress();
     }
@@ -32,7 +32,7 @@ export class Server {
      */
     private connectMongoDB() {
         (mongoose as any).Promise = global.Promise;
-        mongoose.connect(`${this.config.config.db}`, {useNewUrlParser: true});
+        mongoose.connect(`${this.config.db}`, {useNewUrlParser: true});
         mongoose.connection.on("error", () => {
             console.error("MongoDB connection error. Please make sure MongoDB is running.");
             process.exit(1);
