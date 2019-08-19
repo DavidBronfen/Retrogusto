@@ -69,8 +69,8 @@ export class App {
     */
   private configureRoutes() {
       this.app.use("/static", express.static("src/assets"));
-      this.app.use("/categories", passportConfig.isAuthenticated, categoryRoutes);
-      this.app.use("/recipes", recipeRoutes);
-      this.app.use("/auth", authRoutes);
+      this.app.use("/api/categories", passportConfig.isAuthenticated, categoryRoutes);
+      this.app.use("/api/recipes", recipeRoutes);
+      this.app.use("/api/auth", authRoutes);
   }
 }
