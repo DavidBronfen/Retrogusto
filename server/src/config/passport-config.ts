@@ -5,11 +5,11 @@ import { Request, Response, NextFunction } from "express";
 
 import { User } from "../api/user/userModel";
 import { IConfigModel } from "./config.model";
-import Config from "./config";
+import ConfigService from "./configService";
 
 const LocalStrategy = passportLocal.Strategy;
 const GoogleStrategy = passportGoogle.Strategy;
-const config: IConfigModel = new Config().config;
+const config: IConfigModel = ConfigService.appConfig;
 
 passport.serializeUser<any, any>((user, done) => {
     done(null, user.id);
@@ -50,7 +50,7 @@ passport.use(new LocalStrategy({usernameField: "email"}, (email, password, done)
 passport.use(
     new GoogleStrategy({
         // options for the google strategy.
-        callbackURL: "/auth/google/redirect",
+        callbackURL: "/api/auth/google/redirect",
         clientID: config.secret.googleAuth.clientID,
         clientSecret: config.secret.googleAuth.clientSecret,
     }, (accessToken, refreshToken, profile, done) => {
