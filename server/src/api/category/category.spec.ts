@@ -33,7 +33,7 @@ describe("Categories", () => {
     };
 
     return chai.request(app)
-      .post("/categories")
+      .post("/api/categories")
       .send(newCategory)
       .then(res => {
         expect(res.status).to.equal(200);
@@ -50,7 +50,7 @@ describe("Categories", () => {
 
   it("should GET all categories", () => {
     return chai.request(app)
-      .get("/categories")
+      .get("/api/categories")
       .then(res => {
         expect(res.status).to.equal(200);
         // tslint:disable-next-line:no-unused-expression
@@ -63,7 +63,7 @@ describe("Categories", () => {
 
   it("should get one category by given ID", () => {
     return chai.request(app)
-      .get(`/categories/${category._id}`)
+      .get(`/api/categories/${category._id}`)
       .then(res => {
         expect(res.status).to.equal(200);
         // tslint:disable-next-line:no-unused-expression
@@ -79,7 +79,7 @@ describe("Categories", () => {
     const wrongID = "5a1329fd90fe51dee752ad3d";
 
     return chai.request(app)
-      .get(`/categories/${wrongID}`)
+      .get(`/api/categories/${wrongID}`)
       .then(res => {
         expect(res.status).to.equal(404);
         expect(res.body).to.haveOwnProperty("_message").equal(`No category item with that id: ${wrongID}`);
@@ -95,7 +95,7 @@ describe("Categories", () => {
     };
 
     return chai.request(app)
-      .put(`/categories/${category._id}`)
+      .put(`/api/categories/${category._id}`)
       .send(updateCategory)
       .then(res => {
         expect(res.status).to.equal(200);
@@ -110,7 +110,7 @@ describe("Categories", () => {
 
   it("Should be able to delete a single category", () => {
     return chai.request(app)
-      .delete(`/categories/${category._id}`)
+      .delete(`/api/categories/${category._id}`)
       .then(res => {
         expect(res.status).to.equal(200);
         // tslint:disable-next-line:no-unused-expression
