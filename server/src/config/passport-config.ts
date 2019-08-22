@@ -50,7 +50,7 @@ passport.use(new LocalStrategy({usernameField: "email"}, (email, password, done)
 passport.use(
     new GoogleStrategy({
         // options for the google strategy.
-        callbackURL: "/api/auth/google/redirect",
+        callbackURL: `${config.client.url}/api/auth/google/redirect`,
         clientID: config.secret.googleAuth.clientID,
         clientSecret: config.secret.googleAuth.clientSecret,
     }, (accessToken, refreshToken, profile, done) => {
@@ -84,5 +84,5 @@ export const isAuthenticated = (req: Request, res: Response, next: NextFunction)
         return next();
     }
     // TODO - redirect user to client login page in order to login first.
-    res.redirect("/login");
+    res.redirect(config.client.url);
 };
