@@ -17,11 +17,6 @@ cache:
     - client/node_modules
     - server/node_modules
 
-env:
-  global:
-    - GOOGLE_APP_ID=12345
-    - GOOGLE_APP_SECRET=12345
-
 services:
   - mongodb
 
