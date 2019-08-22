@@ -9,6 +9,9 @@ let configService: IConfigModel = {
     logging: false, // enable logging for development
     port: process.env.PORT || 4000,
     seed: false,
+    client: {
+        url: ""
+    }
 };
 
 /**

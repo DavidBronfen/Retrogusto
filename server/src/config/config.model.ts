@@ -4,6 +4,9 @@ export interface IConfigModel {
     logging: boolean;
     port: string | number;
     seed: boolean;
+    client: {
+        url: string;
+    };
     secret?: ISecretConfig;
 }
 

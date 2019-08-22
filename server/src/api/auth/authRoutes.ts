@@ -1,7 +1,11 @@
 import { Router } from "express";
 import * as passport from "passport";
-import "../../config/passport-config";
 
+import "../../config/passport-config";
+import { IConfigModel } from "../../config/config.model";
+import ConfigService from "../../config/configService";
+
+const config: IConfigModel = ConfigService.appConfig;
 const router: Router = Router();
 
 // auth login
@@ -20,14 +24,16 @@ router.route("/logout")
 // auth with google+
 router.route("/google")
     .get(passport.authenticate("google", {
-        scope: ["https://www.googleapis.com/auth/userinfo.profile", "https://www.googleapis.com/auth/userinfo.email"]
+        scope: [
+            "https://www.googleapis.com/auth/userinfo.profile",
+            "https://www.googleapis.com/auth/userinfo.email"
+        ]
     }));
 
 // callback route for google to redirect to
 router.route("/google/redirect")
     .get(passport.authenticate("google"), (req, res) => {
-        res.cookie("userAuthToken", req.user.token);
-        res.redirect("http://localhost:4200");
+        res.redirect(config.client.url);
     });
 
 export default router;
