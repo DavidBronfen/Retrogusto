@@ -18,7 +18,8 @@ router.route("/login")
 // TODO - move the logout endpoint to the user route.
 router.route("/logout")
     .get((req, res) => {
-        req.logout();
+        req.logOut();
+        res.redirect(config.client.url);
     });
 
 // auth with google+
