@@ -83,6 +83,5 @@ export const isAuthenticated = (req: Request, res: Response, next: NextFunction)
     if (req.isAuthenticated()) {
         return next();
     }
-    // TODO - redirect user to client login page in order to login first.
     res.redirect(config.client.url);
 };

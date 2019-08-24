@@ -8,8 +8,6 @@ import categoryRoutes from "./api/category/categoryRoutes";
 import recipeRoutes from "./api/recipe/recipeRoutes";
 import authRoutes from "./api/auth/authRoutes";
 
-// API keys and Passport configuration
-import * as passportConfig from "./config/passport-config";
 import { IConfigModel } from "./config/config.model";
 import ConfigService from "./config/configService";
 

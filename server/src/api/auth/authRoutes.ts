@@ -15,7 +15,6 @@ router.route("/login")
     });
 
 // auth logout
-// TODO - move the logout endpoint to the user route.
 router.route("/logout")
     .get((req, res) => {
         req.logOut();

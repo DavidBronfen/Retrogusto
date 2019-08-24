@@ -3,7 +3,7 @@ import * as _ from "lodash";
 import Seed from "../util/seed";
 import { IConfigModel } from "./config.model";
 
-let configService: IConfigModel = {
+let appConfig: IConfigModel = {
     db: "",
     environment: "",
     logging: false, // enable logging for development
@@ -21,7 +21,7 @@ let configService: IConfigModel = {
  */
 function configDB() {
     process.env.NODE_ENV = process.env.NODE_ENV || "development";
-    configService.environment = process.env.NODE_ENV;
+    appConfig.environment = process.env.NODE_ENV;
     return require(`./envs/${process.env.NODE_ENV}`);
 }
 
@@ -31,20 +31,20 @@ function configDB() {
  * @return void
  */
 function loadSeed() {
-    if (configService.seed) {
-        const seed = new Seed(configService);
+    if (appConfig.seed) {
+        const seed = new Seed(appConfig);
         seed.seeding();
     }
 }
 
 /**
- * Add secret data to the configService.
+ * Add secret data to the appConfig.
  *
  * @return void
  */
 function configSecret() {
     if (process.env.NODE_ENV !== "production") {
-        configService.secret = {
+        appConfig.secret = {
             googleAuth: {
                 clientID: process.env.GOOGLE_APP_ID,
                 clientSecret: process.env.GOOGLE_APP_SECRET
@@ -56,11 +56,11 @@ function configSecret() {
 dotenv.config({path: ".env"});
 const envConfig = configDB();
 const envSecret = configSecret();
-configService = _.merge(configService, envConfig, envSecret);
+appConfig = _.merge(appConfig, envConfig, envSecret);
 loadSeed();
 
 export default {
     get appConfig() {
-        return Object.assign({}, configService);
+        return Object.assign({}, appConfig);
     },
 };
