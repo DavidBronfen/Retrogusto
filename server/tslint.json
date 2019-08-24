@@ -15,7 +15,9 @@
     // Requires that import statements be alphabetized and grouped.
     "ordered-imports": false,
     // Requires parentheses around the parameters of arrow function definitions.
-    "arrow-parens": [true, "ban-single-arg-parens"]
+    "arrow-parens": [true, "ban-single-arg-parens"],
+    // Allow debugger.
+    "no-debugger": false
   },
   "rulesDirectory": []
 }
